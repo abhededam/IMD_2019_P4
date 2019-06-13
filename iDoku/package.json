@@ -1,0 +1,11 @@
+{
+  "name": "idoku",
+  "version": "1.0.0",
+  "description": "interaktive Dokumentation der Gruppe 'die Fenster'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "die Fenster",
+  "license": "ISC"
+}
