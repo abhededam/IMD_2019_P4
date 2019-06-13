@@ -11,6 +11,6 @@ Regeln fürs Coden:
  - immer pushen und pullen
  - function getsFood (){} //camelLetters
  - nur eine Person pro Datei
- - Bei Fehler nur mit aufklärender Commit Bezeichnung pushen
+ - Bei Fehler nur mit aufklärender Commit Bezeichnung   pushen
  - Fehler durch Kommentare klar kennzeichnen
- - Commit Bezeichnungen klar bspw. bug fix; getsFood implemented; update; etc
+ - Commit Bezeichnungen klar bspw. bug fix; getsFood    implemented; update; etc
