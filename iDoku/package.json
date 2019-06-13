@@ -9,6 +9,7 @@
   "author": "die Fenster",
   "license": "ISC",
   "dependencies": {
+    "node": "^12.4.0",
     "parcel-bundler": "^1.12.3"
   },
   "devDependencies": {
