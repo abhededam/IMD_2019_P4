@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.js"],"names":["klick","alert"],"mappings":"AAAA,SAASA,KAAT,GAAgB;AACZC,EAAAA,KAAK,CAAC,4BAAD,CAAL;AACH","file":"iDoku.e31bb0bc.js","sourceRoot":"..","sourcesContent":["function klick(){\r\n    alert(\"DU BIST SO NACHHALTIG! YAY\");\r\n}\r\n"]}
