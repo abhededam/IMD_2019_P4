@@ -13,4 +13,4 @@ Regeln fürs Coden:
  - nur eine Person pro Datei
  - Bei Fehler nur mit aufklärender Commit Bezeichnung pushen
  - Fehler durch Kommentare klar kennzeichnen
- - Commit Bezeichnungen klar bspw. bug fix; getsFood eingefügt; update; etc
+ - Commit Bezeichnungen klar bspw. bug fix; getsFood implemented; update; etc
