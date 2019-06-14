@@ -1,5 +1,29 @@
-col {
+/* But this comment will, except in compressed mode.*/
+/* It can also contain interpolation:
+   1 + 1 = 2*/
+/*! This comment will be included even in compressed mode.*/
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+button {
+  border: none;
+}
+
+.topic {
+  position: relative;
+  width: 70vmin;
+  margin: 5vmin;
+  padding: 10vmin;
   background-color: aqua;
+}
+
+.subtopic {
+  position: relative;
+  margin: 2vw;
+  padding: 2vmin;
+  background-color: royalblue;
 }
 
 /*# sourceMappingURL=/style.e0c02e61.css.map */

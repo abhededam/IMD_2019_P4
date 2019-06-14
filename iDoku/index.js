@@ -1,7 +1,8 @@
-if (screen.width < 960) {
-    alert('Less than 960');
-}
-else {
+// if (screen.width < 450) {
+//     alert('Less than 450');
+        // change to mobil view 
+// }
+// else {
 
-    alert('More than 960');
-}
+//     alert('More than 450');
+// }
