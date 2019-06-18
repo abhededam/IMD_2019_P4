@@ -20,10 +20,16 @@ void setup() {
 }
 
 void loop() {
-  if(S <30){
+   if(S==0){
+    digitalWrite(led,LOW);
+    servoPosition = 180;
+  }
+   
+   else if(S <5){
     digitalWrite(led,HIGH);
      servoPosition = 0;
   }
+
   else{
     digitalWrite(led,LOW);
     servoPosition = 180;
