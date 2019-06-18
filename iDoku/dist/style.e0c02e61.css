@@ -13,9 +13,10 @@ button {
 
 .topic {
   position: relative;
-  width: 70vmin;
-  margin: 5vmin;
-  padding: 10vmin;
+  width: 70vw;
+  margin: 5vw;
+  margin-left: 10vw;
+  padding: 5vw;
   background-color: aqua;
 }
 
