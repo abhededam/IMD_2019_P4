@@ -6,25 +6,71 @@
    1 + 1 = #{1 + 1}*/
 
 /*! This comment will be included even in compressed mode.*/
-body {
-    margin: 0px;
-    padding: 0px;
-}
-button {
-    border: none;
-}
-.topic {
-    position: relative;
-    width: 70vw;
-    margin: 5vw;
-    margin-left:10vw;
-    padding: 5vw;
-    background-color: aqua;
+
+
+
+@font-face {
+    font-family: Manrope;
+    src: url(../fonts/Manrope/manrope-regular.otf);
+  }
+  
+  @font-face {
+    font-family: Manrope;
+    src: url(../fonts/Manrope/manrope-medium.otf);
+    font-weight: medium;
+    font-style: medium;
+  }
+  
+  @font-face {
+    font-family: Manrope;
+    src: url(../fonts/Manrope/manrope-bold.otf);
+    font-weight: bold;
+    font-style: bold;
+  }
+
+html{
+    font-family: Manrope;
 }
 
-.subtopic {
-    position: relative;
-    margin: 2vw;
-    padding: 2vmin;
-    background-color: royalblue;
+body {
+    display:flex;
+    justify-content:center;
+    overflow-y:hidden;
 }
+
+.topic {
+    position: relative;
+    width: 100vw;
+    height:30vh;
+    background-color: lightgrey;
+    margin-top:10vh;
+    display:flex;
+    align-items:flex-end;
+    overflow-x: auto;
+}
+
+.subtopic_container {
+    height:30vh;
+    width:100vw;
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    background:blue;
+    flex-shrink:0;
+}
+
+.subtopic{
+    background:rgb(185, 185, 185);
+    height:80%;
+    width:50%;
+    transition: all 0.4s;
+    text-align:center;
+}
+
+
+.subtopic:hover{
+    height:10vw;
+    width:8vw;
+}
+
+
