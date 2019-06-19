@@ -34,9 +34,27 @@ body {
   height: 30vh;
   background-color: lightgrey;
   margin-top: 10vh;
+}
+
+.subtopics {
   display: flex;
   align-items: flex-end;
   overflow-x: auto;
+  height: 100%;
+  width: 100%;
+  z-index: 50;
+  position: absolute;
+  bottom: 0px;
+  overflow-x: auto;
+}
+
+.shadow {
+  background: #bbbbbb;
+  height: 20%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  z-index: 0;
 }
 
 .subtopic_container {
@@ -45,21 +63,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  background: blue;
   flex-shrink: 0;
 }
 
 .subtopic {
   background: #b9b9b9;
-  height: 80%;
-  width: 50%;
+  height: 70%;
+  width: 40%;
   transition: all 0.4s;
   text-align: center;
-}
-
-.subtopic:hover {
-  height: 10vw;
-  width: 8vw;
+  font-size: 12pt;
+  font-weight: bold;
+  line-height: 36pt;
 }
 
 /*# sourceMappingURL=/style.e0c02e61.css.map */
