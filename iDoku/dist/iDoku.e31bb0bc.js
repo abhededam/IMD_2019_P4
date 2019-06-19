@@ -125,9 +125,6 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 // else {
 //     alert('More than 450')
 // }
-<<<<<<< HEAD
-},{}],"C:/Users/ailee/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
-=======
 document.addEventListener('DOMContentLoaded', function () {
   var subtopics = document.getElementsByClassName('subtopic');
 
@@ -158,7 +155,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 },{}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
->>>>>>> d340632696508438c408b053e1f12629a800f2a5
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -186,15 +182,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58399" + '/');
-=======
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54398" + '/');
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51043" + '/');
->>>>>>> d340632696508438c408b053e1f12629a800f2a5
->>>>>>> c32aa6bce088426e5df60e8db980d5b0c3ed22b4
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64362" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -369,5 +357,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["C:/Users/ailee/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
+},{}]},{},["../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
 //# sourceMappingURL=/iDoku.e31bb0bc.js.map
