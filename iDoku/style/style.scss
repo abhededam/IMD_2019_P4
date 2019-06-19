@@ -6,92 +6,24 @@
    1 + 1 = #{1 + 1}*/
 
 /*! This comment will be included even in compressed mode.*/
-
-
-
-@font-face {
-    font-family: Manrope;
-    src: url(../fonts/Manrope/manrope-regular.otf);
-  }
-  
-  @font-face {
-    font-family: Manrope;
-    src: url(../fonts/Manrope/manrope-medium.otf);
-    font-weight: medium;
-    font-style: medium;
-  }
-  
-  @font-face {
-    font-family: Manrope;
-    src: url(../fonts/Manrope/manrope-bold.otf);
-    font-weight: bold;
-    font-style: bold;
-  }
-
-html{
-    font-family: Manrope;
-}
-
 body {
-    display:flex;
-    justify-content:center;
-    overflow-y:hidden;
+    margin: 0px;
+    padding: 0px;
 }
-
+button {
+    border: none;
+}
 .topic {
     position: relative;
-    width: 100vw;
-    height:30vh;
-    background-color: lightgrey;
-    margin-top:10vh;
+    width: 70vmin;
+    margin: 5vmin;
+    padding: 10vmin;
+    background-color: aqua;
 }
 
-.subtopics{
-    display:flex;
-    align-items:flex-end;
-    overflow-x: auto;
-    height:100%;
-    width:100%;
-    z-index:50;
-    position:absolute;
-    bottom:0px;
-    overflow-x:auto;
-}
-
-.shadow{
-    background:rgb(187, 187, 187);
-    height:20%;
-    width:100%;
-    position:absolute;
-    top:0px;
-    z-index:0;
-}
-
-.subtopic_container {
-    height:30vh;
-    width:100vw;
-    display:flex;
-    justify-content:center;
-    align-items:flex-end;
-    flex-shrink:0;
-}
-
-.subtopic{
-    background:rgb(185, 185, 185);
-    height:70%;
-    width:40%;
-    transition: all 0.4s;
-    text-align:center;
-    font-size:12pt;
-    font-weight:bold;
-    line-height:36pt;
- }
-
-
-
-@media only screen and (min-width: 600px) {
-}
-
-
-@media only screen and (min-width: 1100px) {
+.subtopic {
+    position: relative;
+    margin: 2vw;
+    padding: 2vmin;
+    background-color: royalblue;
 }
