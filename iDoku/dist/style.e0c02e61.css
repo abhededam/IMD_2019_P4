@@ -13,17 +13,108 @@ button {
 
 .topic {
   position: relative;
+<<<<<<< HEAD
   width: 70vmin;
   margin: 5vmin;
   padding: 10vmin;
   background-color: aqua;
+=======
+  width: 100vw;
+  height: 30vh;
+  background-color: #e2e2e2;
+  margin-top: 10vh;
+}
+
+.subtopics {
+  display: flex;
+  align-items: flex-end;
+  overflow-x: auto;
+  height: 100%;
+  width: 100%;
+  z-index: 50;
+  position: absolute;
+  bottom: 0px;
+  overflow-x: auto;
+}
+
+.shadow {
+  background: #d1d1d1;
+  height: 40%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  z-index: 0;
+}
+
+.subtopic_container {
+  height: 100%;
+  width: 60vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-shrink: 0;
+>>>>>>> d340632696508438c408b053e1f12629a800f2a5
+}
+
+.subtopic_container:first-child {
+  margin-left: 20vw;
+}
+
+.subtopic_container:last-child {
+  padding-right: 20vw;
 }
 
 .subtopic {
+<<<<<<< HEAD
   position: relative;
   margin: 2vw;
   padding: 2vmin;
   background-color: royalblue;
+=======
+  background: #b9b9b9;
+  height: 45vmin;
+  width: 40vmin;
+  transition: all 0.4s;
+  text-align: center;
+  font-size: 12pt;
+  font-weight: bold;
+  line-height: 36pt;
+>>>>>>> d340632696508438c408b053e1f12629a800f2a5
+}
+
+@media only screen and (min-width: 600px) {
+  .subtopic_container:first-child {
+    margin-left: 0vw;
+  }
+
+  .subtopic_container:last-child {
+    padding-right: 0vw;
+  }
+
+  .subtopics {
+    justify-content: center;
+  }
+
+  .subtopic_container {
+    width: 17vw;
+  }
+
+  .subtopic {
+    width: 11vmax;
+    height: 13vmax;
+  }
+
+  .subtopic:hover {
+    width: 12vmax;
+    height: 14vmax;
+    font-size: 14pt;
+  }
+
+  .highlighted {
+    -webkit-box-shadow: 0px 0px 53px 28px white;
+    -moz-box-shadow: 0px 0px 53px 28px white;
+    box-shadow: 0px 0px 53px 28px white;
+  }
 }
 
 /*# sourceMappingURL=/style.e0c02e61.css.map */

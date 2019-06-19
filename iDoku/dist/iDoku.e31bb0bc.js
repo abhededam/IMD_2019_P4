@@ -119,13 +119,46 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"index.js":[function(require,module,exports) {
 // if (screen.width < 450) {
-//     alert('Less than 450');
+//     alert('Less than 450')
 // change to mobil view 
 // }
 // else {
-//     alert('More than 450');
+//     alert('More than 450')
 // }
+<<<<<<< HEAD
 },{}],"C:/Users/ailee/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+=======
+document.addEventListener('DOMContentLoaded', function () {
+  var subtopics = document.getElementsByClassName('subtopic');
+
+  for (var i = 0; i < subtopics.length; i++) {
+    subtopics[i].addEventListener('mouseover', highlightSame);
+  }
+
+  function highlightSame() {
+    var same = [];
+    var topic;
+
+    for (var i = 0; i < this.classList.length; i++) {
+      if (this.classList[i] != "subtopic" && this.classList[i] != "highlighted") {
+        topic = this.classList[i];
+      }
+    }
+
+    console.log(topic);
+
+    for (var i = 0; i < subtopics.length; i++) {
+      subtopics[i].classList.remove("highlighted");
+
+      if (subtopics[i].classList.contains(topic) && subtopics[i] != this) {
+        console.log(subtopics[i]);
+        subtopics[i].classList.add("highlighted");
+      }
+    }
+  }
+});
+},{}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+>>>>>>> d340632696508438c408b053e1f12629a800f2a5
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -153,7 +186,11 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
+<<<<<<< HEAD
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "54398" + '/');
+=======
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51043" + '/');
+>>>>>>> d340632696508438c408b053e1f12629a800f2a5
 
   ws.onmessage = function (event) {
     checkedAssets = {};
