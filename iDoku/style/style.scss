@@ -40,7 +40,7 @@ body {
   position: relative;
   width: 100vw;
   height: 30vh;
-  background-color: rgb(226, 226, 226);
+  background-color: rgb(245, 245, 245);
   margin-top: 10vh;
 }
 
@@ -51,13 +51,11 @@ body {
   height: 100%;
   width: 100%;
   z-index: 50;
-  position: absolute;
-  bottom: 0px;
   overflow-x: auto;
 }
 
 .shadow {
-  background: rgb(209, 209, 209);
+  background: rgb(238, 238, 238);
   height: 40%;
   width: 100%;
   position: absolute;
@@ -72,6 +70,8 @@ body {
   justify-content: center;
   align-items: flex-end;
   flex-shrink: 0;
+  z-index:150;
+
 }
 .subtopic_container:first-child {
   margin-left: 20vw;
@@ -89,10 +89,18 @@ body {
   text-align: center;
   font-size: 12pt;
   font-weight: bold;
-  line-height: 36pt;
+  z-index:150;
+}
+
+.pricetag{
+
+
 }
 
 @media only screen and (min-width: 600px) {
+  .topic {
+    width: 80vw;
+  }
   .subtopic_container:first-child {
     margin-left: 0vw;
   }
@@ -106,7 +114,7 @@ body {
   }
 
   .subtopic_container {
-    width: 17vw;
+    width: 14vw;
   }
 
   .subtopic {
@@ -118,12 +126,13 @@ body {
     width: 12vmax;
     height: 14vmax;
     font-size: 14pt;
+    z-index:200;
   }
 
   .highlighted {
-    -webkit-box-shadow: 0px 0px 53px 28px rgba(255,255,255,1);
-    -moz-box-shadow: 0px 0px 53px 28px rgba(255,255,255,1);
-    box-shadow: 0px 0px 53px 28px rgba(255,255,255,1);
+    -webkit-box-shadow: 0px 0px 53px 28px rgba(255, 255, 255, 1);
+    -moz-box-shadow: 0px 0px 53px 28px rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 53px 28px rgba(255, 255, 255, 1);
   }
 }
 

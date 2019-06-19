@@ -32,7 +32,7 @@ body {
   position: relative;
   width: 100vw;
   height: 30vh;
-  background-color: #e2e2e2;
+  background-color: whitesmoke;
   margin-top: 10vh;
 }
 
@@ -43,13 +43,11 @@ body {
   height: 100%;
   width: 100%;
   z-index: 50;
-  position: absolute;
-  bottom: 0px;
   overflow-x: auto;
 }
 
 .shadow {
-  background: #d1d1d1;
+  background: #eeeeee;
   height: 40%;
   width: 100%;
   position: absolute;
@@ -64,6 +62,7 @@ body {
   justify-content: center;
   align-items: flex-end;
   flex-shrink: 0;
+  z-index: 150;
 }
 
 .subtopic_container:first-child {
@@ -82,10 +81,14 @@ body {
   text-align: center;
   font-size: 12pt;
   font-weight: bold;
-  line-height: 36pt;
+  z-index: 150;
 }
 
 @media only screen and (min-width: 600px) {
+  .topic {
+    width: 80vw;
+  }
+
   .subtopic_container:first-child {
     margin-left: 0vw;
   }
@@ -99,7 +102,7 @@ body {
   }
 
   .subtopic_container {
-    width: 17vw;
+    width: 14vw;
   }
 
   .subtopic {
@@ -111,6 +114,7 @@ body {
     width: 12vmax;
     height: 14vmax;
     font-size: 14pt;
+    z-index: 200;
   }
 
   .highlighted {
