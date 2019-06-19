@@ -32,7 +32,7 @@ body {
   position: relative;
   width: 100vw;
   height: 30vh;
-  background-color: lightgrey;
+  background-color: #e2e2e2;
   margin-top: 10vh;
 }
 
@@ -49,8 +49,8 @@ body {
 }
 
 .shadow {
-  background: #bbbbbb;
-  height: 20%;
+  background: #d1d1d1;
+  height: 40%;
   width: 100%;
   position: absolute;
   top: 0px;
@@ -58,23 +58,66 @@ body {
 }
 
 .subtopic_container {
-  height: 30vh;
-  width: 100vw;
+  height: 100%;
+  width: 60vw;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   flex-shrink: 0;
 }
 
+.subtopic_container:first-child {
+  margin-left: 20vw;
+}
+
+.subtopic_container:last-child {
+  padding-right: 20vw;
+}
+
 .subtopic {
   background: #b9b9b9;
-  height: 70%;
-  width: 40%;
+  height: 45vmin;
+  width: 40vmin;
   transition: all 0.4s;
   text-align: center;
   font-size: 12pt;
   font-weight: bold;
   line-height: 36pt;
+}
+
+@media only screen and (min-width: 600px) {
+  .subtopic_container:first-child {
+    margin-left: 0vw;
+  }
+
+  .subtopic_container:last-child {
+    padding-right: 0vw;
+  }
+
+  .subtopics {
+    justify-content: center;
+  }
+
+  .subtopic_container {
+    width: 17vw;
+  }
+
+  .subtopic {
+    width: 11vmax;
+    height: 13vmax;
+  }
+
+  .subtopic:hover {
+    width: 12vmax;
+    height: 14vmax;
+    font-size: 14pt;
+  }
+
+  .highlighted {
+    -webkit-box-shadow: 0px 0px 53px 28px white;
+    -moz-box-shadow: 0px 0px 53px 28px white;
+    box-shadow: 0px 0px 53px 28px white;
+  }
 }
 
 /*# sourceMappingURL=/style.e0c02e61.css.map */
