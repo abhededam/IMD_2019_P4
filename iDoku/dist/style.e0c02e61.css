@@ -2,34 +2,23 @@
 /* It can also contain interpolation:
    1 + 1 = 2*/
 /*! This comment will be included even in compressed mode.*/
-@font-face {
-  font-family: Manrope;
-  src: url(/manrope-regular.5a568cb0.otf);
-}
-@font-face {
-  font-family: Manrope;
-  src: url(/manrope-medium.e3e8a916.otf);
-  font-weight: medium;
-  font-style: medium;
-}
-@font-face {
-  font-family: Manrope;
-  src: url(/manrope-bold.a398af3e.otf);
-  font-weight: bold;
-  font-style: bold;
-}
-html {
-  font-family: Manrope;
+body {
+  margin: 0px;
+  padding: 0px;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  overflow-y: hidden;
+button {
+  border: none;
 }
 
 .topic {
   position: relative;
+<<<<<<< HEAD
+  width: 70vmin;
+  margin: 5vmin;
+  padding: 10vmin;
+  background-color: aqua;
+=======
   width: 100vw;
   height: 30vh;
   background-color: whitesmoke;
@@ -62,7 +51,11 @@ body {
   justify-content: center;
   align-items: flex-end;
   flex-shrink: 0;
+<<<<<<< HEAD
   z-index: 150;
+=======
+>>>>>>> d340632696508438c408b053e1f12629a800f2a5
+>>>>>>> c32aa6bce088426e5df60e8db980d5b0c3ed22b4
 }
 
 .subtopic_container:first-child {
@@ -74,6 +67,12 @@ body {
 }
 
 .subtopic {
+<<<<<<< HEAD
+  position: relative;
+  margin: 2vw;
+  padding: 2vmin;
+  background-color: royalblue;
+=======
   background: #b9b9b9;
   height: 45vmin;
   width: 40vmin;
@@ -81,7 +80,12 @@ body {
   text-align: center;
   font-size: 12pt;
   font-weight: bold;
+<<<<<<< HEAD
   z-index: 150;
+=======
+  line-height: 36pt;
+>>>>>>> d340632696508438c408b053e1f12629a800f2a5
+>>>>>>> c32aa6bce088426e5df60e8db980d5b0c3ed22b4
 }
 
 @media only screen and (min-width: 600px) {
