@@ -46,6 +46,8 @@ html {
 
 body {
     display: flex;
+    padding: 0px;
+    margin: 0px;
 }
 
 .sectionContainer {
@@ -53,34 +55,53 @@ body {
     height: 100vh;
     display: flex;
     overflow: scroll;
-    overflow-y:hidden;
-    margin:0px;
-    padding:0px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin: 0px;
+    padding: 0px;
+    padding-left:-50vw;
 }
 
 section {
-    width: 146vw;
+    width: 150vw;
     height: 100vh;
     flex-shrink: 0;
     position: relative;
 }
 
-
-.active {}
-
 section h1 {
-    position: fixed;
-    color: black;
-    left:15vw;
-    width:70vw;
-    z-index: 100;
-    opacity: 0;
-    font-size: 17pt;
-    line-height:22pt;
-    text-align:center;
+    text-align: center;
+    font-size: 3vh;
+    line-height: 4.5vh;
 }
 
-.active h1 {
+section a {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    font-size: 1.8vh;
+    color: rgba(0, 0, 0, 0.438);
+}
+
+section p {
+    font-size: 2vh;
+    line-height: 3.6vh;
+}
+
+.sectionInformation {
+    margin-left: 10vw;
+    margin-top: 5vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 80vw;
+    height: 100vh;
+    opacity: 0;
+    z-index: 200;
+}
+
+
+.active .sectionInformation {
     animation-timing-function: ease-out;
     /* or: ease, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) */
     animation-fill-mode: both;
@@ -88,30 +109,10 @@ section h1 {
     animation-duration: 0.4s;
 }
 
-section p {
-    position: fixed;
-    left:15vw;
-    top:30vw;
-    width:70vw;
-    color: black;
-    z-index: 100;
-    opacity: 0;
-    font-size:11pt;
-}
-
-.active p {
-    opacity: 1;
-    animation-timing-function: ease-out;
-    /* or: ease, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) */
-    animation-fill-mode: both;
-    animation-name: showUp;
-    animation-duration: 0.4s;
-}
-
 .user {
     position: fixed;
     width: 100vw;
-    height: 25vh;
+    height: 20vh;
     bottom: 0px;
     z-index: 100;
     background-image: url("../images/kunde.svg");
@@ -120,27 +121,34 @@ section p {
     background-repeat: no-repeat;
 }
 
+section:first-child{
+    z-index:200;
+
+}
+
 .absoluteWarenkorb {
     position: absolute;
     width: 100vw;
-    height: 40vh;
+    height: 20vh;
     bottom: 0px;
     z-index: 250;
     background-image: url("../images/warenkorb.svg");
     background-size: auto 100%;
-    background-position: bottom center;
+    background-position: center bottom;
     background-repeat: no-repeat;
 }
 
 .fixedWarenkorb {
     position: fixed;
+    bottom: 0px;
+    left: 0px;
 }
 
 .regal {
-    width: 80vw;
-    height: 40vw;
-    background: black;
-    left: 35vw;
+    width: 90vw;
+    height: 25vh;
+    background: rgb(219, 219, 219);
+    left: 30vw;
     position: absolute;
     bottom: 0px;
 }
@@ -149,7 +157,7 @@ section p {
     width: 90%;
     margin-left: 5%;
     margin-top: 5%;
-    background: white;
+    background: rgb(194, 194, 194);
     height: 30%;
     display: flex;
     justify-content: space-evenly;
@@ -166,7 +174,7 @@ section p {
 
 .produkt {
     background: rgb(133, 133, 133);
-    width: 90%;
+    width: 80%;
     height: 60%;
     bottom: 0px;
 }
@@ -183,16 +191,45 @@ section p {
     height: 70%;
 }
 
-
-.listenprodukt .hinweis {
-opacity:0;
+@media only screen and (min-width: 600px) {
+    .user {
+        height: 35vh;
+    }
+    .absoluteWarenkorb {
+        height: 35vh;
     }
 
-.active .listenprodukt .hinweis {
-width:10%;
-height:10%;
-border:2px solid red;
-margin-top:-2vw;
-margin-right:-2vw;
-opacity:1;
+    .regal {
+        width: 60vw;
+        height: 45vh;
+        left: 40vw;
+    }
+
+    .fach{
+        margin-left: 3%;
+        margin-top: 3%;
+        width:94%;
+    }
+
+    .produkt{
+        height:80%;
+    }
+
+    .active .listenprodukt{
+        height:95%;
+    }
+
+
+    section h1{
+        text-align:left;
+    }
+
+    section p{
+        width:35vw;
+    }
+    
+    section a{
+        text-align:left;
+    }
+
 }
