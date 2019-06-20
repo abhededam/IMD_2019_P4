@@ -1,5 +1,5 @@
 
-int piezoPin = 0;               
+int piezoPin = A0;               
 
 int wert = 0;
 
@@ -9,8 +9,9 @@ void setup() {
 }
 
 void loop() {
-  
-  wert = analogRead(piezoPin);  
   Serial.println(wert);
-
+  wert = analogRead(piezoPin);  
+  if(wert==0){
+    Serial.print("Produkt entnommen");
+  }
 }
