@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" media="screen" href="style/style.css">
+    <script src="js/main.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="sectionContainer" id="sectionContainer">
+        <section style="background:rgba(128, 0, 128, 0.185)" id="start_section">
+            <h1>Interaktive Dokumentation</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum quos libero soluta, blanditiis pariatur
+                debitis iure, excepturi consequatur voluptates obcaecati eius iusto sequi? Architecto non tempore sequi
+                tenetur vitae tempora!</p>
+        </section>
+        <section style="background:rgba(255, 255, 0, 0.226)" id="liste_section">
+            <h1>Einkaufsliste schreiben</h1>
+            <p>Vor dem Einkauf schreibt der Kunde eine Einkaufsliste auf seinem Smartphone.</p>
+        </section>
+        <section style="background:rgba(255, 0, 0, 0.274)" id="wagen_section">
+            <h1>Warenkorb synchronisieren</h1>
+            <p>Im Supermarkt angekommen überträgt er seine Einkaufsliste mittels QR-Code an den Einkaufswagen.</p>
+
+            <div id="warenkorb" class="absoluteWarenkorb"></div>
+        </section>
+        <section style="background:rgba(0, 0, 255, 0.294)" id="regal_section">
+            <h1>Einkaufsliste ablaufen</h1>
+            <p>Nähert der Kunde sich nun einer Produktkategorie, die sich auf seiner Liste befindet, werden ihm eines
+                der Produkte empfohlen. Die Empfehlung beruht dabei auf dem bisherigen Einkaufsverhalten und den
+                Interessen des Supermarktes.</p>
+
+            <div class="regal">
+                <div class="fach">
+                    <div class="produktwrapper">
+                        <div class="produkt"></div>
+                    </div>
+                    <div class="produktwrapper">
+                        <div class="produkt listenprodukt">
+                            <div class="hinweis">hervorgehobenes Produkt</div>
+                        </div>
+                    </div>
+                    <div class="produktwrapper">
+                        <div class="produkt"></div>
+                    </div>
+                    <div class="produktwrapper">
+                        <div class="produkt"></div>
+                    </div>
+                    <div class="produktwrapper">
+                        <div class="produkt"></div>
+                    </div>
+                </div>
+                <div class="fach">
+                    <div class="produktwrapper">
+                        <div class="produkt"></div>
+                    </div>
+                    <div class="produktwrapper">
+                        <div class="produkt"></div>
+                    </div>
+                    <div class="produktwrapper">
+                        <div class="produkt"></div>
+                    </div>
+                    <div class="produktwrapper">
+                        <div class="produkt"></div>
+                    </div>
+                    <div class="produktwrapper">
+                        <div class="produkt"></div>
+                    </div>
+                    <div class="produktwrapper">
+                        <div class="produkt"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section style="background:rgba(95, 99, 95, 0.294)" id="regal_section">
+            <h1>spontane Käufe tätigen</h1>
+            <div class="regal">
+                <div class="fach">
+                    <div class="produktwrapper">
+                        <div class="produkt"></div>
+                    </div>
+                    <div class="produktwrapper">
+                        <div class="produkt listenprodukt"></div>
+                    </div>
+                    <div class="produktwrapper">
+                        <div class="produkt"></div>
+                    </div>
+                    <div class="produktwrapper">
+                        <div class="produkt"></div>
+                    </div>
+                    <div class="produktwrapper">
+                        <div class="produkt"></div>
+                    </div>
+                </div>
+                <div class="fach"></div>
+                <div class="fach"></div>
+
+            </div>
+        </section>
+        <section style="background:rgba(0, 128, 0, 0.288)" id="kasse_section">
+            <h1>Bezahlen</h1>
+        </section>
+        <section style="background:rgba(0, 98, 128, 0.288)" id="kasse_section">
+            <h1>Fertig!</h1>
+        </section>
+
+
+
+
+    </div>
+    <div class="user"></div>
+
+</body>
+
+</html>
