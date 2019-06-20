@@ -130,6 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   for (var i = 0; i < subtopics.length; i++) {
     subtopics[i].addEventListener('mouseover', highlightSame);
+    subtopics[i].addEventListener('click', zoomAndRedirect);
   }
 
   function highlightSame() {
@@ -137,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var topic;
 
     for (var i = 0; i < this.classList.length; i++) {
-      if (this.classList[i] != "subtopic" && this.classList[i] != "highlighted") {
+      if (this.classList[i] != 'subtopic' && this.classList[i] != 'highlighted') {
         topic = this.classList[i];
       }
     }
@@ -145,13 +146,17 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log(topic);
 
     for (var i = 0; i < subtopics.length; i++) {
-      subtopics[i].classList.remove("highlighted");
+      subtopics[i].classList.remove('highlighted');
 
       if (subtopics[i].classList.contains(topic) && subtopics[i] != this) {
         console.log(subtopics[i]);
-        subtopics[i].classList.add("highlighted");
+        subtopics[i].classList.add('highlighted');
       }
     }
+  }
+
+  function zoomAndRedirect() {
+    this.classList.add("zoom");
   }
 });
 },{}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -182,7 +187,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64362" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51196" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

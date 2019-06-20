@@ -26,6 +26,18 @@
   font-style: bold;
 }
 
+
+@keyframes productZoom {
+  0% {
+    transform: scale(1.0);
+  }
+
+  100% {
+    transform: scale(12.0);
+  }
+}
+
+
 html {
   font-family: Manrope;
 }
@@ -69,7 +81,6 @@ body {
   justify-content: center;
   align-items: flex-end;
   flex-shrink: 0;
-  z-index:150;
 
 }
 .subtopic_container:first-child {
@@ -88,10 +99,21 @@ body {
   text-align: center;
   font-size: 12pt;
   font-weight: bold;
-  z-index:150;
+  z-index:10;
 }
 
 .pricetag{
+
+
+}
+
+.zoom{
+  animation-timing-function: ease-in-out; /* or: ease, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) */
+  animation-fill-mode: both;
+  animation-name: productZoom;
+  animation-duration: 1.0s;
+  z-index:280;
+  position:absolute;
 
 
 }
@@ -119,12 +141,13 @@ body {
   .subtopic {
     width: 11vmax;
     height: 13vmax;
+    font-size:9pt;
   }
 
   .subtopic:hover {
     width: 12vmax;
     height: 14vmax;
-    font-size: 14pt;
+    font-size: 10pt;
     z-index:200;
   }
 
@@ -132,8 +155,17 @@ body {
     -webkit-box-shadow: 0px 0px 53px 28px rgba(255, 255, 255, 1);
     -moz-box-shadow: 0px 0px 53px 28px rgba(255, 255, 255, 1);
     box-shadow: 0px 0px 53px 28px rgba(255, 255, 255, 1);
+    border: 2px solid red;
   }
+
 }
 
 @media only screen and (min-width: 1100px) {
+
+  .subtopic {
+    font-size:11pt;
+  }
+
+  .subtopic:hover {
+    font-size: 14pt;  }
 }
