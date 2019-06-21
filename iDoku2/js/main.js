@@ -3,6 +3,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const sectionContainer = document.getElementById('sectionContainer')
   const sections = document.getElementsByTagName('section')
+  const produkte = document.getElementsByClassName('produkt')
   const navAnchors = document.getElementsByClassName('navAnchor')
   const sectionsArray = Array.prototype.slice.call(sections)
   const wagen_s = document.getElementById('wagen_section')
@@ -36,7 +37,23 @@ document.addEventListener('DOMContentLoaded', function () {
         navAnchors.item(i).classList.remove('active')
       }
     }
+
+
   }
+
+
+for(var i=0; i <= produkte.length; i++){
+  if(produkte.item(i)){
+  produkte.item(i).addEventListener('click', buyProduct)
+  }
+}
+
+
+function buyProduct(){
+  this.classList.add("gekauftesProdukt")
+}
+
+
 
   if (sectionContainer.addEventListener) {
     sectionContainer.addEventListener('mousewheel', MouseWheelHandler, false)

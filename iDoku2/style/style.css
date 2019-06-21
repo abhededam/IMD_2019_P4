@@ -48,6 +48,19 @@
     }
 }
 
+@keyframes buyProduct {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0px) scale(1.0);
+
+    }
+    100% {
+        opacity: 0;
+        transform: translate(0, 15px) scale(1.1);
+
+    }
+}
+
 
 html {
     overflow-y: hidden;
@@ -73,6 +86,7 @@ body {
     padding: 0px;
     padding-left:-50vw;
     background:rgb(238, 238, 238);
+
 }
 
 section {
@@ -146,6 +160,8 @@ nav .active{
     animation-fill-mode: both;
     animation-name: fadeOut;
     animation-duration: 0.2s;
+    pointer-events:none;
+
 }
 
 
@@ -168,6 +184,7 @@ nav .active{
     background-size: auto 100%;
     background-position: center bottom;
     background-repeat: no-repeat;
+    pointer-events:none;
 }
 
 section:first-child{
@@ -185,6 +202,8 @@ section:first-child{
     background-size: auto 100%;
     background-position: center bottom;
     background-repeat: no-repeat;
+    pointer-events:none;
+
 }
 
 .fixedWarenkorb {
@@ -240,6 +259,13 @@ section:first-child{
     height: 70%;
 }
 
+.gekauftesProdukt{
+    animation-timing-function: ease-out;
+    /* or: ease, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) */
+    animation-fill-mode: both;
+    animation-name: buyProduct;
+    animation-duration: 0.4s;
+}
 .supermarkt_hintergrund{
     background-image: url("../images/hintergrund_markt.svg");
     background-size:cover;
