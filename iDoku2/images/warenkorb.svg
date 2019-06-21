@@ -3,16 +3,13 @@
 <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1018 520" style="enable-background:new 0 0 1018 520;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#CCCCCC;}
-	.st1{fill:#B3B3B3;}
+	.st0{fill:url(#SVGID_1_);}
+	.st1{fill:#BABABA;}
 </style>
-<path class="st0" d="M957.6,520l12.9-89.5c1.3-9.3-5.8-17.5-15.2-17.5H591.9l41.2,107H957.6z"/>
-<polygon class="st1" points="700.6,520 662.7,413 641.4,413 679.4,520 "/>
-<polygon class="st1" points="751.9,520 713.9,413 692.7,413 730.6,520 "/>
-<polygon class="st1" points="803.1,520 765.1,413 743.9,413 781.9,520 "/>
-<polygon class="st1" points="854.3,520 816.3,413 795.1,413 833.1,520 "/>
-<polygon class="st1" points="905.5,520 867.6,413 846.3,413 884.3,520 "/>
-<polygon class="st1" points="957.6,520 959.8,504.7 927.3,413 906.1,413 944,520 "/>
-<path class="st1" d="M571.2,397.4L614.7,520h31.8l-47-132.7c-3.5-9.7-10.8-17.8-20.2-22.1l-67-30.8c-7.5-3.5-16.4-0.2-19.9,7.4
-	s-0.2,16.4,7.4,19.9l67,30.8C568.8,393.4,570.4,395.2,571.2,397.4z"/>
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="591.9" y1="466.5" x2="957.6" y2="466.5">
+	<stop  offset="0" style="stop-color:#CCCCCC"/>
+	<stop  offset="1" style="stop-color:#BABABA"/>
+</linearGradient>
+<path class="st0" d="M904,520l22.6-107H591.9l41.2,107h324.5"/>
+<polygon class="st1" points="639.1,520 589.9,384 588.8,380.9 586.1,379.6 517.9,345.6 512.5,357.8 576.1,391.9 618,520 "/>
 </svg>

@@ -60,6 +60,7 @@ body {
     margin: 0px;
     padding: 0px;
     padding-left:-50vw;
+    background:rgb(238, 238, 238);
 }
 
 section {
@@ -114,7 +115,7 @@ section p {
     width: 100vw;
     height: 20vh;
     bottom: 0px;
-    z-index: 100;
+    z-index: 250;
     background-image: url("../images/kunde.svg");
     background-size: auto 100%;
     background-position: center bottom;
@@ -122,7 +123,7 @@ section p {
 }
 
 section:first-child{
-    z-index:200;
+    z-index:260;
 
 }
 
@@ -131,7 +132,7 @@ section:first-child{
     width: 100vw;
     height: 20vh;
     bottom: 0px;
-    z-index: 250;
+    z-index: 240;
     background-image: url("../images/warenkorb.svg");
     background-size: auto 100%;
     background-position: center bottom;
@@ -191,6 +192,22 @@ section:first-child{
     height: 70%;
 }
 
+.supermarkt_hintergrund{
+    background-image: url("../images/hintergrund_markt.svg");
+    background-size:cover;
+    background-repeat:repeat-x;
+    background-size:100% auto;
+}
+
+.aussen_hintergrund{
+    background-color:rgb(172, 206, 172);
+    background-image: url("../images/hintergrund_aussen.svg");
+    background-size:cover;
+    background-repeat:repeat-x;
+    background-size:100% auto;
+}
+
+
 @media only screen and (min-width: 600px) {
     .user {
         height: 35vh;
@@ -230,6 +247,14 @@ section:first-child{
     
     section a{
         text-align:left;
+    }
+
+    .supermarkt_hintergrund{
+        background-size:50% auto;
+    }
+    
+    .aussen_hintergrund{
+        background-size:50% auto;
     }
 
 }
