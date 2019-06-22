@@ -132,6 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }else {
       user.item(0).classList.remove('activates')
       user.item(0).classList.remove('writesList')
+      list.classList.add('upperRightList')
     }
   }
 
@@ -145,7 +146,6 @@ document.addEventListener('DOMContentLoaded', function () {
       list.appendChild(newListItem)
     }
   }
-
 
   function MouseWheelHandler (e) {
     var e = window.event || e
