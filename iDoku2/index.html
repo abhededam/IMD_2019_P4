@@ -11,11 +11,15 @@
 </head>
 
 <body>
+    <ul id="list" class="list">
+        <div class="listelement"></div>
+        <li>Müsli</li>
+    </ul>
     <div class="user"></div>
     <nav><a href="#home_section" class="navAnchor active"></a><a href="#start_section" class="navAnchor"></a><a
-            href="#liste_section" class="navAnchor"></a><a href="#wagen_section" class="navAnchor"></a><a
-            href="#einkaufslistenkauf_section" class="navAnchor"></a><a href="#spontankauf_section"
-            class="navAnchor"></a><a href="#kasse_section" class="navAnchor"></a><a href="#fertig_section"
+            href="#list_section" class="navAnchor"></a><a href="#activate_section" class="navAnchor"></a><a
+            href="#listshopping_section" class="navAnchor"></a><a href="#spontaniousshopping_section"
+            class="navAnchor"></a><a href="#checkout_section" class="navAnchor"></a><a href="#finished_section"
             class="navAnchor"></a></nav>
 
 
@@ -57,7 +61,7 @@
             </div>
 
         </section>
-        <section id="liste_section" class="aussen_hintergrund">
+        <section id="list_section" class="outside_background">
             <div class="sectionInformation">
                 <h1>Einkaufsliste schreiben</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum quos libero soluta, blanditiis
@@ -69,7 +73,7 @@
 
             </div>
         </section>
-        <section id="wagen_section" class="supermarkt_hintergrund">
+        <section id="activate_section" class="supermarket_background">
             <div class="sectionInformation">
                 <h1>Einkaufswagen synchronisieren</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum quos libero soluta, blanditiis
@@ -84,9 +88,9 @@
 
             </div>
 
-            <div id="warenkorb" class="absoluteWarenkorb"></div>
+            <div id="basket" class="absoluteBasket"></div>
         </section>
-        <section id="einkaufslistenkauf_section" class="supermarkt_hintergrund">
+        <section id="listshopping_section" class="supermarket_background">
             <div class="sectionInformation">
                 <h1>Einkaufsliste ablaufen</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum quos libero soluta, blanditiis
@@ -101,49 +105,49 @@
 
             </div>
 
-            <div class="regal">
-                <div class="fach">
-                    <div class="produktwrapper">
-                        <div class="produkt" style="background: rgb(156, 119, 119);"></div>
+            <div class="shelves">
+                <div class="shelf">
+                    <div class="productwrapper">
+                        <div class="product" style="background: rgb(156, 119, 119);"></div>
                     </div>
-                    <div class="produktwrapper">
-                        <div class="produkt listenprodukt" style="background: rgb(131, 175, 120);">
+                    <div class="productwrapper">
+                        <div class="product listproduct buyable" style="background: rgb(131, 175, 120);">
 
                         </div>
                     </div>
-                    <div class="produktwrapper">
-                        <div class="produkt" style="background: rgb(182, 132, 175);"></div>
+                    <div class="productwrapper">
+                        <div class="product" style="background: rgb(182, 132, 175);"></div>
                     </div>
-                    <div class="produktwrapper">
-                        <div class="produkt" style="background: rgb(189, 135, 153);"></div>
+                    <div class="productwrapper">
+                        <div class="product" style="background: rgb(189, 135, 153);"></div>
                     </div>
-                    <div class="produktwrapper">
-                        <div class="produkt" style="background: rgb(139, 167, 121);"></div>
-                    </div>
-                </div>
-                <div class="fach">
-                    <div class="produktwrapper">
-                        <div class="produkt" style="background: rgb(196, 173, 144);"></div>
-                    </div>
-                    <div class="produktwrapper">
-                        <div class="produkt" style="background: rgb(140, 180, 192);"></div>
-                    </div>
-                    <div class="produktwrapper">
-                        <div class="produkt"></div>
-                    </div>
-                    <div class="produktwrapper">
-                        <div class="produkt"></div>
-                    </div>
-                    <div class="produktwrapper">
-                        <div class="produkt"></div>
+                    <div class="productwrapper">
+                        <div class="product" style="background: rgb(139, 167, 121);"></div>
                     </div>
                 </div>
-                <div class="fach">
+                <div class="shelf">
+                    <div class="productwrapper">
+                        <div class="product" style="background: rgb(196, 173, 144);"></div>
+                    </div>
+                    <div class="productwrapper">
+                        <div class="product" style="background: rgb(140, 180, 192);"></div>
+                    </div>
+                    <div class="productwrapper">
+                        <div class="product"></div>
+                    </div>
+                    <div class="productwrapper">
+                        <div class="product"></div>
+                    </div>
+                    <div class="productwrapper">
+                        <div class="product"></div>
+                    </div>
+                </div>
+                <div class="shelf">
 
                 </div>
             </div>
         </section>
-        <section id="spontankauf_section" class="supermarkt_hintergrund">
+        <section id="spontaniousshopping_section" class="supermarket_background">
             <div class="sectionInformation">
                 <h1>spontane Einkäufe erledigen</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum quos libero soluta, blanditiis
@@ -157,43 +161,43 @@
                 <a>mehr darüber erfahren</a>
 
             </div>
-            <div class="regal">
-                <div class="fach">
-                    <div class="produktwrapper">
-                        <div class="produkt"></div>
+            <div class="shelves">
+                <div class="shelf">
+                    <div class="productwrapper">
+                        <div class="product buyable spontaniousProduct"></div>
                     </div>
-                    <div class="produktwrapper">
-                        <div class="produkt"></div>
+                    <div class="productwrapper">
+                        <div class="product buyable spontaniousProduct"></div>
                     </div>
-                    <div class="produktwrapper">
-                        <div class="produkt"></div>
+                    <div class="productwrapper">
+                        <div class="product buyable spontaniousProduct"></div>
                     </div>
-                    <div class="produktwrapper">
-                        <div class="produkt"></div>
+                    <div class="productwrapper">
+                        <div class="product buyable best spontaniousProduct"></div>
                     </div>
-                    <div class="produktwrapper">
-                        <div class="produkt"></div>
-                    </div>
-                </div>
-                <div class="fach">
-                    <div class="produktwrapper">
-                        <div class="produkt"></div>
-                    </div>
-                    <div class="produktwrapper">
-                        <div class="produkt"></div>
-                    </div>
-                    <div class="produktwrapper">
-                        <div class="produkt"></div>
-                    </div>
-                    <div class="produktwrapper">
-                        <div class="produkt"></div>
+                    <div class="productwrapper">
+                        <div class="product buyable better spontaniousProduct"></div>
                     </div>
                 </div>
-                <div class="fach"></div>
+                <div class="shelf">
+                    <div class="productwrapper">
+                        <div class="product buyable better spontaniousProduct"></div>
+                    </div>
+                    <div class="productwrapper">
+                        <div class="product buyable spontaniousProduct"></div>
+                    </div>
+                    <div class="productwrapper">
+                        <div class="product buyable spontaniousProduct"></div>
+                    </div>
+                    <div class="productwrapper">
+                        <div class="product buyable spontaniousProduct"></div>
+                    </div>
+                </div>
+                <div class="shelf"></div>
 
             </div>
         </section>
-        <section id="kasse_section" class="supermarkt_hintergrund">
+        <section id="checkout_section" class="checkout_background">
             <div class="sectionInformation">
                 <h1>super schnell bezahlen</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum quos libero soluta, blanditiis
@@ -208,7 +212,7 @@
 
             </div>
         </section>
-        <section id="fertig_section" class="aussen_hintergrund">
+        <section id="finished_section" class="outside_background">
             <div class="sectionInformation">
                 <h1>fertig!</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum quos libero soluta, blanditiis
@@ -223,13 +227,7 @@
 
             </div>
         </section>
-
-
-
-
     </div>
-
-
 </body>
 
 </html>

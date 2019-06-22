@@ -19,22 +19,22 @@
 
 @keyframes fadeIn {
     0% {
-        opacity:0;
+        opacity: 0;
         transform: translate(0, -5px);
     }
     100% {
-        opacity:1;
+        opacity: 1;
         transform: translate(0, 0px);
     }
 }
 
 @keyframes fadeOut {
     0% {
-        opacity:1;
+        opacity: 1;
         transform: translate(0, 0px);
     }
     100% {
-        opacity:0;
+        opacity: 0;
         transform: translate(0, -5px);
     }
 }
@@ -52,15 +52,12 @@
     0% {
         opacity: 1;
         transform: translate(0, 0px) scale(1.0);
-
     }
     100% {
         opacity: 0;
         transform: translate(0, 15px) scale(1.1);
-
     }
 }
-
 
 html {
     overflow-y: hidden;
@@ -84,13 +81,12 @@ body {
     overflow-x: hidden;
     margin: 0px;
     padding: 0px;
-    padding-left:-50vw;
-    background:rgb(238, 238, 238);
-
+    padding-left: -50vw;
+    background: rgb(238, 238, 238);
 }
 
 section {
-    width: 150vw;
+    width: 100vw;
     height: 100vh;
     flex-shrink: 0;
     position: relative;
@@ -114,36 +110,33 @@ section p {
     line-height: 3.6vh;
 }
 
-nav{
-    position:absolute;
-    display:flex;
-    width:50vw;
-    height:6vw;
-    margin-left:25vw;
-    margin-top:6vw;
+nav {
+    position: absolute;
+    display: flex;
+    width: 50vw;
+    height: 6vw;
+    margin-left: 25vw;
+    margin-top: 6vw;
     justify-content: space-evenly;
-    z-index:270;
-
+    z-index: 270;
 }
 
-nav a{
-    width:1.5vw;
-    height:1.5vw;
-    background:rgb(0, 0, 0);
-    margin:2.25vw;
-    border-radius:99999px;
-    opacity:0.1;
-    transition:all 0.4s ease-in-out;
+nav a {
+    width: 1.5vw;
+    height: 1.5vw;
+    background: rgb(0, 0, 0);
+    margin: 2.25vw;
+    border-radius: 99999px;
+    opacity: 0.1;
+    transition: all 0.4s ease-in-out;
 }
 
-nav .active{
-    opacity:0.3;
-    margin:2vw;
-    width:2vw;
-    height:2vw;
-
+nav .active {
+    opacity: 0.3;
+    margin: 2vw;
+    width: 2vw;
+    height: 2vw;
 }
-
 
 .sectionInformation {
     margin-left: 10vw;
@@ -160,10 +153,8 @@ nav .active{
     animation-fill-mode: both;
     animation-name: fadeOut;
     animation-duration: 0.2s;
-    pointer-events:none;
-
+    pointer-events: none;
 }
-
 
 .active .sectionInformation {
     animation-timing-function: ease-out;
@@ -171,7 +162,66 @@ nav .active{
     animation-fill-mode: both;
     animation-name: fadeIn;
     animation-duration: 0.4s;
-    animation-delay:0.2s;
+    animation-delay: 0.2s;
+}
+
+.list {
+    position: absolute;
+    width: 10vw;
+    height: auto;
+    background: white;
+    bottom: 22vh;
+    z-index: 270;
+    right: 36vw;
+    list-style-type: none;
+    padding: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: bold;
+    z-index: 250;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+.upperRightList {
+    right: 5vw;
+    bottom: 75vh;
+    background: none;
+}
+
+.upperRightList .listelement {
+    display: none;
+}
+
+.list li {
+    width: 7vw;
+    padding: 1vw;
+    margin: 0.3vw;
+    padding-left: 1.5vw;
+    background: rgb(214, 214, 214);
+    border-radius: 1vw;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.list .bought {
+    background: rgb(153, 204, 153);
+}
+
+.listelement {
+    background-image: url("../images/liste.svg");
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    bottom: -20%;
+    left: 0px;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
 }
 
 .user {
@@ -184,15 +234,26 @@ nav .active{
     background-size: auto 100%;
     background-position: center bottom;
     background-repeat: no-repeat;
-    pointer-events:none;
+    pointer-events: none;
 }
 
-section:first-child{
-    z-index:260;
-
+.writesList {
+    background-image: url("../images/kunde_liste.svg");
 }
 
-.absoluteWarenkorb {
+.activates {
+    background-image: url("../images/kunde_aktiviert.svg");
+}
+
+.buys {
+    background-image: url("../images/kunde.svg");
+}
+
+section:first-child {
+    z-index: 260;
+}
+
+.absoluteBasket {
     position: absolute;
     width: 100vw;
     height: 20vh;
@@ -202,17 +263,16 @@ section:first-child{
     background-size: auto 100%;
     background-position: center bottom;
     background-repeat: no-repeat;
-    pointer-events:none;
-
+    pointer-events: none;
 }
 
-.fixedWarenkorb {
+.fixedBasket {
     position: fixed;
     bottom: 0px;
     left: 0px;
 }
 
-.regal {
+.shelves {
     width: 90vw;
     height: 25vh;
     background: rgb(219, 219, 219);
@@ -221,7 +281,7 @@ section:first-child{
     bottom: 0px;
 }
 
-.fach {
+.shelf {
     width: 90%;
     margin-left: 5%;
     margin-top: 5%;
@@ -232,7 +292,7 @@ section:first-child{
     align-items: flex-end;
 }
 
-.produktwrapper {
+.productwrapper {
     width: 10%;
     height: 90%;
     display: flex;
@@ -240,120 +300,121 @@ section:first-child{
     align-items: flex-end;
 }
 
-.produkt {
+.product {
     background: rgb(133, 133, 133);
     width: 80%;
     height: 60%;
     bottom: 0px;
-}
-
-.listenprodukt {
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
 }
 
-.active .listenprodukt {
+.active .listproduct {
     width: 100%;
     height: 70%;
 }
 
-.gekauftesProdukt{
+.boughtProduct {
     animation-timing-function: ease-out;
     /* or: ease, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) */
     animation-fill-mode: both;
     animation-name: buyProduct;
     animation-duration: 0.4s;
 }
-.supermarkt_hintergrund{
+
+.active .betterProduct {
+    width: 85%;
+    height: 85%;
+}
+
+.active .bestProduct {
+    width: 100%;
+    height: 90%;
+}
+
+.supermarket_background {
     background-image: url("../images/hintergrund_markt.svg");
-    background-size:cover;
-    background-repeat:repeat-x;
-    background-size:100% auto;
+    background-size: cover;
+    background-repeat: repeat-x;
+    background-size: 100% auto;
 }
 
-.aussen_hintergrund{
-    background-color:rgb(172, 206, 172);
+.checkout_background {
+    background-image: url("../images/kasse.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: auto 35%;
+    background-position:bottom center;
+}
+
+.outside_background {
+    background-color: rgb(206, 231, 206);
     background-image: url("../images/hintergrund_aussen.svg");
-    background-size:cover;
-    background-repeat:repeat-x;
-    background-size:100% auto;
+    background-size: cover;
+    background-repeat: repeat-x;
+    background-size: 100% auto;
 }
-
 
 @media only screen and (min-width: 600px) {
-
-    nav{
-        width:15vw;
-        height:6vw;
-        margin-left:10vw;
-        margin-top:10vh;
-    
+    nav {
+        width: 15vw;
+        height: 6vw;
+        margin-left: 10vw;
+        margin-top: 10vh;
     }
-    
-    nav a{
-        width:0.4vw;
-        height:0.4vw;
-        margin:0.1vw;
+    nav a {
+        width: 0.4vw;
+        height: 0.4vw;
+        margin: 0.1vw;
     }
-    
-    nav .active{
-        margin:0.05vw;
-        width:0.5vw;
-        height:0.5vw;
-    
+    nav .active {
+        margin: 0.05vw;
+        width: 0.5vw;
+        height: 0.5vw;
     }
-
-    .sectionInformation{
-        margin-top:12vh;
+    .sectionInformation {
+        margin-top: 12vh;
     }
     .user {
         height: 35vh;
     }
-    .absoluteWarenkorb {
+    .absoluteBasket {
         height: 35vh;
     }
-
-    .regal {
+    .list {
+        opacity: 1;
+    }
+    .shelves {
         width: 60vw;
         height: 45vh;
         left: 40vw;
     }
-
-    .fach{
+    .shelf {
         margin-left: 3%;
         margin-top: 3%;
-        width:94%;
+        width: 94%;
     }
-
-    .produkt{
-        height:80%;
+    .product {
+        height: 80%;
     }
-
-    .active .listenprodukt{
-        height:95%;
+    .active .listproduct {
+        height: 95%;
     }
-
-
-    section h1{
-        text-align:left;
+    section h1 {
+        text-align: left;
     }
-
-    section p{
-        width:35vw;
+    section p {
+        width: 35vw;
     }
-    
-    section a{
-        text-align:left;
+    section a {
+        text-align: left;
     }
-
-    .supermarkt_hintergrund{
-        background-size:50% auto;
+    .supermarket_background {
+        background-size: 50% auto;
     }
-    
-    .aussen_hintergrund{
-        background-size:50% auto;
+    .outside_background {
+        background-size: 50% auto;
     }
-
 }
