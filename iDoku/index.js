@@ -11,25 +11,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
   for (var i = 0; i < subtopics.length; i++) {
     subtopics[i].addEventListener('mouseover', highlightSame)
+    subtopics[i].addEventListener('click', zoomAndRedirect)
   }
 
   function highlightSame () {
     let same = []
     let topic
-    for(var i = 0; i < this.classList.length; i++){
-            if(this.classList[i] != "subtopic" && this.classList[i] != "highlighted"){
-                    topic = this.classList[i]
-            }
+    for (var i = 0; i < this.classList.length; i++) {
+      if (this.classList[i] != 'subtopic' && this.classList[i] != 'highlighted') {
+        topic = this.classList[i]
+      }
     }
 
     console.log(topic)
 
-    for(var i = 0; i < subtopics.length; i++){
-            subtopics[i].classList.remove("highlighted")
-            if(subtopics[i].classList.contains(topic) && subtopics[i] != this){
-                    console.log(subtopics[i])
-                    subtopics[i].classList.add("highlighted")
-            }
+    for (var i = 0; i < subtopics.length; i++) {
+      subtopics[i].classList.remove('highlighted')
+      if (subtopics[i].classList.contains(topic) && subtopics[i] != this) {
+        console.log(subtopics[i])
+        subtopics[i].classList.add('highlighted')
+      }
     }
+  }
+
+
+  function zoomAndRedirect(){
+          this.classList.add("zoom")
+          
   }
 })
