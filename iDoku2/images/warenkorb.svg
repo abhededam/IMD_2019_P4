@@ -3,13 +3,9 @@
 <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1018 520" style="enable-background:new 0 0 1018 520;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:url(#SVGID_1_);}
-	.st1{fill:#BABABA;}
+	.st0{fill:#C8C8C8;}
+	.st1{fill:#AAAAAA;}
 </style>
-<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="591.9" y1="55.5" x2="957.6" y2="55.5" gradientTransform="matrix(1 0 0 -1 0 522)">
-	<stop  offset="0" style="stop-color:#CCCCCC"/>
-	<stop  offset="1" style="stop-color:#BABABA"/>
-</linearGradient>
 <path class="st0" d="M904,520l22.6-107H591.9l41.2,107h324.5"/>
 <polygon class="st1" points="639.1,520 589.9,384 588.8,380.9 586.1,379.6 517.9,345.6 512.5,357.8 576.1,391.9 618,520 "/>
 </svg>

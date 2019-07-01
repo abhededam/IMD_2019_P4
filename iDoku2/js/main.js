@@ -3,10 +3,12 @@ document.addEventListener('DOMContentLoaded', function () {
   // VARIABLES
 
   // sections
+  var saveX = 0
   const sections = document.getElementsByTagName('section')
   const sectionContainer = document.getElementById('sectionContainer')
   const spontaniousShoppingSection = document.getElementById('spontaniousshopping_section')
   const activateSection = document.getElementById('activate_section')
+  var dontScroll = false
 
   // user
   const user = document.getElementsByClassName('user')
@@ -34,10 +36,14 @@ document.addEventListener('DOMContentLoaded', function () {
   newListItem.appendChild(newListItemContent)
   newListItem.classList.add('bought')
 
+  const moreInformationElements = document.getElementsByClassName('moreInformation')
+
   // adding Event Listener
+
   if (sectionContainer.addEventListener) {
     sectionContainer.addEventListener('mousewheel', MouseWheelHandler, false)
     sectionContainer.addEventListener('DOMMouseScroll', MouseWheelHandler, false)
+    sectionContainer.addEventListener('touchmove', MouseWheelHandler, false)
   } else sectionContainer.attachEvent('onmousewheel', MouseWheelHandler)
 
   sectionContainer.addEventListener('scroll', scrollAnimation)
@@ -46,6 +52,19 @@ document.addEventListener('DOMContentLoaded', function () {
     if (spontaniousProducts.item(i)) {
       spontaniousProducts.item(i).addEventListener('mouseover', highlightProducts)
       spontaniousProducts.item(i).addEventListener('mouseout', dontHighlightProducts)
+    }
+  }
+
+  for (var i = 0; i <= sections.length; i++) {
+    if (sections[i]) {
+      var moreInformationAnchor = sections[i].getElementsByClassName('sectionInformation')[0].getElementsByTagName('a')[0]
+      var hideMoreInformationAnchor = sections[i].getElementsByTagName('a')[0]
+      if (moreInformationAnchor) {
+        moreInformationAnchor.addEventListener('click', showMoreInformation)
+      }
+      if (hideMoreInformationAnchor) {
+        hideMoreInformationAnchor.addEventListener('click', hideMoreInformation)
+      }
     }
   }
 
@@ -66,6 +85,23 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // functions
+
+  function hideMoreInformation () {
+    console.log('ich machs weg')
+    let moreInformation = this.parentElement.parentElement.getElementsByClassName('moreInformation')[0]
+    console.log(moreInformation)
+    moreInformation.classList.remove('visible')
+    console.log(moreInformation.classList)
+    dontScroll = false
+  }
+
+  function showMoreInformation () {
+    console.log('ich klicke')
+    let moreInformation = this.parentElement.parentElement.getElementsByClassName('moreInformation')[0]
+    moreInformation.classList.add('visible')
+    console.log(moreInformation.classList)
+    dontScroll = true
+  }
 
   function highlightProducts () {
     for (var j = 0; j <= betterProducts.length; j++) {
@@ -91,12 +127,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  function scrollAnimation () {
+  function scrollAnimation (event) {
     const scrollPos = sectionContainer.scrollLeft
     const maxScroll = sectionContainer.offsetWidth
     const currentSectionIndex = Math.floor((scrollPos / maxScroll))
-    console.log(scrollPos / maxScroll)
+    // console.log(scrollPos / maxScroll)
     const currentSection = sections[Math.floor(scrollPos / maxScroll)]
+
     if (currentSectionIndex >= sectionsArray.indexOf(activateSection)) {
       if (basket.classList.contains('fixedBasket')) {
       }
@@ -117,37 +154,50 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    if (currentSection.id == 'activate_section') {
-      user.item(0).classList.add('activates')
-      list.classList.add('upperRightList')
+    if (currentSection.id == 'start_section' || currentSection.id == 'home_section') {
+      user.item(0).classList.add('saysHello')
+      user.item(0).classList.remove('writesList')
     }
     else if (currentSection.id == 'list_section') {
       user.item(0).classList.remove('activates')
-      list.classList.remove('upperRightList')
+      user.item(0).classList.remove('saysHello')
 
+      list.classList.remove('upperRightList')
       user.item(0).classList.add('writesList')
+      user.item(0).classList.remove('saysHello')
     }
-    else if (currentSection.id == 'start_section' || currentSection.id == 'home_section') {
-      user.item(0).classList.add('writesList')
+    else if (currentSection.id == 'activate_section') {
+      user.item(0).classList.add('activates')
+      list.classList.add('upperRightList')
+      user.item(0).classList.remove('saysHello')
     }else {
       user.item(0).classList.remove('activates')
       user.item(0).classList.remove('writesList')
       list.classList.add('upperRightList')
+      user.item(0).classList.remove('saysHello')
+    }
+
+    if (dontScroll) {
+      event.preventDefault()
+      console.log('dont scroll')
     }
   }
 
   function buyProduct () {
     if (this.classList.contains('listproduct')) {
-      listItems[0].classList.add('bought')
+      listItems[1].classList.add('bought')
       this.classList.add('boughtProduct')
     }
-    else if (this.classList.contains('spontaniousProduct') && listItems.length < 2) {
+    else if (this.classList.contains('spontaniousProduct') && listItems.length < 3) {
       this.classList.add('boughtProduct')
       list.appendChild(newListItem)
     }
   }
 
   function MouseWheelHandler (e) {
+    if (dontScroll) {
+      return
+    }
     var e = window.event || e
     var delta = - 20 * (Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail))))
 

@@ -22,6 +22,9 @@
         opacity: 0;
         transform: translate(0, -5px);
     }
+    50% {
+        opacity: 0.2;
+    }
     100% {
         opacity: 1;
         transform: translate(0, 0px);
@@ -59,6 +62,27 @@
     }
 }
 
+@keyframes boughtProduct {
+    0% {
+        transform: scale(1.0);
+    }
+    30% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes strike {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 60%;
+    }
+}
+
 html {
     overflow-y: hidden;
     font-family: Manrope;
@@ -85,6 +109,8 @@ body {
     background: rgb(238, 238, 238);
 }
 
+.reached {}
+
 section {
     width: 100vw;
     height: 100vh;
@@ -96,18 +122,28 @@ section h1 {
     text-align: center;
     font-size: 3vh;
     line-height: 4.5vh;
+    margin-bottom: 0px;
 }
 
-section a {
-    display: block;
-    margin: 0 auto;
+section a {}
+
+.sectionInformation a {
     font-size: 1.8vh;
-    color: rgba(0, 0, 0, 0.438);
+    cursor: pointer;
+    pointer-events: all;
+    background: rgb(255, 255, 255);
+    padding: 4vw;
+    padding-left: 6vw;
+    padding-right: 6vw;
+    border-radius: 1.5vw;
+    font-weight: bold;
+    text-align: center;
 }
 
 section p {
     font-size: 2vh;
-    line-height: 3.6vh;
+    line-height: 4.2vh;
+    margin-bottom: 10vw;
 }
 
 nav {
@@ -122,20 +158,80 @@ nav {
 }
 
 nav a {
-    width: 1.5vw;
-    height: 1.5vw;
+    width: 1vw;
+    height: 1vw;
     background: rgb(0, 0, 0);
     margin: 2.25vw;
+    padding: 0.25vw;
     border-radius: 99999px;
     opacity: 0.1;
-    transition: all 0.4s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 nav .active {
     opacity: 0.3;
     margin: 2vw;
-    width: 2vw;
-    height: 2vw;
+    width: 1.5vw;
+    height: 1.5vw;
+}
+
+.moreInformation {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 300;
+    display: none;
+}
+
+.moreInformation .content {
+    background: white;
+    padding: 10vw;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 70vh;
+}
+
+.moreInformation .content p {
+    width: 70vw;
+    margin-bottom: 4vh;
+    padding-bottom: 3vh;
+}
+
+.moreInformation .content p:last-child {
+    padding-bottom: 0vh;
+}
+
+.moreInformation a {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 10vh;
+    line-height: 10vh;
+    text-align: center;
+    left: 0px;
+    z-index: 310;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.658);
+    background-image: url("../images/close.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: auto 50%;
+    transition: all 0.2s ease-out;
+}
+
+.visible {
+    display: block;
+    opacity: 0;
+    animation-timing-function: ease-out;
+    /* or: ease, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) */
+    animation-fill-mode: both;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+    animation-delay: 0.2s;
 }
 
 .sectionInformation {
@@ -166,16 +262,16 @@ nav .active {
 }
 
 .list {
-    opacity:0;
+    opacity: 0;
     position: absolute;
-    width: 10vw;
+    width: 8vw;
     height: auto;
     background: white;
-    bottom: 22vh;
+    top: 68vh;
     z-index: 270;
-    right: 36vw;
+    right: 40vw;
     list-style-type: none;
-    padding: 1vw;
+    padding: 0.2vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -188,8 +284,9 @@ nav .active {
 }
 
 .upperRightList {
-    right: 5vw;
-    bottom: 75vh;
+    right: 2vw;
+    top: 1vh;
+    width: auto;
     background: none;
 }
 
@@ -198,20 +295,59 @@ nav .active {
 }
 
 .list li {
-    width: 7vw;
     padding: 1vw;
     margin: 0.3vw;
     padding-left: 1.5vw;
-    background: rgb(214, 214, 214);
     border-radius: 1vw;
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
+    text-align: center;
+}
+
+ul li:first-child {
+    margin-bottom: -2vh;
+    display: none;
+    font-size: 14pt;
+}
+
+ul li:last-child {
+    display: none;
+}
+
+
+.upperRightList li:first-child {
+    display: block;
+}
+
+.upperRightList li:last-child {
+    display: block;
 }
 
 .list .bought {
-    background: rgb(153, 204, 153);
+    animation-timing-function: ease-in-out;
+    /* or: ease, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) */
+    animation-fill-mode: both;
+    animation-name: boughtProduct;
+    animation-duration: 0.4s;
+}
+
+.list .bought::after {
+    content: ' ';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 40%;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 2px;
+    background: black;
+    animation-name: strike;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 .listelement {
@@ -236,6 +372,10 @@ nav .active {
     background-position: center bottom;
     background-repeat: no-repeat;
     pointer-events: none;
+}
+
+.saysHello {
+    background-image: url("../images/kunde_winkt.svg");
 }
 
 .writesList {
@@ -276,7 +416,7 @@ section:first-child {
 .shelves {
     width: 90vw;
     height: 25vh;
-    background: rgb(219, 219, 219);
+    background: rgb(202, 202, 202);
     left: 30vw;
     position: absolute;
     bottom: 0px;
@@ -286,7 +426,7 @@ section:first-child {
     width: 90%;
     margin-left: 5%;
     margin-top: 5%;
-    background: rgb(194, 194, 194);
+    background: rgb(177, 177, 177);
     height: 30%;
     display: flex;
     justify-content: space-evenly;
@@ -309,7 +449,6 @@ section:first-child {
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
 }
 
 .active .listproduct {
@@ -347,11 +486,11 @@ section:first-child {
     background-size: cover;
     background-repeat: no-repeat;
     background-size: auto 20%;
-    background-position:bottom center;
+    background-position: bottom center;
 }
 
 .outside_background {
-    background-color: rgb(206, 231, 206);
+    background-color: rgb(150, 207, 150);
     background-image: url("../images/hintergrund_aussen.svg");
     background-size: cover;
     background-repeat: repeat-x;
@@ -364,16 +503,22 @@ section:first-child {
         height: 6vw;
         margin-left: 10vw;
         margin-top: 10vh;
+        pointer-events: scroll;
     }
     nav a {
-        width: 0.4vw;
-        height: 0.4vw;
+        width: 0.1vw;
+        height: 0.1vw;
         margin: 0.1vw;
+        padding: 0.15vw;
+        pointer-events: all;
+    }
+    nav a:hover {
+        opacity: 0.3;
     }
     nav .active {
         margin: 0.05vw;
-        width: 0.5vw;
-        height: 0.5vw;
+        width: 0.2vw;
+        height: 0.2vw;
     }
     .sectionInformation {
         margin-top: 12vh;
@@ -407,10 +552,28 @@ section:first-child {
         text-align: left;
     }
     section p {
-        width: 35vw;
+        width: 40vw;
+        margin-bottom: 2vw;
     }
-    section a {
+    section .sectionInformation a {
         text-align: left;
+        pointer-events: none;
+        padding: 1vw;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        border-radius: 0.4vw;
+        transition: all 0.2s ease-out;
+    }
+    .active .sectionInformation a {
+        pointer-events: all;
+    }
+    section .moreInformation a:hover {
+        cursor: pointer;
+        background-size: auto 60%;
+    }
+    section .sectionInformation a:hover {
+        color: white;
+        background: black;
     }
     .supermarket_background {
         background-size: 50% auto;
@@ -420,5 +583,11 @@ section:first-child {
     }
     .checkout_background {
         background-size: auto 35%;
+    }
+    .moreInformation .content {
+        padding-left: 20vw;
+    }
+    .moreInformation .content p {
+        width: 45vw;
     }
 }
