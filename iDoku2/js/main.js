@@ -130,7 +130,8 @@ document.addEventListener('DOMContentLoaded', function () {
   function scrollAnimation (event) {
     const scrollPos = sectionContainer.scrollLeft
     const maxScroll = sectionContainer.offsetWidth
-    const currentSectionIndex = Math.floor((scrollPos / maxScroll))
+    const currentSectionNumber = scrollPos / maxScroll
+    const currentSectionIndex = Math.floor(currentSectionNumber)
     // console.log(scrollPos / maxScroll)
     const currentSection = sections[Math.floor(scrollPos / maxScroll)]
 
@@ -170,6 +171,16 @@ document.addEventListener('DOMContentLoaded', function () {
       user.item(0).classList.add('activates')
       list.classList.add('upperRightList')
       user.item(0).classList.remove('saysHello')
+    }
+    else if (currentSection.id == 'checkout_section') {
+      if (currentSectionNumber > 6 && currentSectionNumber < 6.3) {
+        user.item(0).classList.add('pays')
+        console.log('paying')
+      }
+      else{
+                user.item(0).classList.remove('pays')
+
+      }
     }else {
       user.item(0).classList.remove('activates')
       user.item(0).classList.remove('writesList')

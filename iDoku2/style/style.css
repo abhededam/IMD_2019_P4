@@ -67,10 +67,10 @@
         transform: scale(1.0);
     }
     30% {
-        transform: scale(1.5);
+        transform: scale(0.8);
     }
     100% {
-        transform: scale(1);
+        transform: scale(1.0);
     }
 }
 
@@ -94,6 +94,7 @@ body {
     display: flex;
     padding: 0px;
     margin: 0px;
+    overflow-y:hidden !important;
 }
 
 .sectionContainer {
@@ -115,7 +116,9 @@ section {
     width: 100vw;
     height: 100vh;
     flex-shrink: 0;
+    overflow:hidden;
     position: relative;
+
 }
 
 section h1 {
@@ -250,6 +253,8 @@ nav .active {
     animation-name: fadeOut;
     animation-duration: 0.2s;
     pointer-events: none;
+    overflow:hidden;
+
 }
 
 .active .sectionInformation {
@@ -388,6 +393,11 @@ ul li:last-child {
 
 .buys {
     background-image: url("../images/kunde.svg");
+}
+
+.pays{
+    background-image: url("../images/kunde_bezahlt.svg");
+
 }
 
 section:first-child {
