@@ -169,6 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (currentSection.id == 'home_section') {
+      
             list.classList.remove('payed')
 
       user.item(0).classList.remove('finished')
@@ -207,6 +208,8 @@ document.addEventListener('DOMContentLoaded', function () {
       user.item(0).classList.remove('saysHello')
     }
     else if (currentSection.id == 'activate_section') {
+            user.item(0).classList.remove('saysHello')
+
             list.classList.remove('payed')
 
       if (list.classList.contains('showList') == false) {
@@ -225,6 +228,8 @@ document.addEventListener('DOMContentLoaded', function () {
       user.item(0).classList.remove('saysHello')
     }
     else if (currentSection.id == 'checkout_section') {
+            user.item(0).classList.remove('saysHello')
+
       if (list.classList.contains('showList') == false) {
         list.classList.add('showList')
       }
@@ -241,6 +246,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
     else if (currentSection.id == 'finished_section') {
+            user.item(0).classList.remove('saysHello')
+
       list.classList.add('payed')
 
       if (list.classList.contains('showList') == false) {
