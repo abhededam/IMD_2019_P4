@@ -32,7 +32,7 @@
 	<path class="st2" d="M64.7,487.5c-6.1-1.9-9.7-8-8.5-14.2c6.6-32.6,11.9-74,11.5-140.9c-0.7-96.3,25-125.8,64-121.6
 		c55.1,6.1,66.1,174.6,61,270c-0.3,6.4-5.1,11.8-11.5,12.8C124.8,502.3,83.2,493.1,64.7,487.5z"/>
 	
-		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="127.5027" y1="-73.2584" x2="214.3293" y2="-73.2584" gradientTransform="matrix(0.9562 0.2929 -0.2929 0.9562 -20.4119 153.3833)">
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="88.4587" y1="534.1032" x2="175.2853" y2="534.1032" gradientTransform="matrix(0.9562 0.2929 0.2929 -0.9562 -118.0595 605.4791)">
 		<stop  offset="0" style="stop-color:#000000"/>
 		<stop  offset="1" style="stop-color:#000000;stop-opacity:0"/>
 	</linearGradient>
@@ -41,17 +41,16 @@
 	<path class="st1" d="M200,88.5c-40.8-20.6-63.6-8-63.6-8C106,93,105,130,109.8,143.7s5.2,30.1,5.2,30.1s22.6-17.3,23.1-45.7
 		c0,0,20.3,12,36.6,5.2s40.3,14.5,40.3,14.5S232.1,104.7,200,88.5z"/>
 	
-		<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="139.8252" y1="-123.2655" x2="149.7936" y2="-129.0207" gradientTransform="matrix(1 0 0 1 0 322)">
+		<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="139.8252" y1="643.2655" x2="149.7936" y2="649.0208" gradientTransform="matrix(1 0 0 -1 0 842)">
 		<stop  offset="8.737864e-02" style="stop-color:#000000;stop-opacity:0"/>
 		<stop  offset="1" style="stop-color:#000000"/>
 	</linearGradient>
 	<path class="st7" d="M153.2,198.9c0,0-13.2-8.3-18.3-14.8c0,0,0.3,12.8,14.3,26.7C150,207.2,151.3,202.8,153.2,198.9L153.2,198.9z"
 		/>
 	
-		<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="137.6514" y1="114.4952" x2="137.6514" y2="-129.4769" gradientTransform="matrix(0.9931 -0.1175 0.1175 0.9931 -4.7144 383.3836)">
-		<stop  offset="0" style="stop-color:#000000"/>
-		<stop  offset="0.9996" style="stop-color:#000000;stop-opacity:3.914833e-04"/>
-		<stop  offset="1" style="stop-color:#000000;stop-opacity:0"/>
+		<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="157.688" y1="425.3061" x2="157.688" y2="669.2782" gradientTransform="matrix(0.9931 -0.1175 -0.1175 -0.9931 38.8138 921.8146)">
+		<stop  offset="0.318" style="stop-color:#FFFFFF"/>
+		<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
 	</linearGradient>
 	<polyline class="st8" points="98.4,240.8 100.6,375.6 121.9,483.7 161.6,476.9 140.7,370.4 149.6,242.4 	"/>
 	<path class="st0" d="M154.3,478.2l5.1,26.3c0,0-13.7,5.8-30.6,5.8c0,0,5.4-11.7,1.2-28"/>

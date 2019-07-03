@@ -57,13 +57,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
   for (var i = 0; i <= sections.length; i++) {
     if (sections[i]) {
-      var moreInformationAnchor = sections[i].getElementsByClassName('sectionInformation')[0].getElementsByTagName('a')[0]
-      var hideMoreInformationAnchor = sections[i].getElementsByTagName('a')[0]
-      if (moreInformationAnchor) {
-        moreInformationAnchor.addEventListener('click', showMoreInformation)
-      }
-      if (hideMoreInformationAnchor) {
-        hideMoreInformationAnchor.addEventListener('click', hideMoreInformation)
+      if (i > 0) {
+        var moreInformationAnchor = sections[i].getElementsByClassName('sectionInformation')[0].getElementsByTagName('a')[0]
+        var hideMoreInformationAnchor = sections[i].getElementsByTagName('a')[0]
+        if (moreInformationAnchor) {
+          moreInformationAnchor.addEventListener('click', showMoreInformation)
+        }
+        if (hideMoreInformationAnchor) {
+          hideMoreInformationAnchor.addEventListener('click', hideMoreInformation)
+        }
+      }else {
+        var moreInformationAnchor = sections[i].getElementsByClassName('sectionInformation')[0].getElementsByTagName('a')[0]
+        var hideMoreInformationAnchor = sections[i].getElementsByTagName('a')[0]
+        if (moreInformationAnchor) {
+          moreInformationAnchor.addEventListener('click', startShopping)
+        }
       }
     }
   }
@@ -101,6 +109,10 @@ document.addEventListener('DOMContentLoaded', function () {
     moreInformation.classList.add('visible')
     console.log(moreInformation.classList)
     dontScroll = true
+  }
+
+  function startShopping () {
+    sectionContainer.scrollLeft = sections[1].offsetWidth
   }
 
   function highlightProducts () {
@@ -155,20 +167,32 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
 
-    if (currentSection.id == 'start_section' || currentSection.id == 'home_section') {
+    if (currentSection.id == 'home_section') {
+      user.item(0).classList.add('hide')
+      user.item(0).classList.remove('saysHello')
+    }
+    else if (currentSection.id == 'start_section') {
+      user.item(0).classList.remove('hide')
       user.item(0).classList.add('saysHello')
       user.item(0).classList.remove('writesList')
+      list.classList.remove('showList')
     }
     else if (currentSection.id == 'list_section') {
       user.item(0).classList.remove('activates')
       user.item(0).classList.remove('saysHello')
+      list.classList.add('showList')
 
       list.classList.remove('upperRightList')
       user.item(0).classList.add('writesList')
       user.item(0).classList.remove('saysHello')
     }
     else if (currentSection.id == 'activate_section') {
-      user.item(0).classList.add('activates')
+      if (currentSectionNumber < 3.5) {
+        user.item(0).classList.add('activates')
+      }else {
+        user.item(0).classList.remove('activates')
+        user.item(0).classList.remove('writesList')
+      }
       list.classList.add('upperRightList')
       user.item(0).classList.remove('saysHello')
     }
@@ -176,10 +200,8 @@ document.addEventListener('DOMContentLoaded', function () {
       if (currentSectionNumber > 6 && currentSectionNumber < 6.3) {
         user.item(0).classList.add('pays')
         console.log('paying')
-      }
-      else{
-                user.item(0).classList.remove('pays')
-
+      }else {
+        user.item(0).classList.remove('pays')
       }
     }else {
       user.item(0).classList.remove('activates')
@@ -196,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function buyProduct () {
     if (this.classList.contains('listproduct')) {
-      listItems[1].classList.add('bought')
+      listItems[0].classList.add('bought')
       this.classList.add('boughtProduct')
     }
     else if (this.classList.contains('spontaniousProduct') && listItems.length < 3) {
