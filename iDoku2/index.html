@@ -11,6 +11,15 @@
 </head>
 
 <body>
+    <div id="preload"><img src="images/kunde_aktiviert.svg" width="0px">
+        <img src="images/kunde_aktiviert.svg" width="0px">
+        <img src="images/kunde_bezahlt.svg" width="0px">
+        <img src="images/kunde_liste.svg" width="0px">
+        <img src="images/kunde_winkt.svg" width="0px">
+        <img src="images/kunde_freut.svg" width="0px">
+
+    </div>
+    </div>
     <ul id="list" class="list">
         <li>Müsli</li>
         <div class="listelement"></div>
@@ -26,10 +35,10 @@
 
     <div class="sectionContainer" id="sectionContainer">
 
-        <section class="active" style="background:rgb(255, 255, 255)" id="home_section">
+        <section class="active outside_background" id="home_section">
 
             <div class="sectionInformation">
-                <h1>Interaktive Dokumentation</h1>
+                <img src="images/logo.svg">
                 <p>Herzlich willkommen zur Projektdokumentation des SmartMarts. <br>
                     Der SmartMart ist ein Internet of Things System, welches in schon bestehende Supermärkte
                     implementiert werden kann. Mit seiner Hilfe können die Kunden einfacher und schneller Einkaufen, da
@@ -44,21 +53,10 @@
 
         </section>
         <section id="start_section" class="outside_background">
-            <div class="sectionInformation">
-                <h1>Einkaufen mit SmartMart</h1>
-                <p>Renee möchte in xies lokalem SmartMart einkaufen gehen. Die gewählte Kategorie des Supermarktes ist
-                    Nachhaltigkeit, was gut zu Renees Lebenseinstellung passt. Da Renee schon des Öfteren im SmartMart
-                    war, weiß xier genau was xier zutun hat.</p>
-                <a>mehr darüber erfahren</a>
-
-            </div>
-
-        </section>
-        <section id="list_section" class="outside_background">
             <div class="moreInformation">
                 <a></a>
                 <div class="content">
-                    <h1>Einkaufsliste</h1>
+                    <h1>Nutzergruppe und Zielgruppe</h1>
                     <p>Unsere Nutzer*innen sind die Kunden*innen im Supermarkt. Sie sind diejenigen, die SmartMart
                         unterstützt und die den Nutzen daraus ziehen. Bezahlen müssen sie das System nicht. Das
                         übernehmen die Supermärkte, welche unsere Kunden sind. Aber warum sollten die Supermärkte sich
@@ -76,7 +74,54 @@
                         verpackten Himbeeren aus Spanien.
 
 
+
                     </p>
+                </div>
+            </div>
+            <div class="sectionInformation">
+                <h1>Einkaufen mit SmartMart</h1>
+                <p>Renee möchte in xies lokalem SmartMart einkaufen gehen. Die gewählte Kategorie des Supermarktes ist
+                    Nachhaltigkeit, was gut zu Renees Lebenseinstellung passt. Da Renee schon des Öfteren im SmartMart
+                    war, weiß xier genau was xier zutun hat.</p>
+                <a>mehr darüber erfahren</a>
+
+            </div>
+
+        </section>
+        <section id="list_section" class="outside_background">
+            <div class="moreInformation">
+                <a></a>
+                <div class="content">
+                    <h1>Die SmartMart App</h1>
+                    <p>Die App ist vorrangig dafür zuständig, um den Nutzer*innen die Möglichkeit zu bieten ihre
+                        Einkaufsliste mit Einkaufswagen/-korb zu synchronisieren. Um dies zu ermöglichen wird den
+                        Nutzern*innen eine Notizfunktion angeboten, in der sie direkt die Liste schreiben können. Durch
+                        eine Anmeldung in der App können sie die Listen auch mit ihrer Familie, der WG oder anderen
+                        ausgewählten Personen teilen, die die App auch installiert haben. Dabei können sie festlegen,
+                        wer welche Berechtigungen hat. So kann beispielsweise das Kind nur Produkte hinzufügen und die
+                        eigens hinzugefügten Produkte entfernen. Dadurch wird verhindert, dass das Kind Blumenkohl von
+                        der Liste streicht, um es nicht zu Mittag essen zu müssen. Zusätzlich wird dem Algorithmus die
+                        Information mitgegeben, dass die Präferenzen des Kindes eine geringere Rolle spielen, als die
+                        des Elternteils. Grundsätzlich werden jedoch die Präferenzen der Person, die das Produkt auf die
+                        Liste geschrieben hat auch für das Produkt angewendet.
+                        Mit der Anmeldung wird zusätzlich gesichert, dass wir auch bei einem Handy-Wechsel die
+                        vergangenen Einkäufe den Personen zuordnen können. Dazu muss gesagt werden, dass wir diese Daten
+                        nicht haben wollen, um sie weiterzuverkaufen, sondern, um den Nutzer*innen einen nahtlosen
+                        Übergang zu ermöglichen. Wir müssten ansonsten bei jedem neuen Gerät wieder von vorne anfangen
+                        zu sammeln, welche Präferenzen die einzelnen Nutzer*innen haben und könnten ihnen nicht ihre
+                        gewünschten Produkte empfehlen.
+
+                        Um die Liste mit dem Einkaufswagen/-korb zu synchronisieren, müssen die Nutzer*innen ihr Handy
+                        über NFC mit dem Wagen/Korb verbinden. Dies geschieht auch über unsere App. Falls das Handy
+                        keine NFC-Schnittschnelle besitzt, gibt es die Möglichkeit einen in der App erstellten QR-Code
+                        vom Wagen scannen zu lassen. Dies dient dazu dem Wagen die ID des/der Nutzer*in mitzuteilen,
+                        sodass sich unsere Anwendung per Internet mit dem Handy verbinden und die Einkaufsliste
+                        verwenden kann. Wenn die Nutzer*innen erstmal von unserer Datenbank erfasst wurden, können sie
+                        in jedem SmartMart mit demselben Komfort einkaufen. Da ihre Daten nicht vom Supermarkt, sondern
+                        von uns gespeichert werden.
+                    </p>
+                    <img src="images/app_mockup.png">
+
                 </div>
             </div>
             <div class="sectionInformation">
@@ -101,22 +146,22 @@
                         diese Weise werden die Präferenzen der Nutzer*innen ermittelt. Dies wiederum wird genutzt, um
                         die Menge an möglichen Produkten, die den Nutzer*innen angezeigt wird bis auf wenige
                         einzugrenzen. Sobald dies geschehen ist, wird aus den Produkten jenes gewählt, welches der vom
-                        Supermarkt gewählten Kategorie am ehesten entspricht.<br><br>
+                        Supermarkt gewählten Kategorie am ehesten entspricht.
 
                         Sollte ein*e Nutzer*in auf der Liste Mehl stehen haben und in Vergangenheit nur
                         Dinkel-Vollkornmehl gekauft haben, so wird ihm/ihr bei der Kategorie Nachhaltigkeit das
-                        nachhaltigste Dinkel-Vollkornmehl empfohlen. <br><br>
+                        nachhaltigste Dinkel-Vollkornmehl empfohlen.
 
                         Bei der Synchronisation des Handys mit dem Wagen/Korb werden die Nutzer*innen zusätzlich gebeten
                         die Bluetooth-Funktion am Handy zu aktivieren. Dies erlaubt es ihnen den Einkaufswagen auch mal
                         stehen zu lassen und ohne diesen Produkte aus den Regalen zu entnehmen oder
-                        zurückzustellen.<br><br>
+                        zurückzustellen.
 
                         Während des Einkaufes, wird virtuell ein Einkaufskorb erstellt, der dem reellen Wagen/Korb
                         des/der Nutzer*in entspricht. Dargestellt wird dieser über den Einkaufszettel. Dort werden in
                         Echtzeit die aus den Regalen entnommenen Produkte gestrichen oder gegebenenfalls hinzugefügt.
                         Somit können die Nutzer jederzeit prüfen, inwieweit sie ihre Liste schon abgefertigt
-                        haben.<br><br>
+                        haben.
 
                         Um die Produkte nach der Kategorie zu sortieren, werden verschiedene Datenbanken angezapft. Im
                         Beispiel der Nachhaltigkeit werden die Produkte nach verschiedenen Kategorien beurteilt.
@@ -128,10 +173,11 @@
                         verarbeiten. Frische Lebensmittel bekommen in ihrer Bewertung einen Bonus, wenn sie in der
                         jeweiligen Region in der Saison sind. Verarbeitete Lebensmittel bekommen Abzüge in der
                         Bewertung, wenn diese Inhaltsstoffe beinhalten, die definitiv umweltschädlich sind und damit auf
-                        unserer roten Liste stehen. Darunter fällt zum Beispiel Palmöl.<br>
+                        unserer roten Liste stehen. Darunter fällt zum Beispiel Palmöl.
                         Sollte der Supermarkt, um ein anderes Beispiel zu nennen, seine Eigenmarke als Kriterium gewählt
                         haben, können wir die Datenbank des Supermarktes selbst verwenden, um die zu empfehlenden
                         Produkte auszuwählen.
+
 
 
                     </p>
@@ -139,9 +185,9 @@
             </div>
             <div class="sectionInformation">
                 <h1>Einkaufswagen aktivieren</h1>
-                <p>Wenn Renee durch den Supermarkt läuft, werden xiem die Produkte durch Licht und eine subtile
-                    Vorwärtsbewegung hervorgehoben. Xier muss nicht mehr darüber nachdenken was auf der Einkaufsliste
-                    steht oder welches Produkt genau xier kaufen soll, um am nachhaltigsten zu sein.
+                <p>Beim Supermarkt angekommen synchronisiert Renee xies Handy per NFC mit unserem System. Im Hintergrund
+                    verarbeitet unsere Anwendung die Liste, gleicht diese mit vergangenen Einkäufen ab und findet
+                    heraus, welches Produkt, dass Renees Wünschen entspricht, am Nachhaltigsten ist.
                 </p>
                 <a>mehr darüber erfahren</a>
 
@@ -184,14 +230,17 @@
                         Produkt bestimmt ist, können wir zuordnen, wer welches Produkt entnommen hat.
 
                     </p>
+                    <img src="images/systemdiagramm.svg">
                 </div>
             </div>
             <div class="sectionInformation">
                 <h1>Einkaufsliste ablaufen</h1>
-                <p>
-                    Das entnommene Produkt wird automatisch von Renees Einkaufsliste gestrichen und im Device des
-                    Einkaufswagens als „im Warenkorb liegend“ registriert. Versuche doch einmal das Produkt vom Regal zu
+                <p>Wenn Renee durch den Supermarkt läuft, werden xiem die Produkte durch Licht und eine subtile
+                    Vorwärtsbewegung hervorgehoben. Xier muss nicht mehr darüber nachdenken was auf der Einkaufsliste
+                    steht oder welches Produkt genau xier kaufen soll, um am nachhaltigsten zu sein.
+                    Das entnommene Produkt wird automatisch von Renees Einkaufsliste gestrichen. Versuche doch einmal das Produkt vom Regal zu
                     nehmen!
+
                 </p>
                 <a>mehr darüber erfahren</a>
 
@@ -244,59 +293,23 @@
                 <a></a>
                 <div class="content">
                     <h1>Einkaufsliste</h1>
-                    <p>Im Einkaufswagen/-korb ist ein Device installiert, welches mit einer Kamera, eine WLAN
-                        Schnittstelle
-                        und einem kleinen Speicher ausgestattet ist. Die Kamera scannt den QR-Code und bekommt darüber
-                        die
-                        Informationen der Liste, aber auch die Informationen, um den Nutzer eindeutig zuzuordnen. Diese
-                        Informationen werden verschlüsselt an unser System geschickt. Dieses analysiert die Einträge und
-                        durchforstet die vergangenen Einkäufe, um das präferierte Produkt des Nutzers herauszufinden.
-                        Wenn
-                        die Auswahl auf wenige Produkte eingegrenzt wurde die sich sehr ähnlich, bis austauschbar sind,
-                        wir
-                        von diesen noch das Produkt gewählt, welches am stärksten zur ausgewählten Kategorie des
-                        Supermarktes passt. Sollte ein Nutzer auf der Liste Mehl stehen haben und in Vergangenheit nur
-                        Dinkel-Vollkornmehl gekauft haben, so wird ihm bei der Kategorie Nachhaltigkeit das
-                        nachhaltigste
-                        Dinkel-Vollkornmehl empfohlen.
-                        Um die Produkte nach der Kategorie zu sortieren, werden verschiedene Datenbanken angezapft. Im
-                        Beispiel der Nachhaltigkeit werden die Produkte nach verschiedenen Kategorien beurteilt.
-                        Darunter
-                        fallen Verpackung, Herkunftsland, Umweltsiegel, Season und Inhaltstoffe.
-
-                    </p>
-                    <p>Bei der Verpackung
-                        achten
-                        wir darauf aus welchem Material diese ist und wieviel Verpackungsmaterial verwendet wurde. Bei
-                        den
-                        Produkten, die ein Herkunftsland angeben achten wir darauf wie viel Strecke das Produkt
-                        zurückgelegt
-                        hat und ob es Übersee transportiert wurde. Die Umweltsiegel spielen insofern eine Rolle, dass
-                        wir
-                        die Kriterien, die es braucht, um das Siegel zu bekommen verarbeiten. Frische Lebensmittel
-                        bekommen
-                        in ihrer Bewertung einen Bonus, wenn sie in der Region in der Season sind und verarbeitete
-                        Lebensmittel bekommen Abzüge in der Bewertung, wenn diese von uns gewählte „Red-Flag“
-                        Inhaltstoffe
-                        beinhalten, die definitiv umweltschädlich sind. Darunter fällt beispielsweise Palmöl.
-                        Wenn der Supermarkt als Kriterium beispielsweise seine Eigenmarke gewählt haben sollte, können
-                        wir
-                        zur Unterscheidung die Datenbank des Supermarktes selbst verwenden.
-                        Bei der Synchronisation der Liste kann vom Nutzer zusätzlich die Bluetooth Funktion am Handy
-                        aktiviert werden, was es ihm erlaubt den Einkaufswagen auch mal stehen zu lassen und ohne diese
-                        Produkte aus den Regalen zu entnehmen oder zurückzustellen.
-                        Zusätzlich wird geprüft, ob das Handy mit dem Internet verbunden ist. Dies ermöglicht das ändern
-                        der
-                        Liste während des Einkaufs. Diese Funktionen/Anforderungen sind zwar nicht notwendig für die
-                        Funktion des Systems, ermöglichen jedoch eine Nutzerfreundlichere Anwendung, da diese mit dem
-                        Blick
-                        aufs Handy dann auch prüfen können, wie viel und was genau sie schon abgehakt haben.
+                    <p>Wenn die Nutzer*innen ein Produkt aus dem Regal nehmen möchte reagiert das System wie, wenn sie
+                        ein Produkt nehmen würden, welches vom Empfohlenen abweicht. Es werden gegebenenfalls besser zur
+                        Präferenz und Kategorie passende Produkte empfohlen.
+                        Über einen Infrarotsensor wird bestimmt ob sich etwas dem Regal auf weniger als 30 Zentimeter
+                        nähert. Da die Infrarotsensoren einen sehr eingeschränkten Radius haben, verwenden wir pro
+                        Unterlage einen Sensor. Somit wissen wir genau, welchem Produkt sich angenähert wird. Über die
+                        Bluetooth-Ortung bestimmen wir, wer gerade ein Produkt entnehmen möchte. Im System wird dann zum
+                        einen verarbeitet welchem Produkt sich angenähert wird, um bessere Alternativen anzeigen zu
+                        können. Dabei werden die 3 passendsten Produkte empfohlen. Das Beste wird 15 Zentimeter
+                        herausgefahren und durch Farbe und Symbol des/der Nutzer*in gekennzeichnet, die restlichen zwei
+                        werden fahren 5 Zentimeter weniger aus dem Regal heraus.
 
                     </p>
                 </div>
             </div>
             <div class="sectionInformation">
-                <h1>spontane Einkäufe erledigen</h1>
+                <h1>Spontane Einkäufe erledigen</h1>
                 <p>Spontan ist Renee noch eingefallen, dass xiem der Kaffee fast ausgegangen ist. Xier entscheidet sich
                     spontan dazu den Kaffee zu kaufen. Als sich Renee dem Kaffee nähert und nach einem Produkt greifen
                     möchte, werden xiem nachhaltigere Alternativen empfohlen. Welchen Kaffee soll Renee kaufen?</p>
@@ -344,61 +357,7 @@
             </div>
         </section>
         <section id="checkout_section" class="checkout_background">
-            <div class="moreInformation">
-                <a></a>
-                <div class="content">
-                    <h1>Einkaufsliste</h1>
-                    <p>Im Einkaufswagen/-korb ist ein Device installiert, welches mit einer Kamera, eine WLAN
-                        Schnittstelle
-                        und einem kleinen Speicher ausgestattet ist. Die Kamera scannt den QR-Code und bekommt darüber
-                        die
-                        Informationen der Liste, aber auch die Informationen, um den Nutzer eindeutig zuzuordnen. Diese
-                        Informationen werden verschlüsselt an unser System geschickt. Dieses analysiert die Einträge und
-                        durchforstet die vergangenen Einkäufe, um das präferierte Produkt des Nutzers herauszufinden.
-                        Wenn
-                        die Auswahl auf wenige Produkte eingegrenzt wurde die sich sehr ähnlich, bis austauschbar sind,
-                        wir
-                        von diesen noch das Produkt gewählt, welches am stärksten zur ausgewählten Kategorie des
-                        Supermarktes passt. Sollte ein Nutzer auf der Liste Mehl stehen haben und in Vergangenheit nur
-                        Dinkel-Vollkornmehl gekauft haben, so wird ihm bei der Kategorie Nachhaltigkeit das
-                        nachhaltigste
-                        Dinkel-Vollkornmehl empfohlen.
-                        Um die Produkte nach der Kategorie zu sortieren, werden verschiedene Datenbanken angezapft. Im
-                        Beispiel der Nachhaltigkeit werden die Produkte nach verschiedenen Kategorien beurteilt.
-                        Darunter
-                        fallen Verpackung, Herkunftsland, Umweltsiegel, Season und Inhaltstoffe.
 
-                    </p>
-                    <p>Bei der Verpackung
-                        achten
-                        wir darauf aus welchem Material diese ist und wieviel Verpackungsmaterial verwendet wurde. Bei
-                        den
-                        Produkten, die ein Herkunftsland angeben achten wir darauf wie viel Strecke das Produkt
-                        zurückgelegt
-                        hat und ob es Übersee transportiert wurde. Die Umweltsiegel spielen insofern eine Rolle, dass
-                        wir
-                        die Kriterien, die es braucht, um das Siegel zu bekommen verarbeiten. Frische Lebensmittel
-                        bekommen
-                        in ihrer Bewertung einen Bonus, wenn sie in der Region in der Season sind und verarbeitete
-                        Lebensmittel bekommen Abzüge in der Bewertung, wenn diese von uns gewählte „Red-Flag“
-                        Inhaltstoffe
-                        beinhalten, die definitiv umweltschädlich sind. Darunter fällt beispielsweise Palmöl.
-                        Wenn der Supermarkt als Kriterium beispielsweise seine Eigenmarke gewählt haben sollte, können
-                        wir
-                        zur Unterscheidung die Datenbank des Supermarktes selbst verwenden.
-                        Bei der Synchronisation der Liste kann vom Nutzer zusätzlich die Bluetooth Funktion am Handy
-                        aktiviert werden, was es ihm erlaubt den Einkaufswagen auch mal stehen zu lassen und ohne diese
-                        Produkte aus den Regalen zu entnehmen oder zurückzustellen.
-                        Zusätzlich wird geprüft, ob das Handy mit dem Internet verbunden ist. Dies ermöglicht das ändern
-                        der
-                        Liste während des Einkaufs. Diese Funktionen/Anforderungen sind zwar nicht notwendig für die
-                        Funktion des Systems, ermöglichen jedoch eine Nutzerfreundlichere Anwendung, da diese mit dem
-                        Blick
-                        aufs Handy dann auch prüfen können, wie viel und was genau sie schon abgehakt haben.
-
-                    </p>
-                </div>
-            </div>
             <div class="sectionInformation">
                 <h1>Bezahlvorgang</h1>
                 <p>Da der gesamte Einkauf im Device des Einkaufswagens vermerkt ist, muss Renee die Produkte nicht mehr
@@ -409,70 +368,17 @@
             </div>
         </section>
         <section id="finished_section" class="outside_background">
-            <div class="moreInformation">
-                <a></a>
-                <div class="content">
-                    <h1>Einkaufsliste</h1>
-                    <p>Im Einkaufswagen/-korb ist ein Device installiert, welches mit einer Kamera, eine WLAN
-                        Schnittstelle
-                        und einem kleinen Speicher ausgestattet ist. Die Kamera scannt den QR-Code und bekommt darüber
-                        die
-                        Informationen der Liste, aber auch die Informationen, um den Nutzer eindeutig zuzuordnen. Diese
-                        Informationen werden verschlüsselt an unser System geschickt. Dieses analysiert die Einträge und
-                        durchforstet die vergangenen Einkäufe, um das präferierte Produkt des Nutzers herauszufinden.
-                        Wenn
-                        die Auswahl auf wenige Produkte eingegrenzt wurde die sich sehr ähnlich, bis austauschbar sind,
-                        wir
-                        von diesen noch das Produkt gewählt, welches am stärksten zur ausgewählten Kategorie des
-                        Supermarktes passt. Sollte ein Nutzer auf der Liste Mehl stehen haben und in Vergangenheit nur
-                        Dinkel-Vollkornmehl gekauft haben, so wird ihm bei der Kategorie Nachhaltigkeit das
-                        nachhaltigste
-                        Dinkel-Vollkornmehl empfohlen.
-                        Um die Produkte nach der Kategorie zu sortieren, werden verschiedene Datenbanken angezapft. Im
-                        Beispiel der Nachhaltigkeit werden die Produkte nach verschiedenen Kategorien beurteilt.
-                        Darunter
-                        fallen Verpackung, Herkunftsland, Umweltsiegel, Season und Inhaltstoffe.
 
-                    </p>
-                    <p>Bei der Verpackung
-                        achten
-                        wir darauf aus welchem Material diese ist und wieviel Verpackungsmaterial verwendet wurde. Bei
-                        den
-                        Produkten, die ein Herkunftsland angeben achten wir darauf wie viel Strecke das Produkt
-                        zurückgelegt
-                        hat und ob es Übersee transportiert wurde. Die Umweltsiegel spielen insofern eine Rolle, dass
-                        wir
-                        die Kriterien, die es braucht, um das Siegel zu bekommen verarbeiten. Frische Lebensmittel
-                        bekommen
-                        in ihrer Bewertung einen Bonus, wenn sie in der Region in der Season sind und verarbeitete
-                        Lebensmittel bekommen Abzüge in der Bewertung, wenn diese von uns gewählte „Red-Flag“
-                        Inhaltstoffe
-                        beinhalten, die definitiv umweltschädlich sind. Darunter fällt beispielsweise Palmöl.
-                        Wenn der Supermarkt als Kriterium beispielsweise seine Eigenmarke gewählt haben sollte, können
-                        wir
-                        zur Unterscheidung die Datenbank des Supermarktes selbst verwenden.
-                        Bei der Synchronisation der Liste kann vom Nutzer zusätzlich die Bluetooth Funktion am Handy
-                        aktiviert werden, was es ihm erlaubt den Einkaufswagen auch mal stehen zu lassen und ohne diese
-                        Produkte aus den Regalen zu entnehmen oder zurückzustellen.
-                        Zusätzlich wird geprüft, ob das Handy mit dem Internet verbunden ist. Dies ermöglicht das ändern
-                        der
-                        Liste während des Einkaufs. Diese Funktionen/Anforderungen sind zwar nicht notwendig für die
-                        Funktion des Systems, ermöglichen jedoch eine Nutzerfreundlichere Anwendung, da diese mit dem
-                        Blick
-                        aufs Handy dann auch prüfen können, wie viel und was genau sie schon abgehakt haben.
-
-                    </p>
-                </div>
-            </div>
             <div class="sectionInformation">
                 <h1>Geschafft!</h1>
                 <p>So schnell kann ein Einkauf gehen!
                     Wir hoffen dir hat der Einkauf mit Renee gefallen.
+                    Ein Projekt von Matthias Dietrich, Charlotte Großmann, Aileen Bo Hededam und Jonathan Mader
                 </p>
                 <a>mehr darüber erfahren</a>
 
             </div>
-            <div class="credits">ein Projekt von Matthias Dietrich, Charlotte Großmann, Aileen Bo Hededam und Jonathan Mader</div>
+
 
         </section>
     </div>

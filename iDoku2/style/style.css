@@ -138,7 +138,6 @@ body {
     margin: 0px;
     padding: 0px;
     padding-left: -50vw;
-    background: rgb(238, 238, 238);
 }
 
 .reached {}
@@ -168,7 +167,6 @@ section a {}
     padding: 4vw;
     padding-left: 6vw;
     padding-right: 6vw;
-    border-radius: 1.5vw;
     font-weight: bold;
     text-align: center;
 }
@@ -256,6 +254,12 @@ nav .active {
     transition: all 0.2s ease-out;
 }
 
+.moreInformation img{
+    width:100vw;
+    margin-left:-10vw;
+}
+
+
 .visible {
     display: block;
     opacity: 0;
@@ -316,6 +320,10 @@ nav .active {
     -o-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
 }
+
+
+
+
 
 
 
@@ -440,15 +448,29 @@ ul li:last-child {
     background-image: url("../images/kunde_bezahlt.svg");
 }
 
+.finished {
+    background-image: url("../images/kunde_freut.svg");
+}
+
 section:first-child {
     z-index: 260;
 }
 
+section:first-child .sectionInformation{
+    position:absolute;
+}
+
 section:first-child a{
-    background:rgb(150, 207, 150);
+    background:rgb(24,139, 112);
+    color:white;
 
 }
 
+
+section:first-child img{
+width:50vw;
+margin-left:15vw;
+}
 .absoluteBasket {
     position: absolute;
     width: 100vw;
@@ -471,7 +493,7 @@ section:first-child a{
 .shelves {
     width: 90vw;
     height: 25vh;
-    background: rgb(202, 202, 202);
+    background: rgb(216, 216, 216);
     left: 5vw;
     position: absolute;
     bottom: 0px;
@@ -481,7 +503,7 @@ section:first-child a{
     width: 90%;
     margin-left: 5%;
     margin-top: 5%;
-    background: rgb(177, 177, 177);
+    background: rgb(185, 185, 185);
     height: 30%;
     display: flex;
     justify-content: space-evenly;
@@ -542,8 +564,12 @@ section:first-child a{
     animation-delay: 0.2s;
 }
 
+.payed{
+    top:-50vw;
+}
 
 .supermarket_background {
+    background-color:rgb(243, 243, 243);
     background-image: url("../images/hintergrund_markt.svg");
     background-size: cover;
     background-repeat: repeat-x;
@@ -551,6 +577,7 @@ section:first-child a{
 }
 
 .checkout_background {
+    background-color:rgb(243, 243, 243);
     background-image: url("../images/kasse.svg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -559,11 +586,21 @@ section:first-child a{
 }
 
 .outside_background {
-    background-color: rgb(150, 207, 150);
+    background-color: rgb(156, 209, 184);
     background-image: url("../images/hintergrund_aussen.svg");
     background-size: cover;
     background-repeat: repeat-x;
     background-size: 100% auto;
+}
+
+.start_background {
+    background-color: rgb(255, 255, 255);
+    background-image: url("../images/abstrakt.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position:right top;
+
 }
 
 @media only screen and (min-width: 600px) {
@@ -591,6 +628,13 @@ section:first-child a{
     }
     .sectionInformation {
         margin-top: 12vh;
+    }
+
+    
+section:first-child img{
+    width:20vw;
+    margin-left:0px;
+    margin-bottom:0px;
     }
     .user {
         height: 35vh;
@@ -630,7 +674,6 @@ section:first-child a{
         padding: 1vw;
         padding-left: 2vw;
         padding-right: 2vw;
-        border-radius: 0.4vw;
         transition: all 0.2s ease-out;
     }
     .active .sectionInformation a {
@@ -640,6 +683,13 @@ section:first-child a{
         cursor: pointer;
         background-size: auto 60%;
     }
+
+    section .moreInformation img{
+        width:60vw;
+        margin-left:0px;
+    }
+    
+
     section .sectionInformation a:hover {
         color: white;
         background: black;
@@ -661,5 +711,10 @@ section:first-child a{
     }
     .moreInformation .content p {
         width: 45vw;
+    }
+
+    .start_background {
+        background-size: 50% auto;
+    
     }
 }

@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // sections
   var saveX = 0
+  var notBoughtYet = true
   const sections = document.getElementsByTagName('section')
   const sectionContainer = document.getElementById('sectionContainer')
   const spontaniousShoppingSection = document.getElementById('spontaniousshopping_section')
@@ -168,25 +169,52 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (currentSection.id == 'home_section') {
+            list.classList.remove('payed')
+
+      user.item(0).classList.remove('finished')
+      user.item(0).classList.remove('pays')
+
       user.item(0).classList.add('hide')
-      user.item(0).classList.remove('saysHello')
     }
     else if (currentSection.id == 'start_section') {
+            list.classList.remove('payed')
+
+      user.item(0).classList.remove('finished')
+      user.item(0).classList.remove('pays')
+
       user.item(0).classList.remove('hide')
       user.item(0).classList.add('saysHello')
       user.item(0).classList.remove('writesList')
       list.classList.remove('showList')
     }
     else if (currentSection.id == 'list_section') {
+            list.classList.remove('payed')
+
+      user.item(0).classList.remove('hide')
+
+      user.item(0).classList.remove('pays')
+
+      user.item(0).classList.remove('finished')
+
+      if (currentSectionNumber > 2.2) {
+        list.classList.add('showList')
+      }
       user.item(0).classList.remove('activates')
       user.item(0).classList.remove('saysHello')
-      list.classList.add('showList')
 
       list.classList.remove('upperRightList')
       user.item(0).classList.add('writesList')
       user.item(0).classList.remove('saysHello')
     }
     else if (currentSection.id == 'activate_section') {
+            list.classList.remove('payed')
+
+      if (list.classList.contains('showList') == false) {
+        list.classList.add('showList')
+      }
+
+      user.item(0).classList.remove('hide')
+
       if (currentSectionNumber < 3.5) {
         user.item(0).classList.add('activates')
       }else {
@@ -197,15 +225,42 @@ document.addEventListener('DOMContentLoaded', function () {
       user.item(0).classList.remove('saysHello')
     }
     else if (currentSection.id == 'checkout_section') {
+      if (list.classList.contains('showList') == false) {
+        list.classList.add('showList')
+      }
+      list.classList.add('payed')
+      user.item(0).classList.remove('hide')
+
+      user.item(0).classList.remove('finished')
+
       if (currentSectionNumber > 6 && currentSectionNumber < 6.3) {
         user.item(0).classList.add('pays')
         console.log('paying')
       }else {
         user.item(0).classList.remove('pays')
       }
+    }
+    else if (currentSection.id == 'finished_section') {
+      list.classList.add('payed')
+
+      if (list.classList.contains('showList') == false) {
+        list.classList.add('showList')
+      }
+      user.item(0).classList.remove('hide')
+
+      user.item(0).classList.add('finished')
+      user.item(0).classList.remove('pays')
     }else {
+      if (list.classList.contains('showList') == false) {
+        list.classList.add('showList')
+      }
+      list.classList.remove('payed')
+
+      user.item(0).classList.remove('finished')
       user.item(0).classList.remove('activates')
       user.item(0).classList.remove('writesList')
+      user.item(0).classList.remove('pays')
+
       list.classList.add('upperRightList')
       user.item(0).classList.remove('saysHello')
     }
@@ -221,9 +276,10 @@ document.addEventListener('DOMContentLoaded', function () {
       listItems[0].classList.add('bought')
       this.classList.add('boughtProduct')
     }
-    else if (this.classList.contains('spontaniousProduct') && listItems.length < 3) {
+    else if (this.classList.contains('spontaniousProduct') && notBoughtYet) {
       this.classList.add('boughtProduct')
       list.appendChild(newListItem)
+      notBoughtYet = false
     }
   }
 
