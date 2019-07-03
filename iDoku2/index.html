@@ -1,3 +1,12 @@
+<!-- 
+    Muss noch gemacht werden:
+    Renee hat beim Bezahlen 2 rechte Hände
+
+    Vibration + Blink Synch rein?
+    Renee taucht nicht auf, wenn man vorspringt
+
+
+ -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" media="screen" href="style/style.css">
     <script src="js/main.js"></script>
-    <title>Document</title>
+    <title>iDoku SmartMart</title>
 </head>
 
 <body>
@@ -42,11 +51,10 @@
                 <p>Herzlich willkommen zur Projektdokumentation des SmartMarts. <br>
                     Der SmartMart ist ein Internet of Things System, welches in schon bestehende Supermärkte
                     implementiert werden kann. Mit seiner Hilfe können die Kunden einfacher und schneller Einkaufen, da
-                    der SmartMart ihnen die passenden Produkte zu ihrer Einkaufsliste empfiehlt. Die passenden Produkte
-                    werden vor allem nach den individuellen Präferenzen der Kunden ausgewählt.
+                    der SmartMart ihnen ihre präferierten Produkte zu ihrer Einkaufsliste empfiehlt. 
 
                 </p>
-                <a>Rundgang beginnen</a>
+                <a>Rundgang beginnen -></a>
 
 
 
@@ -140,31 +148,31 @@
                 <div class="content">
                     <h1>Die Synchronisation des Einkaufswagens</h1>
                     <img src="images/wagen_durchsichtig.PNG">
-                    <p>Im Einkaufswagen/-korb ist ein Device installiert, welches mit einer Kamera, einer WLAN
-                        Schnittstelle und einem NFC-Token ausgestattet ist. Die Kamera scannt, falls ein Handy NFC nicht
-                        unterstützt einen in der App generierten QR-Code und bekommt darüber die Informationen, um die
-                        jeweiligen Nutzer*innen eindeutig zuordnen zu können. Unser System liest die
+                    <p>Im Einkaufswagen/-korb ist ein Device installiert, welches mit einer Kamera, einem Mikrocontroller 
+                        mit WLAN Schnittstelle, Vibrationsmotor und einem NFC-Token ausgestattet ist. Die Kamera scannt, 
+                        falls ein Handy NFC nicht unterstützt einen in der App generierten QR-Code und bekommt darüber 
+                        die Informationen, um die jeweiligen Nutzer*innen eindeutig zuordnen zu können. Unser System liest die
                         Einkaufslisten-Einträge aus und durchforstet darauf basierend die vergangenen Einkäufe. Auf
                         diese Weise werden die Präferenzen der Nutzer*innen ermittelt. Dies wiederum wird genutzt, um
                         die Menge an möglichen Produkten, die den Nutzer*innen angezeigt wird bis auf wenige
                         einzugrenzen. Sobald dies geschehen ist, wird aus den Produkten jenes gewählt, welches der vom
-                        Supermarkt gewählten Kategorie am ehesten entspricht.
+                        Supermarkt gewählten Kategorie am ehesten entspricht.<br><br>
 
                         Sollte ein*e Nutzer*in auf der Liste Mehl stehen haben und in Vergangenheit nur
                         Dinkel-Vollkornmehl gekauft haben, so wird ihm/ihr bei der Kategorie Nachhaltigkeit das
-                        nachhaltigste Dinkel-Vollkornmehl empfohlen.
+                        nachhaltigste Dinkel-Vollkornmehl empfohlen.<br><br>
 
                         Bei der Synchronisation des Handys mit dem Wagen/Korb werden die Nutzer*innen zusätzlich gebeten
                         die Bluetooth-Funktion am Handy zu aktivieren. Dies erlaubt es ihnen den Einkaufswagen auch mal
                         stehen zu lassen und ohne diesen Produkte aus den Regalen zu entnehmen oder
-                        zurückzustellen.
+                        zurückzustellen.<br><br>
 
                         Während des Einkaufes, wird virtuell ein Einkaufskorb erstellt, der dem reellen Wagen/Korb
                         des/der Nutzer*in entspricht. Dargestellt wird dieser über den Einkaufszettel. Dort werden in
                         Echtzeit die aus den Regalen entnommenen Produkte gestrichen oder gegebenenfalls hinzugefügt.
                         Somit können die Nutzer jederzeit prüfen, inwieweit sie ihre Liste schon abgefertigt
                         haben.
-
+                        <br><br>
                         Um die Produkte nach der Kategorie zu sortieren, werden verschiedene Datenbanken angezapft. Im
                         Beispiel der Nachhaltigkeit werden die Produkte nach verschiedenen Kategorien beurteilt.
                         Darunter fallen Verpackung, Herkunftsland, Umweltsiegel, Saison und Inhaltsstoffe. Bei der
@@ -175,7 +183,7 @@
                         verarbeiten. Frische Lebensmittel bekommen in ihrer Bewertung einen Bonus, wenn sie in der
                         jeweiligen Region in der Saison sind. Verarbeitete Lebensmittel bekommen Abzüge in der
                         Bewertung, wenn diese Inhaltsstoffe beinhalten, die definitiv umweltschädlich sind und damit auf
-                        unserer roten Liste stehen. Darunter fällt zum Beispiel Palmöl.
+                        unserer roten Liste stehen. Darunter fällt zum Beispiel Palmöl.<br>
                         Sollte der Supermarkt, um ein anderes Beispiel zu nennen, seine Eigenmarke als Kriterium gewählt
                         haben, können wir die Datenbank des Supermarktes selbst verwenden, um die zu empfehlenden
                         Produkte auszuwählen.
@@ -202,40 +210,49 @@
                 <a></a>
                 <div class="content">
                     <h1>Ortung des Kunden im Supermarkt</h1>
-                    <p>Unser System weiß wann es welche Produkte hervorheben soll, da wir die Nutzer*innen über das
-                        Device im Einkaufswagen/-korb im Supermarkt in Echtzeit orten. Dafür benutzen wir
-                        Bluetooth-Beacons. In jedem Einkaufswagen/-korb befindet sich ein Sender, welcher ein Signal an
-                        die Beacons im Supermarkt sendet. Die Empfänger befinden sich im Supermarkt an der Decke, um
-                        einen möglichst ununterbrochenen Weg zwischen Sender und Empfänger zu gewährleisten und so die
-                        Signalstärke nicht künstlich zu schwächen. Das Signal der Sender wird von den Empfängern
-                        aufgenommen. Durch die Signalstärke zu den verschiedenen Empfängern kann die Position der
-                        Nutzer*innen ermittelt werden.</p>
+                    <p>Unser System weiß wann es welche Produkte hervorheben soll, da wir die Nutzer*innen über das 
+                        Device im Einkaufswagen/-korb im Supermarkt in Echtzeit orten. Dafür benutzen wir Bluetooth-Beacons. 
+                        In jedem Einkaufswagen/-korb befindet sich ein Sender, welcher ein Signal an die Beacons im Supermarkt sendet. 
+                        Die Empfänger befinden sich im Supermarkt an der Decke, um einen möglichst ununterbrochenen Weg zwischen Sender 
+                        und Empfänger zu gewährleisten und so die Signalstärke nicht künstlich zu schwächen. Das Signal der Sender wird 
+                        von den Empfängern aufgenommen. Durch die Signalstärke zu den verschiedenen Empfängern kann die Position der Nutzer*innen 
+                        ermittelt werden.</p>
 
 
                     <h1>Hervorhebung der Produkte</h1>
                     <p>
-                        Sobald sich ein/e Nutzer*in einem Regal bis auf 3 Meter nähert,
-                        wird das vom System registriert. Wenn sich der/die Nutzer*in der Produktkategorie (zum Beispiel
-                        Mehl) auf 2 Meter nähert wird das für ihn/sie empfohlene Produkt hervorgehoben.
-                        Das Produkt fährt dabei um 15 Zentimeter aus dem Regal heraus.Zusätzlich wird der
-                        durchsichtige Rahmen des elektronischen Preisschildes von hinten mit einer farbigen LED
-                        beleuchtet. Das Preisschild zeigt zusätzlich ein Symbol an.
+                        Sobald sich ein/e Nutzer*in einem Regal bis auf 3 Meter nähert, wird das vom System registriert. Wenn sich 
+                        der/die Nutzer*in der Produktkategorie (zum Beispiel Mehl) auf 2 Meter nähert wird das für ihn/sie empfohlene 
+                        Produkt hervorgehoben.<br>Das Produkt fährt dabei um 15 Zentimeter aus dem Regal heraus. Zusätzlich wird der 
+                        durchsichtige Rahmen des elektronischen Preisschildes von hinten mit einer farbigen LED rhythmisch beleuchtet.
+                            
                     </p>
                     <img src="images/sign_colors.png">
 
                     <p>
-                        Dies dient dazu die Produkte den Besitzer*innen zuordnen zu können. Die Farbe und das Symbol
-                        werden auch am Einkaufswagen/-korb dargestellt. Die Symbole sind auf die Auswahlkategorie
-                        angepasst. Bei den Farben halten wir uns an klar unterscheidbare Farben. Durch die Verbindung
-                        von recht wenigen Farben mit vielen unterschiedlichen Symbolen, lassen sich die Produkte auch
-                        bei vielen Nutzern voneinander unterscheiden. Als Farben verwenden wir cyan, blau, grün, violett
-                        und gelb.
-                        Im Beispiel Nachhaltigkeit verwenden wir Symbole die wie folgt aussehen:
-                        Die Liste würde natürlich stark erweitert werden.
+                        Dies dient dazu die Produkte den Besitzer*innen zuordnen zu können. Farbe und Rhythmus werden auch am Einkaufswagen/-korb 
+                        dargestellt. Als Farben verwenden wir cyan, blau, grün, violett und gelb. Die Auswahl viel auf diese, da wir Farben nehmen 
+                        wollten, die klar voneinander unterscheidbar sind. Dabei ließen wir rot-stichige Farben außen vor, da diese als Signalfarbe 
+                        eine warnende Wirkung  haben.
                         Um die Produkte aus dem Regal herausfahren zu lassen, bauen wir in die schon bestehende
                         Supermarktregale unsere Technik ein. Dabei stellen wir jede Produktreihe auf eine bewegliche
                         Unterlage, die wir einzeln gezielt ansteuern können. Über Motoren werden die Produkte dann
-                        gegebenenfalls nach vorne gefahren.
+                        gegebenenfalls nach vorne gefahren.<br>
+                        Für die Blinkmuster erstellen wir eine Auswahl an klar voneinander unterscheidbaren Rhythmen. Sollten sich mehrere Kunden 
+                        innerhalb eines Ganges befinden, werden zuerst die am besten unterscheidbaren Rhythmen gewählt und den Personen und den 
+                        dazugehörigen Produkten jeweils ein Rhythmus zugeteilt. Die Nutzer*innen bekommen den Rhythmus über eine leichte Vibration 
+                        am Griff des Wagens/Korbs synchron mitgeteilt und können so ihr Produkt unter den verschiedenen unterscheiden. Wenn die Nutzer*innen 
+                        ihren Einkauf erledigt haben, wird ihnen dies über eine ein-sekündige und stärkere Vibration angezeigt.  <br> 
+                        Die Rhythmen erstrecken sich über 2 Sekunden und werden ohne unterbrechung geloopt. 
+                        Als Beispiel 4 verschiedene Rhythmen: 
+                    </p>
+                    <img style="width:300px;" src="images/blink_rhythm.png">
+
+                    <p>   
+                        Um die Produkte aus dem Regal herausfahren zu lassen, bauen wir in die schon bestehende 
+                        Supermarktregale unsere Technik ein. Dabei stellen wir jede Produktreihe auf eine bewegliche Unterlage, die wir einzeln gezielt 
+                        ansteuern können. Über Motoren werden die Produkte dann gegebenenfalls nach vorne gefahren.
+
                     </p>
                     <img src="images/mechanismus.PNG">
                     <p> Über Gewichtssensoren in den Unterlagen überprüfen wir, ob ein Produkt entnommen oder
@@ -253,9 +270,8 @@
                 <p>Wenn Renee durch den Supermarkt läuft, werden xiem die Produkte durch Licht und eine subtile
                     Vorwärtsbewegung hervorgehoben. Xier muss nicht mehr darüber nachdenken was auf der Einkaufsliste
                     steht oder welches Produkt genau xier kaufen soll, um am nachhaltigsten zu sein.
-                    Das entnommene Produkt wird automatisch von Renees Einkaufsliste gestrichen. Versuche doch einmal
-                    das Produkt vom Regal zu
-                    nehmen!
+                    Das entnommene Produkt wird automatisch von Renees Einkaufsliste gestrichen. 
+                    <br>Versuche doch einmal das Produkt vom Regal zu nehmen!
 
                 </p>
                 <a>mehr darüber erfahren</a>
@@ -309,17 +325,18 @@
                 <a></a>
                 <div class="content">
                     <h1>Spontane Käufe</h1>
-                    <p>Wenn die Nutzer*innen ein Produkt aus dem Regal nehmen möchte reagiert das System wie, wenn sie
-                        ein Produkt nehmen würden, welches vom Empfohlenen abweicht. Es werden gegebenenfalls besser zur
-                        Präferenz und Kategorie passende Produkte empfohlen.
-                        Über einen Infrarotsensor wird bestimmt ob sich etwas dem Regal auf weniger als 30 Zentimeter
-                        nähert. Da die Infrarotsensoren einen sehr eingeschränkten Radius haben, verwenden wir pro
-                        Unterlage einen Sensor. Somit wissen wir genau, welchem Produkt sich angenähert wird. Über die
-                        Bluetooth-Ortung bestimmen wir, wer gerade ein Produkt entnehmen möchte. Im System wird dann zum
-                        einen verarbeitet welchem Produkt sich angenähert wird, um bessere Alternativen anzeigen zu
-                        können. Dabei werden die 3 passendsten Produkte empfohlen. Das Beste wird 15 Zentimeter
-                        herausgefahren und durch Farbe und Symbol des/der Nutzer*in gekennzeichnet, die restlichen zwei
-                        werden fahren 5 Zentimeter weniger aus dem Regal heraus.
+                    <p>Wenn die Nutzer*innen ein Produkt aus dem Regal nehmen möchte reagiert das System wie, wenn sie 
+                        ein Produkt nehmen würden, welches vom Empfohlenen abweicht. Es werden gegebenenfalls besser 
+                        zur Präferenz und Kategorie passende Produkte empfohlen.
+                        Über einen Infrarotsensor wird bestimmt ob sich etwas dem Regal auf weniger als 30 
+                        Zentimeter nähert. Da die Infrarotsensoren einen sehr eingeschränkten Radius haben, verwenden 
+                        wir pro Unterlage einen Sensor. Somit wissen wir genau, welchem Produkt sich angenähert wird. 
+                        Über die Bluetooth-Ortung bestimmen wir, wer gerade ein Produkt entnehmen möchte. Im System wird 
+                        dann zum einen verarbeitet welchem Produkt sich angenähert wird, um bessere Alternativen anzeigen 
+                        zu können. Dabei werden die 3 passendsten Produkte empfohlen. Das Beste wird 15 Zentimeter 
+                        herausgefahren und durch Farbe und Blinkmuster des/der Nutzer*in gekennzeichnet, die restlichen 
+                        zwei werden fahren 5 Zentimeter weniger aus dem Regal heraus
+                            
 
                     </p>
                 </div>
@@ -386,8 +403,8 @@
 
             <div class="sectionInformation">
                 <h1>Geschafft!</h1>
-                <p>So schnell kann ein Einkauf gehen!
-                    Wir hoffen dir hat der Einkauf mit Renee gefallen.
+                <p>So schnell kann ein Einkauf gehen!<br>
+                    Wir hoffen dir hat der Einkauf mit Renee gefallen.<br>
                     Ein Projekt von Matthias Dietrich, Charlotte Großmann, Aileen Bo Hededam und Jonathan Mader
                 </p>
 
