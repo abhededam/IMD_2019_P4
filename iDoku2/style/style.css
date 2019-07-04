@@ -96,7 +96,6 @@
     0% {
         transform: translate(0px, 400px)
     }
-
     100% {
         transform: translate(0px, 0px)
     }
@@ -106,8 +105,8 @@
     0% {
         transform: scale(1.0)
     }
-    80%{
-        transform:scale(1.1)
+    80% {
+        transform: scale(1.1)
     }
     100% {
         transform: scale(1.0)
@@ -254,11 +253,10 @@ nav .active {
     transition: all 0.2s ease-out;
 }
 
-.moreInformation img{
-    width:100vw;
-    margin-left:-10vw;
+.moreInformation img {
+    width: 100vw;
+    margin-left: -10vw;
 }
-
 
 .visible {
     display: block;
@@ -321,14 +319,8 @@ nav .active {
     transition: all 1s ease-in-out;
 }
 
-
-
-
-
-
-
-.showList{
-    display:flex;
+.showList {
+    display: flex;
     animation-timing-function: ease-in-out;
     /* or: ease, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) */
     animation-fill-mode: both;
@@ -358,8 +350,6 @@ nav .active {
     transition: all 0.4s ease-in-out;
     text-align: center;
 }
-
-
 
 ul li:last-child {
     display: none;
@@ -456,21 +446,20 @@ section:first-child {
     z-index: 260;
 }
 
-section:first-child .sectionInformation{
-    position:absolute;
+section:first-child .sectionInformation {
+    position: absolute;
 }
 
-section:first-child a{
-    background:rgb(24,139, 112);
-    color:white;
-
+section:first-child a {
+    background: rgb(24, 139, 112);
+    color: white;
 }
 
-
-section:first-child img{
-width:50vw;
-margin-left:15vw;
+section:first-child img {
+    width: 50vw;
+    margin-left: 15vw;
 }
+
 .absoluteBasket {
     position: absolute;
     width: 100vw;
@@ -533,7 +522,7 @@ margin-left:15vw;
     height: 70%;
 }
 
-.buyable{
+.buyable {
     cursor: pointer;
 }
 
@@ -564,12 +553,12 @@ margin-left:15vw;
     animation-delay: 0.2s;
 }
 
-.payed{
-    top:-50vw;
+.payed {
+    top: -50vw;
 }
 
 .supermarket_background {
-    background-color:rgb(243, 243, 243);
+    background-color: rgb(243, 243, 243);
     background-image: url("../images/hintergrund_markt.svg");
     background-size: cover;
     background-repeat: repeat-x;
@@ -577,7 +566,7 @@ margin-left:15vw;
 }
 
 .checkout_background {
-    background-color:rgb(243, 243, 243);
+    background-color: rgb(243, 243, 243);
     background-image: url("../images/kasse.svg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -599,9 +588,66 @@ margin-left:15vw;
     background-size: contain;
     background-repeat: no-repeat;
     background-size: 100% auto;
-    background-position:right top;
+    background-position: right top;
+}
+
+.active .sectionInformation a {
+    pointer-events: all;
+}
+
+.sectionInformation a {
+    pointer-events: none;
+}
+
+.navigation_buttons {
+    position: fixed;
+    width: 80vw;
+    margin-left: 10vw;
+    height: 25vh;
+    z-index: 300;
+    bottom: 0px;
+}
+
+.navigation_buttons button {
+    position: absolute;
+    font-size: 2.3vh;
+    border: none;
+    width: 6vw;
+    height: 6vw;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("../images/arrow.svg");
+    background-size: 80% auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: all 0.2s ease-out;
 
 }
+
+.navigation_buttons button:hover{
+    background-size: 100% auto;
+    cursor: pointer;
+
+
+}
+
+.navigation_buttons .last {
+    left: 0px;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.navigation_buttons .next {
+    right: 0px;
+}
+
+.buttonNotActive{
+    opacity:0;
+}
+
+.hideStuff{
+    opacity:0;
+}
+
 
 @media only screen and (min-width: 600px) {
     nav {
@@ -629,12 +675,10 @@ margin-left:15vw;
     .sectionInformation {
         margin-top: 12vh;
     }
-
-    
-section:first-child img{
-    width:20vw;
-    margin-left:0px;
-    margin-bottom:0px;
+    section:first-child img {
+        width: 20vw;
+        margin-left: 0px;
+        margin-bottom: 0px;
     }
     .user {
         height: 35vh;
@@ -676,20 +720,14 @@ section:first-child img{
         padding-right: 2vw;
         transition: all 0.2s ease-out;
     }
-    .active .sectionInformation a {
-        pointer-events: all;
-    }
     section .moreInformation a:hover {
         cursor: pointer;
         background-size: auto 60%;
     }
-
-    section .moreInformation img{
-        width:60vw;
-        margin-left:0px;
+    section .moreInformation img {
+        width: 60vw;
+        margin-left: 0px;
     }
-    
-
     section .sectionInformation a:hover {
         color: white;
         background: black;
@@ -712,9 +750,7 @@ section:first-child img{
     .moreInformation .content p {
         width: 45vw;
     }
-
     .start_background {
         background-size: 50% auto;
-    
     }
 }

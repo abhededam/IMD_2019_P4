@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const spontaniousShoppingSection = document.getElementById('spontaniousshopping_section')
   const activateSection = document.getElementById('activate_section')
   var dontScroll = false
+  var currentSectionNumber = 0
+  var currentSectionIndex = 0
 
   // user
   const user = document.getElementsByClassName('user')
@@ -37,9 +39,24 @@ document.addEventListener('DOMContentLoaded', function () {
   newListItem.appendChild(newListItemContent)
   newListItem.classList.add('bought')
 
+  const lastButton = document.getElementById('last')
+  const nextButton = document.getElementById('next')
+
   const moreInformationElements = document.getElementsByClassName('moreInformation')
 
+  // check browser
+  var is_chrome = navigator.userAgent.indexOf('Chrome') > -1
+  var is_explorer = navigator.userAgent.indexOf('MSIE') > -1
+  var is_firefox = navigator.userAgent.indexOf('Firefox') > -1
+  var is_safari = navigator.userAgent.indexOf('Safari') > -1
+  var is_opera = navigator.userAgent.toLowerCase().indexOf('op') > -1
+  if ((is_chrome) && (is_safari)) { is_safari = false; }
+  if ((is_chrome) && (is_opera)) { is_chrome = false; }
+
   // adding Event Listener
+
+  lastButton.addEventListener('click', last)
+  nextButton.addEventListener('click', next)
 
   if (sectionContainer.addEventListener) {
     sectionContainer.addEventListener('mousewheel', MouseWheelHandler, false)
@@ -93,7 +110,21 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  checkForSafari()
+
   // functions
+
+  function checkForSafari () {
+    if (is_safari) {
+      document.getElementById('scroll').classList.add('hideStuff')
+      console.log('hiding')
+    }else {
+      lastButton.classList.add('hideStuff')
+      nextButton.classList.add('hideStuff')
+
+      document.getElementById('scroll').classList.remove('hideStuff')
+    }
+  }
 
   function hideMoreInformation () {
     console.log('ich machs weg')
@@ -102,6 +133,22 @@ document.addEventListener('DOMContentLoaded', function () {
     moreInformation.classList.remove('visible')
     console.log(moreInformation.classList)
     dontScroll = false
+  }
+
+  function next () {
+    console.log('next')
+    currentSectionIndex += 1
+    sectionContainer.scrollLeft = sections[currentSectionIndex].offsetLeft
+    if (currentSectionIndex == 2) {
+      list.classList.add('showList')
+    }
+  }
+
+  function last () {
+    console.log('last')
+    currentSectionIndex -= 1
+
+    sectionContainer.scrollLeft = sections[currentSectionIndex].offsetLeft
   }
 
   function showMoreInformation () {
@@ -143,8 +190,8 @@ document.addEventListener('DOMContentLoaded', function () {
   function scrollAnimation (event) {
     const scrollPos = sectionContainer.scrollLeft
     const maxScroll = sectionContainer.offsetWidth
-    const currentSectionNumber = scrollPos / maxScroll
-    const currentSectionIndex = Math.floor(currentSectionNumber)
+    currentSectionNumber = scrollPos / maxScroll
+    currentSectionIndex = Math.floor(currentSectionNumber)
     // console.log(scrollPos / maxScroll)
     const currentSection = sections[Math.floor(scrollPos / maxScroll)]
 
@@ -169,8 +216,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (currentSection.id == 'home_section') {
-      
-            list.classList.remove('payed')
+      lastButton.classList.add('buttonNotActive')
+    }else {
+      lastButton.classList.remove('buttonNotActive')
+    }
+
+    if (currentSection.id == 'finished_section') {
+      nextButton.classList.add('buttonNotActive')
+    }else {
+      nextButton.classList.remove('buttonNotActive')
+    }
+
+    if (currentSection.id == 'home_section') {
+      list.classList.remove('payed')
 
       user.item(0).classList.remove('finished')
       user.item(0).classList.remove('pays')
@@ -178,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function () {
       user.item(0).classList.add('hide')
     }
     else if (currentSection.id == 'start_section') {
-            list.classList.remove('payed')
+      list.classList.remove('payed')
 
       user.item(0).classList.remove('finished')
       user.item(0).classList.remove('pays')
@@ -189,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function () {
       list.classList.remove('showList')
     }
     else if (currentSection.id == 'list_section') {
-            list.classList.remove('payed')
+      list.classList.remove('payed')
 
       user.item(0).classList.remove('hide')
 
@@ -208,9 +266,9 @@ document.addEventListener('DOMContentLoaded', function () {
       user.item(0).classList.remove('saysHello')
     }
     else if (currentSection.id == 'activate_section') {
-            user.item(0).classList.remove('saysHello')
+      user.item(0).classList.remove('saysHello')
 
-            list.classList.remove('payed')
+      list.classList.remove('payed')
 
       if (list.classList.contains('showList') == false) {
         list.classList.add('showList')
@@ -228,7 +286,7 @@ document.addEventListener('DOMContentLoaded', function () {
       user.item(0).classList.remove('saysHello')
     }
     else if (currentSection.id == 'checkout_section') {
-            user.item(0).classList.remove('saysHello')
+      user.item(0).classList.remove('saysHello')
 
       if (list.classList.contains('showList') == false) {
         list.classList.add('showList')
@@ -246,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
     else if (currentSection.id == 'finished_section') {
-            user.item(0).classList.remove('saysHello')
+      user.item(0).classList.remove('saysHello')
 
       list.classList.add('payed')
 
