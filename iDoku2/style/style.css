@@ -614,7 +614,7 @@ section:first-child img {
     height: 25vh;
     z-index: 300;
     bottom: 0px;
-    pointer-events: none;
+    pointer-events: visible;
 
 }
 
@@ -653,14 +653,14 @@ section:first-child img {
 }
 
 .buttonNotActive{
-    opacity:0;
-    pointer-events: none;
+    visibility:hidden;
+    pointer-events: visible;
 
 }
 
 .hideStuff{
-    opacity:0;
-    pointer-events: none;
+    visibility:hidden;
+    pointer-events: visible;
 
 }
 
