@@ -154,6 +154,8 @@ section h1 {
     font-size: 3vh;
     line-height: 4.5vh;
     margin-bottom: 0px;
+    pointer-events: none;
+
 }
 
 section a {}
@@ -185,6 +187,8 @@ nav {
     margin-top: 6vw;
     justify-content: space-evenly;
     z-index: 270;
+    pointer-events: none;
+
 }
 
 nav a {
@@ -196,6 +200,8 @@ nav a {
     border-radius: 99999px;
     opacity: 0.1;
     transition: all 0.2s ease-in-out;
+    pointer-events: all;
+
 }
 
 nav .active {
@@ -317,6 +323,8 @@ nav .active {
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
+    pointer-events: none;
+
 }
 
 .showList {
@@ -606,6 +614,8 @@ section:first-child img {
     height: 25vh;
     z-index: 300;
     bottom: 0px;
+    pointer-events: none;
+
 }
 
 .navigation_buttons button {
@@ -620,6 +630,8 @@ section:first-child img {
     background-repeat: no-repeat;
     background-position: center center;
     transition: all 0.2s ease-out;
+    pointer-events: all;
+
 
 }
 
@@ -642,10 +654,14 @@ section:first-child img {
 
 .buttonNotActive{
     opacity:0;
+    pointer-events: none;
+
 }
 
 .hideStuff{
     opacity:0;
+    pointer-events: none;
+
 }
 
 
