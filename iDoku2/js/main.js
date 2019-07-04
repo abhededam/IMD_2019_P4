@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function last () {
-    if (el.classList.contains('hideStuff') == false) {
+    if (this.classList.contains('hideStuff') == false) {
       console.log('last')
       currentSectionIndex -= 1
 
