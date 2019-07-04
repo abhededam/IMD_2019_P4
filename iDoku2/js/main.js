@@ -135,8 +135,8 @@ document.addEventListener('DOMContentLoaded', function () {
     dontScroll = false
   }
 
-  function next (el) {
-    if (el.classList.contains('hideStuff') == false) {
+  function next () {
+    if (this.classList.contains('hideStuff') == false) {
       console.log('next')
       currentSectionIndex += 1
       sectionContainer.scrollLeft = sections[currentSectionIndex].offsetLeft
