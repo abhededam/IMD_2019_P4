@@ -116,9 +116,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function checkForSafari () {
     if (is_safari) {
-      document.getElementById('scroll').classList.remove('hideStuff')
-      console.log('hiding')
+      document.getElementById('scroll').classList.add('hideStuff')
+      document.getElementById('next').classList.remove('hideStuff')
+      document.getElementById('last').classList.remove('hideStuff')
     }else {
+      console.log('hiding')
 
       document.getElementById('scroll').classList.remove('hideStuff')
     }
