@@ -116,11 +116,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function checkForSafari () {
     if (is_safari) {
-      document.getElementById('scroll').classList.add('hideStuff')
+      document.getElementById('scroll').classList.remove('hideStuff')
       console.log('hiding')
     }else {
-      lastButton.classList.add('hideStuff')
-      nextButton.classList.add('hideStuff')
 
       document.getElementById('scroll').classList.remove('hideStuff')
     }
@@ -135,20 +133,24 @@ document.addEventListener('DOMContentLoaded', function () {
     dontScroll = false
   }
 
-  function next () {
-    console.log('next')
-    currentSectionIndex += 1
-    sectionContainer.scrollLeft = sections[currentSectionIndex].offsetLeft
-    if (currentSectionIndex == 2) {
-      list.classList.add('showList')
+  function next (el) {
+    if (el.classList.contains('hideStuff') == false) {
+      console.log('next')
+      currentSectionIndex += 1
+      sectionContainer.scrollLeft = sections[currentSectionIndex].offsetLeft
+      if (currentSectionIndex == 2) {
+        list.classList.add('showList')
+      }
     }
   }
 
   function last () {
-    console.log('last')
-    currentSectionIndex -= 1
+    if (el.classList.contains('hideStuff') == false) {
+      console.log('last')
+      currentSectionIndex -= 1
 
-    sectionContainer.scrollLeft = sections[currentSectionIndex].offsetLeft
+      sectionContainer.scrollLeft = sections[currentSectionIndex].offsetLeft
+    }
   }
 
   function showMoreInformation () {

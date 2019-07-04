@@ -200,7 +200,7 @@ nav a {
     border-radius: 99999px;
     opacity: 0.1;
     transition: all 0.2s ease-in-out;
-    pointer-events: all;
+        pointer-events: all;
 
 }
 
@@ -614,7 +614,7 @@ section:first-child img {
     height: 25vh;
     z-index: 300;
     bottom: 0px;
-    pointer-events: visible;
+    pointer-events: none;
 
 }
 
@@ -653,14 +653,16 @@ section:first-child img {
 }
 
 .buttonNotActive{
-    visibility:hidden;
-    pointer-events: visible;
+    opacity:0;
+    pointer-events: none;
+
 
 }
 
 .hideStuff{
-    visibility:hidden;
-    pointer-events: visible;
+    opacity:0;
+    pointer-events: none;
+    cursor: default !important;
 
 }
 
