@@ -29,22 +29,21 @@ void loop() {
   wert = analogRead(piezoPin);
   attendance = digitalRead(IRsensor); 
 
-  //Serial.println(S);
   //Serial.println(wert);
   
 if (attendance == LOW) {            // check if the input is LOW    
     if (IRstate == LOW) {
-      Serial.println("Motion detected!");
+      //Serial.println("Motion detected!");
       IRstate = HIGH;
     }
   } else {
     if (IRstate == HIGH){
-      Serial.println("Motion ended!");
+      //Serial.println("Motion ended!");
       IRstate = LOW;
     }
   }
   
-  if(IRstate == LOW){  //////wenn die Hand vor dem Regal ist
+  if(IRstate == HIGH){  //////wenn die Hand vor dem Regal ist
     if(show==0){ ///wenn das Regal nicht ausgefahren ist
       Serial.println("HAND! FÄHRT AUS!");
       for(int i=0; i<4; i++){
@@ -56,7 +55,7 @@ if (attendance == LOW) {            // check if the input is LOW
       }
       show=1; //regal = ausgefahren
     }
-    if(wert>30){ //wenn vibration erkannt
+    if(wert>1000){ //wenn vibration erkannt
       if(productThere==0){ //wenn das gewählte Produkt nicht mehr da steht
         Serial.println("Produkt reingestellt");
         productThere=1;
@@ -65,7 +64,7 @@ if (attendance == LOW) {            // check if the input is LOW
       else if(productThere==1){ //wenn das gewählte Produkt noch da steht
         Serial.println("Produkt entnommen");
         for(int l=0; l<4; l++){
-             Serial.println("FÄHRT EIN!");
+            Serial.println("FÄHRT EIN!");
             stepper.setSpeed(18); // 1 rpm
             stepper.step(-500); // do 2038 steps -- corresponds to one revolution in one minute
         }
@@ -80,7 +79,7 @@ if (attendance == LOW) {            // check if the input is LOW
     
   }
 
-  else if(IRstate == HIGH){// wenn nichts vor dem Regal ist
+  else if(IRstate == LOW){// wenn nichts vor dem Regal ist
    if(show==1){ //wenn Regal ausgefahren
      for(int j=0; j<4; j++){
        // Serial.print("j: ");
