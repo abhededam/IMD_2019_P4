@@ -1,6 +1,13 @@
 // (c) Michael Schoeffler 2017, http://www.mschoeffler.de
 /*
   Größtes Problem: Nichts funktioniert gleichzeitig!
+  Lösbar durch: ??????????
+  Es funktion nicht gleichzeitig, weil jedes Mal, wenn die Motoren sich bewegen das Programm warten muss bis das fertig ist
+
+  Aber vielleicht kann man das ganze in eine If-Klammer packen und dann nur kleine Schritte machen und jedesmal abfragen, ob 
+    der Motor sich noch bewegen muss (das vielleicht gekoppelt an die IR-Sensoren)
+  Da sollte es ja eigentlich auch möglich sein, dass sich beide Motoren gleichzeitig bewegen ._. .-. ._.
+     
 
 
 */
@@ -50,7 +57,7 @@ void loop() {
     //Serial.println(wertGoodMuesli);
   }
   
-  //-------------------------------call functions ones
+  //---------------------------------------------------------call functions ones
   if (attendanceGoodMuesli == LOW) {            // check if the input is LOW    
     if (IRstateGoodMuesli == LOW) {
       IRstateGoodMuesli = HIGH;
@@ -61,7 +68,7 @@ void loop() {
     }
   }
 
-  //--------------------------------same but for the muesli
+  //---------------------------------------------------------same but for the muesli
   if (attendanceMuesli == LOW) {            // check if the input is LOW    
     if (IRstateMuesli == LOW) {
       IRstateMuesli = HIGH;
@@ -79,12 +86,11 @@ void loop() {
       if(checkPiezos==0){
          Serial.println("HAND! FÄHRT AUS! (goodMüsli)");
       }
-      for(int i=0; i<4; i++){
-        stepperGoodMuesli.step(-1000); // halbe Umdrehung      
-      }
+      stepperGoodMuesli.step(-4000); // halbe Umdrehung      
+      
       showGoodMuesli=1; //regal = ausgefahren
     }
-    if(wertGoodMuesli>1000){ //wenn vibration erkannt ---------------------------------------möglicherweise macht es mehr Sinn, dass das Regal einfach immer zurückfährt
+    if(wertGoodMuesli>1000){ //wenn vibration erkannt -------------------------möglicherweise macht es mehr Sinn, dass das Regal einfach immer zurückfährt
       if(productThereGoodMuesli==0){ //wenn das gewählte Produkt nicht mehr da steht
         if(checkPiezos==0){
           Serial.println("Produkt reingestellt (goodMüsli)");
