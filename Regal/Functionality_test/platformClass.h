@@ -6,6 +6,7 @@ class Platform{
     void update();
     int IRSensor;
     bool handDetected = false;
+    bool pickedUp = false;
   private:
    
 

@@ -5,8 +5,8 @@
 #define STEPS 200 // the number of steps in one revolution of your motor (28BYJ-48)
 
 
-MoveablePlatform bestMuesli(STEPS, 15, 0 , 4, 2, 32);
-MoveablePlatform goodMuesli(STEPS, 5,19,21,18, 33);
+MoveablePlatform bestMuesli(STEPS, 15, 0 , 4, 2, 32, 34);
+MoveablePlatform goodMuesli(STEPS, 5,19,21,18, 33, 25);
 
 Platform worstMuesli("Bob", 26);
 

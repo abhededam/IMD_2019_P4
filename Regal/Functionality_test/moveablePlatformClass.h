@@ -1,11 +1,12 @@
 #include <Stepper.h>
 class MoveablePlatform{
   public: 
-    MoveablePlatform(int steps, int stepperPin1, int stepperPin2, int stepperPin3, int stepperPin4, int irPin);
+    MoveablePlatform(int steps, int stepperPin1, int stepperPin2, int stepperPin3, int stepperPin4, int irPin, int piezoPin);
     int stepperSpeed = 140;
     void move();
     void moveFar();
     bool hasMoved = false;
+    bool pickedUp = false;
     int waitingTime = 0;
     void update();
     void moveBack();
@@ -21,12 +22,13 @@ class MoveablePlatform{
     int StepperPin2;
     int StepperPin3;
     int StepperPin4;
+    int PiezoPin;
     Stepper myStepper;
 
 };
 
-MoveablePlatform::MoveablePlatform(int steps, int stepperPin1, int stepperPin2, int stepperPin3, int stepperPin4, int irPin)
-: Steps(steps), StepperPin1(stepperPin1), StepperPin2(stepperPin2), StepperPin3(stepperPin3), StepperPin4(stepperPin4), myStepper(steps, stepperPin1, stepperPin2, stepperPin3, stepperPin4), IRSensor(irPin){
+MoveablePlatform::MoveablePlatform(int steps, int stepperPin1, int stepperPin2, int stepperPin3, int stepperPin4, int irPin, int piezoPin)
+: Steps(steps), StepperPin1(stepperPin1), StepperPin2(stepperPin2), StepperPin3(stepperPin3), StepperPin4(stepperPin4), myStepper(steps, stepperPin1, stepperPin2, stepperPin3, stepperPin4), IRSensor(irPin), PiezoPin(piezoPin){
   pinMode(IRSensor,INPUT);
   myStepper.setSpeed(stepperSpeed);
 }
@@ -54,6 +56,9 @@ void MoveablePlatform::moveBack(){
 }
 
 void MoveablePlatform::update(){
+  if(analogRead(PiezoPin)>1000){
+    pickedUp = true;
+  }
   if(digitalRead(IRSensor) == 0){
     handDetected = true;
   }
@@ -74,8 +79,7 @@ void MoveablePlatform::update(){
   if(hasMoved && waitingTime < 2000){
     waitingTime++;
   }
-  if(waitingTime >= 2000 && moveCounter > 0){
-
+  if((waitingTime >= 2000 || pickedUp) && moveCounter > 0){
     moveBack();
   }
 
