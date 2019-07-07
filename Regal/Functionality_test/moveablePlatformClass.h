@@ -16,6 +16,7 @@ class MoveablePlatform{
     int movingIn = false;
     int movingOut = false;
     bool handDetected = false;
+    int piezoValue;
   private:
     int Steps;
     int StepperPin1;
@@ -80,9 +81,6 @@ void MoveablePlatform::update(){
     waitingTime++;
   }
 
-  if(analogRead(PiezoPin) > 1000){
-    pickedUp = true;
-  }
 
     
    if((waitingTime == 2000) && moveCounter > 0){
