@@ -56,19 +56,19 @@ void MoveablePlatform::moveBack(){
 }
 
 void MoveablePlatform::update(){
-  if(analogRead(PiezoPin)>1000){
-    pickedUp = true;
-  }
+
   if(digitalRead(IRSensor) == 0){
     handDetected = true;
   }
   else{
     handDetected = false;
   }
+  
   if(moveCounter >= 1000){
     hasMoved = true;
     movingOut = false;
   }
+  
   if(moveCounter <= 0){
     hasMoved = false;
     movingIn = false;
@@ -79,7 +79,16 @@ void MoveablePlatform::update(){
   if(hasMoved && waitingTime < 2000){
     waitingTime++;
   }
-  if((waitingTime >= 2000 || pickedUp) && moveCounter > 0){
+
+  if(analogRead(PiezoPin) > 1000){
+    pickedUp = true;
+  }
+
+    
+   if((waitingTime == 2000) && moveCounter > 0){
+
+  }
+  if((waitingTime >= 2000) && moveCounter > 0){
     moveBack();
   }
 
