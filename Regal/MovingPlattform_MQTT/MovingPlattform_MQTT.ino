@@ -1,3 +1,12 @@
+/*
+  TroubleShooting:
+    Wenn etwas nicht klappt => 
+      checken ob Motoren alle durchgängig Strom haben (rote Lämpchen leuchten)
+      Checken ob Infrarot Sensoren richtig auslösen (Kontrolllämpchen an den Sensoren selbst)
+      
+      
+*/
+
 #include <Stepper.h>
 #include "moveablePlatformClass.h";
 #include "platformClass.h";
@@ -6,12 +15,13 @@
 #include <Wire.h>
 #define STEPS 200 // the number of steps in one revolution of your motor (28BYJ-48)
 //
+                                  //26, 25, 33, 32
+MoveablePlatform bestCoffee(STEPS, 26, 25, 33, 32, 14, 22, "bestCoffee", true);
+                                    //21, 19, 18, 5
+MoveablePlatform worstCoffee(STEPS, 21, 19, 18, 5, 12, 23, "worstCoffee", true);
 
-MoveablePlatform bestCoffee(STEPS, 27, 26, 33, 32, 12, 22, "bestCoffee", true);
-MoveablePlatform worstCoffee(STEPS, 5, 18, 19, 21, 27, 23, "worstCoffee", true);
 
-
-Platform noCoffee("Bob", 3, true);
+Platform noCoffee("Bob", 13, true);
 
 
 const char* ssid = "InteractiveMediaDesign";
@@ -33,6 +43,7 @@ void setup() {
   setup_wifi();
   client.setServer(mqtt_server, mqtt_port);
   client.setCallback(callback);
+  Serial.println(WiFi.macAddress());
 }
 
 void setup_wifi() {
@@ -56,14 +67,14 @@ void setup_wifi() {
 }
 
 void callback(char* topic, byte* message, unsigned int length) {
-  Serial.print("Message arrived on topic: ");
-  Serial.print(topic);
-  Serial.print(". Message: ");
-  String messageTemp;
+  //Serial.print("Message arrived on topic: ");
+  //Serial.print(topic);
+  //Serial.print(". Message: ");
+  String coffee;
 
   for (int i = 0; i < length; i++) {
-    Serial.print((char)message[i]);
-    messageTemp += (char)message[i];
+    //Serial.print((char)message[i]);
+    coffee += (char)message[i];
   }
   Serial.println();
 
@@ -71,15 +82,20 @@ void callback(char* topic, byte* message, unsigned int length) {
 
   // If a message is received on the topic esp32/output, you check if the message is either "on" or "off".
   // Changes the output state according to the message
-  if (String(topic) == "esp32/output") {
-    Serial.print("Changing output to ");
-    if (messageTemp == "on") {
-      Serial.println("on");
+  if (String(topic) == "esp32/SmartMart") {
+    if (coffee == "goodCoffee = on") {
+      Serial.println("goodCoffee: on");
+    }
+    else if (coffee == "goodCoffee = off") {
+      Serial.println("goodCoffee: off");
+    }
+    else if (coffee == "noCoffee = off") {
+      Serial.println("noCoffee: off");
+    }
+    else if (coffee == "noCoffee = on") {
+      Serial.println("noCoffee: on");
+    }
 
-    }
-    else if (messageTemp == "off") {
-      Serial.println("off");
-    }
   }
 
 }
@@ -111,54 +127,40 @@ void reconnect() {
 void loop() {
    if (!client.connected()) {
     reconnect();
-  }
-  client.loop();
-    bestCoffee.update();
-      worstCoffee.update();
-      noCoffee.update();
-
+   }
+   client.loop();
+   bestCoffee.update();
+   worstCoffee.update();
+   noCoffee.update();
     
-    
-  
-
-
-    if(noCoffee.handDetected){
-            if(bestCoffee.movingOut == false && bestCoffee.hasMoved == false){
+   if(noCoffee.handDetected){
+        if(bestCoffee.movingOut == false && bestCoffee.hasMoved == false){
           bestCoffee.moveFar();
-          Serial.println("Best Muesli fährt raus");
-          client.publish("esp32/SmartMart", "bla");
-        }
-        else{
+          Serial.println("best Coffee fährt raus");
           bestCoffee.waitingTime = 0;
-        }
+         }
+        client.publish("esp32/SmartMart", "goodCoffee should move");
         if(worstCoffee.movingOut == false && worstCoffee.hasMoved == false){
             worstCoffee.move();
-            Serial.println("Good Muesli fährt raus");
-
-        }
-        else{
+            Serial.println("worst Coffee fährt raus");
             worstCoffee.waitingTime = 0;
-        }
-      }
 
-      if(worstCoffee.handDetected){
-            if(bestCoffee.movingOut == false && bestCoffee.hasMoved == false){
+        }
+   }
+
+   if(worstCoffee.handDetected){
+     if(bestCoffee.movingOut == false && bestCoffee.hasMoved == false){
           bestCoffee.moveFar();
-        }
-        else{
           bestCoffee.waitingTime = 0;
-        }
-      }
+     }
+     client.publish("esp32/SmartMart", "goodCoffee = on");
+   }
 
     
-    if(worstCoffee.movingOut && worstCoffee.moveCounter < 1000){
-              worstCoffee.move();
-      }
-      if(bestCoffee.movingOut && bestCoffee.moveCounter < 1000){
-              bestCoffee.moveFar();
-      }
-
-
-    
-
+   if(worstCoffee.movingOut && worstCoffee.moveCounter < 1000){
+         worstCoffee.move();
+   }
+   if(bestCoffee.movingOut && bestCoffee.moveCounter < 1000){
+         bestCoffee.moveFar();
+   }
 }
