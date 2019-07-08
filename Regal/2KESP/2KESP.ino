@@ -18,7 +18,7 @@
                                   //26, 25, 33, 32
 MoveablePlatform bestCoffee(STEPS, 26, 33, 32, 25, 14, 34, "bestCoffee", false);
                                     //21, 19, 18, 5
-MoveablePlatform worstCoffee(STEPS, 21, 18, 5, 19, 12, 27, "worstCoffee", false);
+MoveablePlatform worstCoffee(STEPS, 21, 18, 5, 19, 12,15, "worstCoffee", false);
 
 
 Platform noCoffee("Bob", 13, false);
@@ -102,6 +102,10 @@ void callback(char* topic, byte* message, unsigned int length) {
 
         }
     }
+    else if(coffee == "bestCoffee light"){
+      worstCoffee.dark();
+      bestCoffee.light();
+    }
 
   }
 
@@ -141,6 +145,9 @@ void loop() {
    noCoffee.update();
     
    if(noCoffee.handDetected){
+    bestCoffee.light();
+    worstCoffee.light();
+    client.publish("esp32/SmartMart", "goodCoffee light");
         if(bestCoffee.movingOut == false && bestCoffee.hasMoved == false){
           bestCoffee.moveFar();
           Serial.println("best Coffee fährt raus");
@@ -156,6 +163,8 @@ void loop() {
    }
 
    if(worstCoffee.handDetected){
+    bestCoffee.light();
+    client.publish("esp32/SmartMart", "goodCoffee light");
      if(bestCoffee.movingOut == false && bestCoffee.hasMoved == false){
           bestCoffee.moveFar();
           Serial.println("best Coffee fährt raus");
@@ -164,6 +173,17 @@ void loop() {
      }
      client.publish("esp32/SmartMart", "goodCoffee move");
    }
+  if(bestCoffee.handDetected){
+    client.publish("esp32/SmartMart", "goodCoffee dark");
+    worstCoffee.dark();
+  }
+
+  if(noCoffee.handDetected == false && worstCoffee.handDetected == false && bestCoffee.handDetected == false){
+    worstCoffee.dark();
+    client.publish("esp32/SmartMart", "goodCoffee dark");
+    bestCoffee.dark();
+  }
+
 
     
    if(worstCoffee.movingOut && worstCoffee.moveCounter < 1000){

@@ -18,6 +18,8 @@ class MoveablePlatform{
     int movingOut = false;
     bool handDetected = false;
     int piezoValue;
+    void light();
+    void dark();
     
     
   private:
@@ -81,6 +83,14 @@ void MoveablePlatform::moveBack(){
   myStepper.step(stepsMade/1000*(-1));
   moveCounter--;
 }
+ void MoveablePlatform::light(){
+    digitalWrite(LED, HIGH);
+ }
+
+ void MoveablePlatform::dark(){
+    digitalWrite(LED, LOW);
+ }
+
 
 void MoveablePlatform::update(){
   if((waitingTime == 100) && moveCounter > 0){
@@ -119,7 +129,6 @@ void MoveablePlatform::update(){
     hasMoved = false;
     movingIn = false;
     waitingTime = 0;
-    digitalWrite(LED,HIGH);
     stepsMade = 0;
     if(Debugging){
       if(stopIt){
