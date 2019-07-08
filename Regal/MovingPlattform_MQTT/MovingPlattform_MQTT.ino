@@ -86,14 +86,22 @@ void callback(char* topic, byte* message, unsigned int length) {
     if (coffee == "goodCoffee = on") {
       Serial.println("goodCoffee: on");
     }
-    else if (coffee == "goodCoffee = off") {
-      Serial.println("goodCoffee: off");
-    }
-    else if (coffee == "noCoffee = off") {
-      Serial.println("noCoffee: off");
-    }
     else if (coffee == "noCoffee = on") {
       Serial.println("noCoffee: on");
+      if(bestCoffee.movingOut == false && bestCoffee.hasMoved == false){
+          if(bestCoffee.movingOut == false && bestCoffee.hasMoved == false){
+          bestCoffee.moveFar();
+          bestCoffee.waitingTime = 0;
+     }
+          Serial.println("best Coffee fährt raus");
+         }
+        client.publish("esp32/SmartMart", "goodCoffee should move");
+        if(worstCoffee.movingOut == false && worstCoffee.hasMoved == false){
+            worstCoffee.move();
+            Serial.println("worst Coffee fährt raus");
+            worstCoffee.waitingTime = 0;
+
+        }
     }
 
   }
@@ -144,8 +152,8 @@ void loop() {
             worstCoffee.move();
             Serial.println("worst Coffee fährt raus");
             worstCoffee.waitingTime = 0;
-
         }
+        client.publish("esp32/SmartMart", "goodCoffee = on");
    }
 
    if(worstCoffee.handDetected){
@@ -153,7 +161,7 @@ void loop() {
           bestCoffee.moveFar();
           bestCoffee.waitingTime = 0;
      }
-     client.publish("esp32/SmartMart", "goodCoffee = on");
+     client.publish("esp32/SmartMart", "goodCoffee move");
    }
 
     
