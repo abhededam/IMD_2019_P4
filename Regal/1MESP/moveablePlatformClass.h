@@ -18,6 +18,7 @@ class MoveablePlatform{
     int movingOut = false;
     bool handDetected = false;
     int piezoValue;
+    void light();
     
     
   private:
@@ -80,6 +81,15 @@ void MoveablePlatform::moveBack(){
   moveCounter--;
 }
 
+ void MoveablePlatform::light(){
+    digitalWrite(LED, HIGH);
+ }
+
+ void MoveablePlatform::dark(){
+    digitalWrite(LED, HIGH);
+ }
+
+
 void MoveablePlatform::update(){
   if(Debugging){
     detecting = digitalRead(IRSensor);
@@ -89,12 +99,10 @@ void MoveablePlatform::update(){
     }
   }
   if(digitalRead(IRSensor) == 0){
-    handDetected = true;    
-    digitalWrite(LED, HIGH);
+    handDetected = true;
   }
   else{
     handDetected = false;
-    digitalWrite(LED, LOW);
   }
   beenDetected=detecting;
   
@@ -112,7 +120,6 @@ void MoveablePlatform::update(){
     movingIn = false;
     waitingTime = 0;
     stepsMade = 0;
-    digitalWrite(LED, HIGH);
     if(Debugging){
       if(stopIt){
         Serial.print(name);     
@@ -143,11 +150,10 @@ void MoveablePlatform::update(){
       Serial.println(" hat moveBack gestartet");
     }
   }
-
-
-
-
-
-  
-  
 }
+ 
+
+
+
+
+  

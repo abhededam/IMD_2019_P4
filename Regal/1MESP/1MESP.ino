@@ -8,11 +8,11 @@
 //
 
                                   //4, 2, 15, 0
-MoveablePlatform bestMuesli(STEPS, 4, 2 , 15, 0, 32, 18, "bestMuesli", false);
+MoveablePlatform bestMuesli(STEPS, 4, 2 , 15, 0, 32, 18, "bestMuesli", true);
                                   //13, 14, 27, 12
-MoveablePlatform goodMuesli(STEPS, 13, 14, 27, 12, 33, 25, "goodMuesli", false);
+MoveablePlatform goodMuesli(STEPS, 13, 14, 27, 12, 33, 5, "goodMuesli", true);
 
-Platform worstMuesli("Bob", 26, false);
+Platform worstMuesli("Bob", 26, true);
 
 void setup() {
   Serial.begin(9600);
@@ -27,6 +27,8 @@ void loop() {
     worstMuesli.update();
     
     if(worstMuesli.handDetected){
+      bestMuesli.light();
+      goodMuesli.light();
       if(bestMuesli.movingOut == false && bestMuesli.hasMoved == false){
         bestMuesli.moveFar();
         bestMuesli.waitingTime = 0;
@@ -40,6 +42,10 @@ void loop() {
                   Serial.println("Good Muesli fährt raus");
       }
     }
+    else{
+      bestMuesli.dark();
+      goodMuesli.dark();
+    }
 
 
     if(goodMuesli.handDetected){
@@ -47,14 +53,13 @@ void loop() {
         bestMuesli.moveFar();
         bestMuesli.waitingTime = 0;
        }
-    }
-    
-    if(bestMuesli.handDetected){
-       digitalWrite(18, HIGH);
+       bestMuesli.light();
     }
     else{
-      digitalWrite(18, LOW);
+      bestMuesli.dark();
     }
+    
+    
       
 
     
