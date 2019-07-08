@@ -19,6 +19,7 @@ class MoveablePlatform{
     bool handDetected = false;
     int piezoValue;
     void light();
+    void dark();
     
     
   private:
