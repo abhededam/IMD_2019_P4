@@ -87,7 +87,7 @@ void MoveablePlatform::moveBack(){
  }
 
  void MoveablePlatform::dark(){
-    digitalWrite(LED, HIGH);
+    digitalWrite(LED, LOW);
  }
 
 
