@@ -6,12 +6,13 @@
 #include <Wire.h>
 #define STEPS 200 // the number of steps in one revolution of your motor (28BYJ-48)
 //
+                                  //26, 25, 33, 32
+MoveablePlatform bestCoffee(STEPS, 26, 25, 33, 32, 14, 22, "bestCoffee", false);
+                                    //21, 19, 18, 5
+MoveablePlatform worstCoffee(STEPS, 21, 19, 18, 5, 12, 23, "worstCoffee", false);
 
-MoveablePlatform bestCoffee(STEPS, 27, 26, 33, 32, 12, 22, "bestCoffee", true);
-MoveablePlatform worstCoffee(STEPS, 5, 18, 19, 21, 27, 23, "worstCoffee", true);
 
-
-Platform noCoffee("Bob", 3, true);
+Platform noCoffee("Bob", 13, false);
 
 
 const char* ssid = "InteractiveMediaDesign";
@@ -125,7 +126,7 @@ void loop() {
     if(noCoffee.handDetected){
             if(bestCoffee.movingOut == false && bestCoffee.hasMoved == false){
           bestCoffee.moveFar();
-          Serial.println("Best Muesli fährt raus");
+          Serial.println("best Coffee fährt raus");
           client.publish("esp32/SmartMart", "bla");
         }
         else{
@@ -133,7 +134,7 @@ void loop() {
         }
         if(worstCoffee.movingOut == false && worstCoffee.hasMoved == false){
             worstCoffee.move();
-            Serial.println("Good Muesli fährt raus");
+            Serial.println("worst Coffee fährt raus");
 
         }
         else{

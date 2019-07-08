@@ -102,7 +102,7 @@ void MoveablePlatform::update(){
     }
   }
   
-  if(moveCounter <= 0){
+  if(moveCounter == 0 && movingIn == true){
     hasMoved = false;
     movingIn = false;
     waitingTime = 0;
