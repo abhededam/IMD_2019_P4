@@ -73,7 +73,7 @@ void MoveablePlatform::moveBack(){
   }
   hasMoved = false;
   movingIn = true;
-  myStepper.step(stepsMade/1500*(-1));
+  myStepper.step(stepsMade/1000*(-1));
   moveCounter--;
 }
 
@@ -130,7 +130,7 @@ void MoveablePlatform::update(){
   if((waitingTime == 100) && moveCounter > 0){
     
   }
-  if((waitingTime >= 100) && moveCounter > 0){
+  if((waitingTime == 100) && moveCounter > 0){
     moveBack();
     if(Debugging){
       Serial.print(name);
