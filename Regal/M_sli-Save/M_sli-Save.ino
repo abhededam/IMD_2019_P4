@@ -8,11 +8,11 @@
 //
 
                                   //4, 2, 15, 0
-MoveablePlatform bestMuesli(STEPS, 4, 2 , 15, 0, 32, 34, "bestMuesli", false);
+MoveablePlatform bestMuesli(STEPS, 4, 2 , 15, 0, 32, 34, "bestMuesli", true);
                                   //13, 14, 27, 12
-MoveablePlatform goodMuesli(STEPS, 13, 14, 27, 12, 33, 25, "goodMuesli", false);
+MoveablePlatform goodMuesli(STEPS, 13, 14, 27, 12, 33, 25, "goodMuesli", true);
 
-Platform worstMuesli("Bob", 26,false);
+Platform worstMuesli("Bob", 26, true);
 
 void setup() {
   Serial.begin(9600);
