@@ -40,7 +40,6 @@ void setup() {
 void setup_wifi() {
   delay(10);
   // We start by connecting to a WiFi network
-  Serial.println();
   Serial.print("Connecting to ");
   Serial.println(ssid);
 
@@ -67,7 +66,6 @@ void callback(char* topic, byte* message, unsigned int length) {
     //Serial.print((char)message[i]);
     coffee += (char)message[i];
   }
-  Serial.println();
 
   // Feel free to add more if statements to control more GPIOs with MQTT
 
@@ -147,12 +145,13 @@ void loop() {
     }
 
 
+
+  if(goodCoffee.movingOut && goodCoffee.moveCounter < 1000){
+            goodCoffee.move();
+    }
     
 
     
-    if(goodCoffee.movingOut && goodCoffee.moveCounter < 1000){
-            goodCoffee.move();
-    }
 
 
     
