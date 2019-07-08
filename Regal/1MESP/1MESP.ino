@@ -8,7 +8,7 @@
 //
 
                                   //4, 2, 15, 0
-MoveablePlatform bestMuesli(STEPS, 4, 2 , 15, 0, 32, 34, "bestMuesli", false);
+MoveablePlatform bestMuesli(STEPS, 4, 2 , 15, 0, 32, 18, "bestMuesli", false);
                                   //13, 14, 27, 12
 MoveablePlatform goodMuesli(STEPS, 13, 14, 27, 12, 33, 25, "goodMuesli", false);
 
@@ -25,12 +25,7 @@ void loop() {
     bestMuesli.update();
     goodMuesli.update();
     worstMuesli.update();
-
     
-    
-  
-
-
     if(worstMuesli.handDetected){
       if(bestMuesli.movingOut == false && bestMuesli.hasMoved == false){
         bestMuesli.moveFar();
@@ -51,20 +46,24 @@ void loop() {
       if(bestMuesli.movingOut == false && bestMuesli.hasMoved == false){
         bestMuesli.moveFar();
         bestMuesli.waitingTime = 0;
-
        }
- 
     }
+    
+    if(bestMuesli.handDetected){
+       digitalWrite(18, HIGH);
+    }
+    else{
+      digitalWrite(18, LOW);
+    }
+      
 
     
     if(goodMuesli.movingOut && goodMuesli.moveCounter < 1000){
             goodMuesli.move();
     }
     if(bestMuesli.movingOut && bestMuesli.moveCounter < 1000){
+            digitalWrite(18, HIGH);
             bestMuesli.moveFar();
-    }
-
-
-    
+    } 
 
 }

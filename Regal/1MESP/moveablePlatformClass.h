@@ -1,7 +1,7 @@
 #include <Stepper.h>
 class MoveablePlatform{
   public: 
-    MoveablePlatform(int steps, int stepperPin1, int stepperPin2, int stepperPin3, int stepperPin4, int irPin, int piezoPin, String name, int debugging);
+    MoveablePlatform(int steps, int stepperPin1, int stepperPin2, int stepperPin3, int stepperPin4, int irPin, int led, String name, int debugging);
     int stepperSpeed = 140;
     String name;
     void move();
@@ -26,7 +26,7 @@ class MoveablePlatform{
     int StepperPin2;
     int StepperPin3;
     int StepperPin4;
-    int PiezoPin;
+    int LED;
     int detecting;
     int beenDetected;
     int stopIt =false;
@@ -34,9 +34,10 @@ class MoveablePlatform{
     int Debugging;
 };
 
-MoveablePlatform::MoveablePlatform(int steps, int stepperPin1, int stepperPin2, int stepperPin3, int stepperPin4, int irPin, int piezoPin, String name, int debugging)
-: Steps(steps), StepperPin1(stepperPin1), StepperPin2(stepperPin2), StepperPin3(stepperPin3), StepperPin4(stepperPin4), myStepper(steps, stepperPin1, stepperPin2, stepperPin3, stepperPin4), IRSensor(irPin), PiezoPin(piezoPin),name(name), Debugging(debugging){
+MoveablePlatform::MoveablePlatform(int steps, int stepperPin1, int stepperPin2, int stepperPin3, int stepperPin4, int irPin, int led, String name, int debugging)
+: Steps(steps), StepperPin1(stepperPin1), StepperPin2(stepperPin2), StepperPin3(stepperPin3), StepperPin4(stepperPin4), myStepper(steps, stepperPin1, stepperPin2, stepperPin3, stepperPin4), IRSensor(irPin), LED (led),name(name), Debugging(debugging){
   pinMode(IRSensor,INPUT);
+  pinMode(LED, OUTPUT);
   myStepper.setSpeed(stepperSpeed);
   
 }
@@ -89,9 +90,11 @@ void MoveablePlatform::update(){
   }
   if(digitalRead(IRSensor) == 0){
     handDetected = true;    
+    digitalWrite(LED, HIGH);
   }
   else{
     handDetected = false;
+    digitalWrite(LED, LOW);
   }
   beenDetected=detecting;
   
@@ -109,6 +112,7 @@ void MoveablePlatform::update(){
     movingIn = false;
     waitingTime = 0;
     stepsMade = 0;
+    digitalWrite(LED, HIGH);
     if(Debugging){
       if(stopIt){
         Serial.print(name);     
