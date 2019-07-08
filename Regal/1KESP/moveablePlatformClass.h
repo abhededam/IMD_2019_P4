@@ -18,6 +18,8 @@ class MoveablePlatform{
     int movingOut = false;
     bool handDetected = false;
     int piezoValue;
+    void light();
+    void dark();
     
     
   private:
@@ -51,9 +53,9 @@ void MoveablePlatform::move(){
     Serial.println(stepsMade);
   }
   movingOut = true;
-  myStepper.step(-6);
+  myStepper.step(-2);
   moveCounter++;
-  stepsMade -= 6; 
+  stepsMade -= 2; 
 }
 
 void MoveablePlatform::moveFar(){
@@ -76,9 +78,19 @@ void MoveablePlatform::moveBack(){
   }
   hasMoved = false;
   movingIn = true;
-  myStepper.step(stepsMade/2000*(-1));
+  myStepper.step(stepsMade/1000*(-1));
   moveCounter--;
 }
+
+
+ void MoveablePlatform::light(){
+    digitalWrite(LED, HIGH);
+ }
+
+ void MoveablePlatform::dark(){
+    digitalWrite(LED, LOW);
+ }
+
 
 void MoveablePlatform::update(){
   if(Debugging){
@@ -96,7 +108,7 @@ void MoveablePlatform::update(){
   }
   beenDetected=detecting;
   
-  if(moveCounter == 2000 && hasMoved == false){
+  if(moveCounter == 1000 && hasMoved == false){
     hasMoved = true;
     movingOut = false;
     if(Debugging){
@@ -110,7 +122,6 @@ void MoveablePlatform::update(){
     movingIn = false;
     waitingTime = 0;
     stepsMade = 0;
-    digitalWrite(LED, HIGH);
     if(Debugging){
       if(stopIt){
         Serial.print(name);     

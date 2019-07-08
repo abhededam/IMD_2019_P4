@@ -7,8 +7,7 @@
 #define STEPS 200 // the number of steps in one revolution of your motor (28BYJ-48)
 //
 
-                                
-                                  //12, 11, 27, 26
+                                   //12, 11, 27, 26
 MoveablePlatform goodCoffee(STEPS, 12, 27, 26, 11, 33, 12, "goodCoffee", false);
 
 Platform noCoffee1("noCoffee1", 2, false);
@@ -50,7 +49,9 @@ void setup_wifi() {
     Serial.print(".");
   }
 
-  Serial.println("WiFi connected IP:");
+  Serial.println("");
+  Serial.println("WiFi connected");
+  Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
 }
 
@@ -72,12 +73,15 @@ void callback(char* topic, byte* message, unsigned int length) {
   if (String(topic) == "esp32/SmartMart") {
     if (coffee == "goodCoffee move") {
       //Serial.println("goodCoffee move");
-            if(goodCoffee.movingOut == false && goodCoffee.hasMoved == false){
+        if(goodCoffee.movingOut == false && goodCoffee.hasMoved == false){
           goodCoffee.move();
           goodCoffee.waitingTime = 0;
-          Serial.println("Good Coffee fährt raus");
-      }
+          //Serial.println("Good Coffee fährt raus");
+        }
       
+    }
+    if(coffee == "goodCoffee light"){
+      goodCoffee.light();
     }
 
   }
@@ -127,13 +131,15 @@ void loop() {
 
 
     if(noCoffee1.handDetected || noCoffee2.handDetected){
+      client.publish("esp32/SmartMart", "noCoffee = on");
+      client.publish("esp32/SmartMart", "bestCoffee light");
+      client.publish("esp32/SmartMart", "worstCoffee light");
+      goodCoffee.light();
       if(goodCoffee.movingOut == false && goodCoffee.hasMoved == false){
           goodCoffee.move();
-          Serial.println("Good Coffee fährt raus");
           goodCoffee.waitingTime = 0;
-
+          Serial.println("Good Coffee fährt raus");
       }
-           client.publish("esp32/SmartMart", "noCoffee = on");
     }
 
    
@@ -141,15 +147,22 @@ void loop() {
 
     if(goodCoffee.handDetected){ 
             client.publish("esp32/SmartMart", "goodCoffee = on");
+            client.publish("esp32/SmartMart", "bestCoffee light");
+    }
+
+    if(goodCoffee.handDetected==false&&noCoffee1.handDetected==false&&noCoffee2.handDetected==false){
+      goodCoffee.dark();
+      client.publish("esp32/SmartMart", "bestCoffee dark");
+  
     }
 
 
-    
-
-    
-    if(goodCoffee.movingOut && goodCoffee.moveCounter < 2000){
+  if(goodCoffee.movingOut && goodCoffee.moveCounter < 1000){
             goodCoffee.move();
     }
+    
+
+    
 
 
     
