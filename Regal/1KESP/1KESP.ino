@@ -7,9 +7,9 @@
 #define STEPS 200 // the number of steps in one revolution of your motor (28BYJ-48)
 //
 
-                                  //4, 2, 15, 0
-                                  //13, 14, 27, 12
-MoveablePlatform goodCoffee(STEPS, 12, 11, 27, 26, 33, 25, "goodCoffee", false);
+                                
+                                  //12, 11, 27, 26
+MoveablePlatform goodCoffee(STEPS, 12, 27, 26, 11, 33, 12, "goodCoffee", false);
 
 Platform noCoffee1("noCoffee1", 2, false);
 Platform noCoffee2("noCoffee2", 15, false);
@@ -50,9 +50,7 @@ void setup_wifi() {
     Serial.print(".");
   }
 
-  Serial.println("");
-  Serial.println("WiFi connected");
-  Serial.println("IP address: ");
+  Serial.println("WiFi connected IP:");
   Serial.println(WiFi.localIP());
 }
 
@@ -73,7 +71,7 @@ void callback(char* topic, byte* message, unsigned int length) {
   // Changes the output state according to the message
   if (String(topic) == "esp32/SmartMart") {
     if (coffee == "goodCoffee move") {
-      Serial.println("goodCoffee move");
+      //Serial.println("goodCoffee move");
             if(goodCoffee.movingOut == false && goodCoffee.hasMoved == false){
           goodCoffee.move();
           goodCoffee.waitingTime = 0;
@@ -129,12 +127,13 @@ void loop() {
 
 
     if(noCoffee1.handDetected || noCoffee2.handDetected){
-      client.publish("esp32/SmartMart", "noCoffee = on");
       if(goodCoffee.movingOut == false && goodCoffee.hasMoved == false){
           goodCoffee.move();
-          goodCoffee.waitingTime = 0;
           Serial.println("Good Coffee fährt raus");
+          goodCoffee.waitingTime = 0;
+
       }
+           client.publish("esp32/SmartMart", "noCoffee = on");
     }
 
    
@@ -145,13 +144,12 @@ void loop() {
     }
 
 
+    
 
-  if(goodCoffee.movingOut && goodCoffee.moveCounter < 1000){
+    
+    if(goodCoffee.movingOut && goodCoffee.moveCounter < 2000){
             goodCoffee.move();
     }
-    
-
-    
 
 
     

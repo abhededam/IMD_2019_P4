@@ -16,9 +16,9 @@
 #define STEPS 200 // the number of steps in one revolution of your motor (28BYJ-48)
 //
                                   //26, 25, 33, 32
-MoveablePlatform bestCoffee(STEPS, 26, 33, 32, 25, 14, 22, "bestCoffee", false);
+MoveablePlatform bestCoffee(STEPS, 26, 33, 32, 25, 14, 34, "bestCoffee", false);
                                     //21, 19, 18, 5
-MoveablePlatform worstCoffee(STEPS, 21, 18, 5, 19, 12, 23, "worstCoffee", false);
+MoveablePlatform worstCoffee(STEPS, 21, 18, 5, 19, 12, 27, "worstCoffee", false);
 
 
 Platform noCoffee("Bob", 13, false);
@@ -49,7 +49,6 @@ void setup() {
 void setup_wifi() {
   delay(10);
   // We start by connecting to a WiFi network
-  Serial.println();
   Serial.print("Connecting to ");
   Serial.println(ssid);
 
@@ -60,9 +59,7 @@ void setup_wifi() {
     Serial.print(".");
   }
 
-  Serial.println("");
-  Serial.println("WiFi connected");
-  Serial.println("IP address: ");
+  Serial.println("WiFi connected IP:");
   Serial.println(WiFi.localIP());
 }
 
@@ -83,7 +80,7 @@ void callback(char* topic, byte* message, unsigned int length) {
   // Changes the output state according to the message
   if (String(topic) == "esp32/SmartMart") {
     if (coffee == "goodCoffee = on") {
-      Serial.println("goodCoffee: on");
+      //Serial.println("goodCoffee: on");
      if(bestCoffee.movingOut == false && bestCoffee.hasMoved == false){
           bestCoffee.moveFar();
           bestCoffee.waitingTime = 0;
@@ -92,7 +89,7 @@ void callback(char* topic, byte* message, unsigned int length) {
       
     }
     else if (coffee == "noCoffee = on") {
-      Serial.println("noCoffee: on");
+      //Serial.println("noCoffee: on");
       if(bestCoffee.movingOut == false && bestCoffee.hasMoved == false){
           bestCoffee.moveFar();
           bestCoffee.waitingTime = 0;
