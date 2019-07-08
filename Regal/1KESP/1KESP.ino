@@ -9,10 +9,10 @@
 
                                   //4, 2, 15, 0
                                   //13, 14, 27, 12
-MoveablePlatform goodCoffee(STEPS, 12, 11, 27, 26, 33, 25, "goodCoffee", true);
+MoveablePlatform goodCoffee(STEPS, 12, 11, 27, 26, 33, 25, "goodCoffee", false);
 
-Platform noCoffee1("noCoffee1", 2, true);
-Platform noCoffee2("noCoffee2", 15, true);
+Platform noCoffee1("noCoffee1", 2, false);
+Platform noCoffee2("noCoffee2", 15, false);
 
 const char* ssid = "InteractiveMediaDesign";
 const char* password = "Q2gR9T-imd-2019";
