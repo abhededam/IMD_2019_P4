@@ -34,18 +34,15 @@ void loop() {
     if(worstMuesli.handDetected){
       if(bestMuesli.movingOut == false && bestMuesli.hasMoved == false){
         bestMuesli.moveFar();
-        Serial.println("Best Muesli fährt raus");
-      }
-      else if(bestMuesli.movingOut == false && bestMuesli.hasMoved == true){
         bestMuesli.waitingTime = 0;
+
+        Serial.println("Best Muesli fährt raus");
       }
       if(goodMuesli.movingOut == false && goodMuesli.hasMoved == false){
           goodMuesli.move();
-                  Serial.println("Good Muesli fährt raus");
+                  goodMuesli.waitingTime = 0;
 
-      }
-      else{
-          goodMuesli.waitingTime = 0;
+                  Serial.println("Good Muesli fährt raus");
       }
     }
 
@@ -53,10 +50,10 @@ void loop() {
     if(goodMuesli.handDetected){
       if(bestMuesli.movingOut == false && bestMuesli.hasMoved == false){
         bestMuesli.moveFar();
-       }
-      else{
         bestMuesli.waitingTime = 0;
-      }
+
+       }
+ 
     }
 
     
