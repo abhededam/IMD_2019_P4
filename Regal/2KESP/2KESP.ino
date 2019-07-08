@@ -16,9 +16,9 @@
 #define STEPS 200 // the number of steps in one revolution of your motor (28BYJ-48)
 //
                                   //26, 25, 33, 32
-MoveablePlatform bestCoffee(STEPS, 26, 25, 33, 32, 14, 22, "bestCoffee", false);
+MoveablePlatform bestCoffee(STEPS, 26, 33, 32, 25, 14, 22, "bestCoffee", false);
                                     //21, 19, 18, 5
-MoveablePlatform worstCoffee(STEPS, 21, 19, 18, 5, 12, 23, "worstCoffee", false);
+MoveablePlatform worstCoffee(STEPS, 21, 18, 5, 19, 12, 23, "worstCoffee", false);
 
 
 Platform noCoffee("Bob", 13, false);
@@ -76,7 +76,6 @@ void callback(char* topic, byte* message, unsigned int length) {
     //Serial.print((char)message[i]);
     coffee += (char)message[i];
   }
-  Serial.println();
 
   // Feel free to add more if statements to control more GPIOs with MQTT
 
@@ -85,17 +84,20 @@ void callback(char* topic, byte* message, unsigned int length) {
   if (String(topic) == "esp32/SmartMart") {
     if (coffee == "goodCoffee = on") {
       Serial.println("goodCoffee: on");
+     if(bestCoffee.movingOut == false && bestCoffee.hasMoved == false){
+          bestCoffee.moveFar();
+          bestCoffee.waitingTime = 0;
+          Serial.println("best Coffee fährt raus");
+         }
+      
     }
     else if (coffee == "noCoffee = on") {
       Serial.println("noCoffee: on");
       if(bestCoffee.movingOut == false && bestCoffee.hasMoved == false){
-          if(bestCoffee.movingOut == false && bestCoffee.hasMoved == false){
           bestCoffee.moveFar();
           bestCoffee.waitingTime = 0;
-     }
           Serial.println("best Coffee fährt raus");
          }
-        client.publish("esp32/SmartMart", "goodCoffee should move");
         if(worstCoffee.movingOut == false && worstCoffee.hasMoved == false){
             worstCoffee.move();
             Serial.println("worst Coffee fährt raus");
@@ -153,12 +155,14 @@ void loop() {
             Serial.println("worst Coffee fährt raus");
             worstCoffee.waitingTime = 0;
         }
-        client.publish("esp32/SmartMart", "goodCoffee = on");
+        client.publish("esp32/SmartMart", "goodCoffee move");
    }
 
    if(worstCoffee.handDetected){
      if(bestCoffee.movingOut == false && bestCoffee.hasMoved == false){
           bestCoffee.moveFar();
+          Serial.println("best Coffee fährt raus");
+
           bestCoffee.waitingTime = 0;
      }
      client.publish("esp32/SmartMart", "goodCoffee move");
