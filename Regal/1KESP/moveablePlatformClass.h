@@ -1,7 +1,7 @@
 #include <Stepper.h>
 class MoveablePlatform{
   public: 
-    MoveablePlatform(int steps, int stepperPin1, int stepperPin2, int stepperPin3, int stepperPin4, int irPin, int piezoPin, String name, int debugging);
+    MoveablePlatform(int steps, int stepperPin1, int stepperPin2, int stepperPin3, int stepperPin4, int irPin, int led, String name, int debugging);
     int stepperSpeed = 140;
     String name;
     void move();
@@ -26,7 +26,7 @@ class MoveablePlatform{
     int StepperPin2;
     int StepperPin3;
     int StepperPin4;
-    int PiezoPin;
+    int LED;
     int detecting;
     int beenDetected;
     int stopIt =false;
@@ -34,9 +34,10 @@ class MoveablePlatform{
     int Debugging;
 };
 
-MoveablePlatform::MoveablePlatform(int steps, int stepperPin1, int stepperPin2, int stepperPin3, int stepperPin4, int irPin, int piezoPin, String name, int debugging)
-: Steps(steps), StepperPin1(stepperPin1), StepperPin2(stepperPin2), StepperPin3(stepperPin3), StepperPin4(stepperPin4), myStepper(steps, stepperPin1, stepperPin2, stepperPin3, stepperPin4), IRSensor(irPin), PiezoPin(piezoPin),name(name), Debugging(debugging){
+MoveablePlatform::MoveablePlatform(int steps, int stepperPin1, int stepperPin2, int stepperPin3, int stepperPin4, int irPin, int led, String name, int debugging)
+: Steps(steps), StepperPin1(stepperPin1), StepperPin2(stepperPin2), StepperPin3(stepperPin3), StepperPin4(stepperPin4), myStepper(steps, stepperPin1, stepperPin2, stepperPin3, stepperPin4), IRSensor(irPin), LED(led),name(name), Debugging(debugging){
   pinMode(IRSensor,INPUT);
+  pinMode(LED, OUTPUT);
   myStepper.setSpeed(stepperSpeed);
   
 }
@@ -50,9 +51,9 @@ void MoveablePlatform::move(){
     Serial.println(stepsMade);
   }
   movingOut = true;
-  myStepper.step(-2);
+  myStepper.step(-6);
   moveCounter++;
-  stepsMade -= 2; 
+  stepsMade -= 6; 
 }
 
 void MoveablePlatform::moveFar(){
@@ -75,7 +76,7 @@ void MoveablePlatform::moveBack(){
   }
   hasMoved = false;
   movingIn = true;
-  myStepper.step(stepsMade/1000*(-1));
+  myStepper.step(stepsMade/2000*(-1));
   moveCounter--;
 }
 
@@ -95,7 +96,7 @@ void MoveablePlatform::update(){
   }
   beenDetected=detecting;
   
-  if(moveCounter == 1000 && hasMoved == false){
+  if(moveCounter == 2000 && hasMoved == false){
     hasMoved = true;
     movingOut = false;
     if(Debugging){
@@ -109,6 +110,7 @@ void MoveablePlatform::update(){
     movingIn = false;
     waitingTime = 0;
     stepsMade = 0;
+    digitalWrite(LED, HIGH);
     if(Debugging){
       if(stopIt){
         Serial.print(name);     

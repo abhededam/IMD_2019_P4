@@ -1,7 +1,7 @@
 #include <Stepper.h>
 class MoveablePlatform{
   public: 
-    MoveablePlatform(int steps, int stepperPin1, int stepperPin2, int stepperPin3, int stepperPin4, int irPin, int piezoPin, String name, int debugging);
+    MoveablePlatform(int steps, int stepperPin1, int stepperPin2, int stepperPin3, int stepperPin4, int irPin, int led, String name, int debugging);
     int stepperSpeed = 140;
     String name;
     void move();
@@ -26,7 +26,7 @@ class MoveablePlatform{
     int StepperPin2;
     int StepperPin3;
     int StepperPin4;
-    int PiezoPin;
+    int LED;
     int detecting;
     int beenDetected;
     int stopIt =false;
@@ -34,8 +34,9 @@ class MoveablePlatform{
     int Debugging;
 };
 
-MoveablePlatform::MoveablePlatform(int steps, int stepperPin1, int stepperPin2, int stepperPin3, int stepperPin4, int irPin, int piezoPin, String name, int debugging)
-: Steps(steps), StepperPin1(stepperPin1), StepperPin2(stepperPin2), StepperPin3(stepperPin3), StepperPin4(stepperPin4), myStepper(steps, stepperPin1, stepperPin2, stepperPin3, stepperPin4), IRSensor(irPin), PiezoPin(piezoPin),name(name), Debugging(debugging){
+MoveablePlatform::MoveablePlatform(int steps, int stepperPin1, int stepperPin2, int stepperPin3, int stepperPin4, int irPin, int led, String name, int debugging)
+: Steps(steps), StepperPin1(stepperPin1), StepperPin2(stepperPin2), StepperPin3(stepperPin3), StepperPin4(stepperPin4), myStepper(steps, stepperPin1, stepperPin2, stepperPin3, stepperPin4), IRSensor(irPin), LED(led),name(name), Debugging(debugging){
+  pinMode(LED, OUTPUT);
   pinMode(IRSensor,INPUT);
   myStepper.setSpeed(stepperSpeed);
   
@@ -71,13 +72,25 @@ void MoveablePlatform::moveBack(){
     Serial.print(name);
     Serial.println(": moveBack()");
   }
-  hasMoved = false;
-  movingIn = true;
+  if(hasMoved == true){
+      hasMoved = false;
+  }
+  if(movingIn == false){
+      movingIn = true;
+  }
   myStepper.step(stepsMade/1000*(-1));
   moveCounter--;
 }
 
 void MoveablePlatform::update(){
+  if((waitingTime == 100) && moveCounter > 0){
+    moveBack();
+    if(Debugging){
+      Serial.print(name);
+      Serial.println(" hat moveBack gestartet");
+    }
+  }
+  
   if(Debugging){
     detecting = digitalRead(IRSensor);
     if(detecting != beenDetected){
@@ -106,6 +119,7 @@ void MoveablePlatform::update(){
     hasMoved = false;
     movingIn = false;
     waitingTime = 0;
+    digitalWrite(LED,HIGH);
     stepsMade = 0;
     if(Debugging){
       if(stopIt){
@@ -130,13 +144,7 @@ void MoveablePlatform::update(){
   if((waitingTime == 100) && moveCounter > 0){
     
   }
-  if((waitingTime == 100) && moveCounter > 0){
-    moveBack();
-    if(Debugging){
-      Serial.print(name);
-      Serial.println(" hat moveBack gestartet");
-    }
-  }
+
 
 
 
