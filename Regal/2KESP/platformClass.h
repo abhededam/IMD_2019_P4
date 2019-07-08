@@ -5,7 +5,7 @@ class Platform{
     String name;
     void update();
     int IRSensor;
-    bool handDetected = false;
+    bool handDetected;
     int detecting;
     int beenDetected;
     int Debugging;

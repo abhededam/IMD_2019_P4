@@ -73,7 +73,7 @@ void MoveablePlatform::moveBack(){
   }
   hasMoved = false;
   movingIn = true;
-  myStepper.step(stepsMade/1500*(-1));
+  myStepper.step(stepsMade/1000*(-1));
   moveCounter--;
 }
 
@@ -93,7 +93,7 @@ void MoveablePlatform::update(){
   }
   beenDetected=detecting;
   
-  if(moveCounter >= 1000){
+  if(moveCounter == 1000 &&hasMoved==false){
     hasMoved = true;
     movingOut = false;
     if(Debugging){
@@ -102,7 +102,7 @@ void MoveablePlatform::update(){
     }
   }
   
-  if(moveCounter <= 0){
+  if(moveCounter == 0 && movingIn == true){
     hasMoved = false;
     movingIn = false;
     waitingTime = 0;
@@ -130,10 +130,18 @@ void MoveablePlatform::update(){
   if((waitingTime == 100) && moveCounter > 0){
     
   }
-  if((waitingTime >= 100) && moveCounter > 0){
+  if((waitingTime == 100) && moveCounter > 0){
     moveBack();
     if(Debugging){
       Serial.print(name);
       Serial.println(" hat moveBack gestartet");
     }
   }
+
+
+
+
+
+  
+  
+}
