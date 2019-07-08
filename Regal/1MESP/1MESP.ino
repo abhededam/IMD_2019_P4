@@ -26,38 +26,37 @@ void loop() {
     goodMuesli.update();
     worstMuesli.update();
     
-    if(worstMuesli.handDetected){
-      bestMuesli.light();
-      goodMuesli.light();
-      if(bestMuesli.movingOut == false && bestMuesli.hasMoved == false){
-        bestMuesli.moveFar();
-        bestMuesli.waitingTime = 0;
-
-        Serial.println("Best Muesli fährt raus");
-      }
-      if(goodMuesli.movingOut == false && goodMuesli.hasMoved == false){
-          goodMuesli.move();
-                  goodMuesli.waitingTime = 0;
-
-                  Serial.println("Good Muesli fährt raus");
-      }
-    }
-    else{
-      bestMuesli.dark();
-      goodMuesli.dark();
-    }
-
-
     if(goodMuesli.handDetected){
+       bestMuesli.light();
       if(bestMuesli.movingOut == false && bestMuesli.hasMoved == false){
         bestMuesli.moveFar();
         bestMuesli.waitingTime = 0;
        }
-       bestMuesli.light();
     }
     else{
       bestMuesli.dark();
     }
+    
+    if(worstMuesli.handDetected){ 
+       bestMuesli.light();   
+       goodMuesli.light();  
+      if(bestMuesli.movingOut == false && bestMuesli.hasMoved == false){
+        bestMuesli.moveFar();
+        bestMuesli.waitingTime = 0;
+        Serial.println("Best Muesli fährt raus");
+      }
+      if(goodMuesli.movingOut == false && goodMuesli.hasMoved == false){
+          goodMuesli.move();
+          goodMuesli.waitingTime = 0;
+          Serial.println("Good Muesli fährt raus");
+      }
+    }
+    else if(worstMuesli.handDetected == false && goodMuesli.handDetected == false){
+      goodMuesli.dark();
+      bestMuesli.dark();
+    }
+
+   
     
     
       
@@ -67,7 +66,6 @@ void loop() {
             goodMuesli.move();
     }
     if(bestMuesli.movingOut && bestMuesli.moveCounter < 1000){
-            digitalWrite(18, HIGH);
             bestMuesli.moveFar();
     } 
 
