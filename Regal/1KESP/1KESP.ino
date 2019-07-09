@@ -7,8 +7,8 @@
 #define STEPS 200 // the number of steps in one revolution of your motor (28BYJ-48)
 //
 
-                                   //12, 11, 27, 26
-MoveablePlatform goodCoffee(STEPS, 12, 27, 26, 11, 33, 12, "goodCoffee", false);
+                                   //12, 14, 27, 26
+MoveablePlatform goodCoffee(STEPS, 14, 27, 26, 25, 33, 12, "goodCoffee", false);
 
 Platform noCoffee1("noCoffee1", 2, false);
 Platform noCoffee2("noCoffee2", 15, false);
