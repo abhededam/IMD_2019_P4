@@ -8,25 +8,26 @@
 //
 
                                    //12, 14, 27, 26
-MoveablePlatform goodCoffee(STEPS, 14, 27, 26, 25, 33, 12, "goodCoffee", false);
+MoveablePlatform goodCoffee(STEPS, 14, 27, 26, 25, 4, 21, "goodCoffee", false);
 
-Platform noCoffee1("noCoffee1", 2, false);
-Platform noCoffee2("noCoffee2", 15, false);
+Platform noCoffee1("noCoffee1", 0, false);
+Platform noCoffee2("noCoffee2", 2, false);
 
-const char* ssid = "InteractiveMediaDesign";
-const char* password = "Q2gR9T-imd-2019";
+const char* ssid = "Hehehe";
+const char* password = "osui1364";
 const char* mqtt_server = "postman.cloudmqtt.com";
 const int mqtt_port = 12666;
 const char* mqtt_username = "ybudyjxr";
 const char* mqtt_password = "9thhh0B-DhNJ";
+
 
 WiFiClient espClient;
 PubSubClient client(espClient);
 long lastMsg = 0;
 char msg[50];
 int value = 0;
-int goodCoffeeLight = false;
-
+const char* handOver = "nothing";
+const char* saveHandOver;
 
 
 void setup() {
@@ -35,6 +36,7 @@ void setup() {
   client.setServer(mqtt_server, mqtt_port);
   client.setCallback(callback);
   Serial.println(WiFi.macAddress());
+
 }
 
 void setup_wifi() {
@@ -71,8 +73,9 @@ void callback(char* topic, byte* message, unsigned int length) {
 
   // If a message is received on the topic esp32/output, you check if the message is either "on" or "off".
   // Changes the output state according to the message
-  if (String(topic) == "esp32/SmartMart") {
-    if (coffee == "goodCoffee move") {
+  if (String(topic) == "esp32/SmartMart/Move") {
+ 
+     if (coffee == "goodCoffee move") {
       //Serial.println("goodCoffee move");
         if(goodCoffee.movingOut == false && goodCoffee.hasMoved == false){
           goodCoffee.move();
@@ -81,13 +84,38 @@ void callback(char* topic, byte* message, unsigned int length) {
         }
       
     }
-    if(coffee == "goodCoffee light"){
+
+  }
+  if (String(topic) == "esp32/SmartMart/2KESP") {
+    if(coffee == "worstCoffee" && handOver == "nothing"){
       goodCoffee.light();
       goodCoffeeLight = true;
       Serial.println("goodCoffee light");
     }
-
+    if(coffee == "bestCoffee" && handOver == "nothing"){
+      goodCoffee.dark();
+    }
+    if(coffee == "noCoffee" && handOver == "nothing"){
+    goodCoffee.light();
   }
+    if(coffee == "nothing" && handOver == "nothing"){
+      goodCoffee.dark();
+    }
+    
+  if(coffee == "nothing" && handOver == "noCoffee"){
+    goodCoffee.light();
+  }
+
+  if(coffee == "nothing" && handOver == "goodCoffee"){
+    goodCoffee.dark();
+  }
+  }
+
+    if (String(topic) == "esp32/SmartMart/1KESP") {
+    Serial.println(coffee);
+
+    
+    }
 
 }
 
@@ -104,7 +132,10 @@ void reconnect() {
       //Once connected, publish an announcement...
       client.publish("/icircuit/presence/ESP32/", "hello world");
       // ... and resubscribe
-      client.subscribe("esp32/SmartMart");
+      client.subscribe("esp32/SmartMart/Move");
+      client.subscribe("esp32/SmartMart/1KESP");
+      client.subscribe("esp32/SmartMart/2KESP");
+
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -127,17 +158,24 @@ void loop() {
     noCoffee1.update();
     noCoffee2.update();
 
-
     
     
   
 
 
-    if(noCoffee1.handDetected || noCoffee2.handDetected){
-      client.publish("esp32/SmartMart", "noCoffee = on");
-      client.publish("esp32/SmartMart", "bestCoffee light");
-      client.publish("esp32/SmartMart", "worstCoffee light");
-      goodCoffee.light();
+    if(noCoffee1.handDetected && goodCoffee.handDetected == false && noCoffee2.handDetected == false){
+      handOver = "noCoffee";
+      client.publish("esp32/SmartMart/Move", "noCoffee = on");
+      if(goodCoffee.movingOut == false && goodCoffee.hasMoved == false){
+          goodCoffee.move();
+          goodCoffee.waitingTime = 0;
+          Serial.println("Good Coffee fährt raus");
+      }
+    }
+
+        if(noCoffee2.handDetected && goodCoffee.handDetected == false && noCoffee1.handDetected == false){
+      handOver = "noCoffee";
+      client.publish("esp32/SmartMart/Move", "noCoffee = on");
       if(goodCoffee.movingOut == false && goodCoffee.hasMoved == false){
           goodCoffee.move();
           goodCoffee.waitingTime = 0;
@@ -148,17 +186,27 @@ void loop() {
    
 
 
-    if(goodCoffee.handDetected){ 
-            client.publish("esp32/SmartMart", "goodCoffee = on");
-            client.publish("esp32/SmartMart", "bestCoffee light");
+    if(goodCoffee.handDetected && noCoffee1.handDetected == false && noCoffee2.handDetected == false){
+            handOver = "goodCoffee";
+            client.publish("esp32/SmartMart/Move", "goodCoffee = on");
     }
 
-    if(goodCoffee.handDetected==false&&noCoffee1.handDetected==false&&noCoffee2.handDetected==false){
-      goodCoffee.dark();
-      goodCoffeeLight = false;
-      client.publish("esp32/SmartMart", "bestCoffee dark");
-  
-    }
+if(noCoffee1.handDetected == false && noCoffee2.handDetected == false && goodCoffee.handDetected == false){
+  handOver = "nothing";
+}
+
+//Serial.print("handOver: ");
+//Serial.println(handOver);
+
+
+  client.publish("esp32/SmartMart/1KESP", handOver);
+
+
+saveHandOver = handOver;
+
+
+
+
 
 
   if(goodCoffee.movingOut && goodCoffee.moveCounter < 1000){

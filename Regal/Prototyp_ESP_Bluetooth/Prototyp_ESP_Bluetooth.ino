@@ -51,14 +51,6 @@ void loop() {
  delay(100);       // RSSI alle 100 mS abfragen
 
  if(known){
-    // ----------------- Messwert Filter ------------------
-    val_f =  advertisedDevice.getRSSI()* 0.1 + val_f * (1 - 0.1);
- 
-    if (!zeler)        // Ausgabe jeder 5 durchlauf (2x pro Sekunde)
-    {
-      Serial.println(int(round(val_f))); // Runden und Ganze Zahl bilden
-      zeler = 5;
-    }
-    else  zeler--;
+   Serial.println("hi");
   }
 }
