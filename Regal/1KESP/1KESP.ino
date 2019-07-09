@@ -89,6 +89,8 @@ void callback(char* topic, byte* message, unsigned int length) {
   if (String(topic) == "esp32/SmartMart/2KESP") {
     if(coffee == "worstCoffee" && handOver == "nothing"){
       goodCoffee.light();
+      goodCoffeeLight = true;
+      Serial.println("goodCoffee light");
     }
     if(coffee == "bestCoffee" && handOver == "nothing"){
       goodCoffee.dark();

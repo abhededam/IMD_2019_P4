@@ -189,6 +189,12 @@ void loop() {
         }
         client.publish("esp32/SmartMart/Move", "goodCoffee move");
    }
+   if(noCoffee.handDetected == false && worstCoffee.handDetected == false && bestCoffee.handDetected == false){
+    bestCoffee.dark();
+    client.publish("esp32/SmartMart", "goodCoffee dark");
+    worstCoffee.dark();
+   }
+     
 
    if(worstCoffee.handDetected){
      handOver = "worstCoffee";
