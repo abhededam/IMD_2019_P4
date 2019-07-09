@@ -16,9 +16,9 @@
 #define STEPS 200 // the number of steps in one revolution of your motor (28BYJ-48)
 //
                                   //26, 25, 33, 32
-MoveablePlatform bestCoffee(STEPS, 26, 33, 32, 25, 14, 34, "bestCoffee", false);
+MoveablePlatform bestCoffee(STEPS, 26, 33, 32, 25, 14, 22, "bestCoffee", false);
                                     //21, 19, 18, 5
-MoveablePlatform worstCoffee(STEPS, 21, 18, 5, 19, 12,15, "worstCoffee", false);
+MoveablePlatform worstCoffee(STEPS, 21, 18, 5, 19, 12, 15, "worstCoffee", false);
 
 
 Platform noCoffee("Bob", 13, false);
@@ -102,10 +102,7 @@ void callback(char* topic, byte* message, unsigned int length) {
 
         }
     }
-    else if(coffee == "bestCoffee light"){
-      worstCoffee.dark();
-      bestCoffee.light();
-    }
+
 
   }
 
@@ -161,10 +158,17 @@ void loop() {
         }
         client.publish("esp32/SmartMart", "goodCoffee move");
    }
+   if(noCoffee.handDetected == false && worstCoffee.handDetected == false && bestCoffee.handDetected == false){
+    bestCoffee.dark();
+    client.publish("esp32/SmartMart", "goodCoffee dark");
+    worstCoffee.dark();
+   }
+     
 
    if(worstCoffee.handDetected){
     bestCoffee.light();
     client.publish("esp32/SmartMart", "goodCoffee light");
+ 
      if(bestCoffee.movingOut == false && bestCoffee.hasMoved == false){
           bestCoffee.moveFar();
           Serial.println("best Coffee fährt raus");
@@ -173,16 +177,20 @@ void loop() {
      }
      client.publish("esp32/SmartMart", "goodCoffee move");
    }
-  if(bestCoffee.handDetected){
-    client.publish("esp32/SmartMart", "goodCoffee dark");
+   if(noCoffee.handDetected == false && worstCoffee.handDetected == false){
     worstCoffee.dark();
-  }
+        client.publish("esp32/SmartMart", "goodCoffee dark");
 
-  if(noCoffee.handDetected == false && worstCoffee.handDetected == false && bestCoffee.handDetected == false){
-    worstCoffee.dark();
-    client.publish("esp32/SmartMart", "goodCoffee dark");
-    bestCoffee.dark();
-  }
+    
+    
+   }
+
+   
+
+
+
+ 
+
 
 
     

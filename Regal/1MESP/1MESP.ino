@@ -7,12 +7,13 @@
 #define STEPS 200 // the number of steps in one revolution of your motor (28BYJ-48)
 //
 
-                                  //4, 2, 15, 0
-MoveablePlatform bestMuesli(STEPS, 4, 2 , 15, 0, 32, 18, "bestMuesli", true);
-                                  //13, 14, 27, 12
-MoveablePlatform goodMuesli(STEPS, 13, 14, 27, 12, 33, 5, "goodMuesli", true);
+                //lolin esp32 pro  4, 2, 15, 0, 32, 18 
+MoveablePlatform bestMuesli(STEPS, 16,  0, 2, 4, 35, 19, "bestMuesli", true);
+                                  
+                // lolin esp32 pro 13, 14, 27, 12, 33, 5
+MoveablePlatform goodMuesli(STEPS, 12, 27, 26, 14, 32, 18, "goodMuesli", true);
 
-Platform worstMuesli("Bob", 26, true);
+Platform worstMuesli("Bob", 25, true);
 
 void setup() {
   Serial.begin(9600);

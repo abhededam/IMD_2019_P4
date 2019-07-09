@@ -25,6 +25,7 @@ PubSubClient client(espClient);
 long lastMsg = 0;
 char msg[50];
 int value = 0;
+int goodCoffeeLight = false;
 
 
 
@@ -82,6 +83,8 @@ void callback(char* topic, byte* message, unsigned int length) {
     }
     if(coffee == "goodCoffee light"){
       goodCoffee.light();
+      goodCoffeeLight = true;
+      Serial.println("goodCoffee light");
     }
 
   }
@@ -152,6 +155,7 @@ void loop() {
 
     if(goodCoffee.handDetected==false&&noCoffee1.handDetected==false&&noCoffee2.handDetected==false){
       goodCoffee.dark();
+      goodCoffeeLight = false;
       client.publish("esp32/SmartMart", "bestCoffee dark");
   
     }
